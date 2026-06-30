@@ -1,11 +1,11 @@
-import DashboardPage from './pages/DashboardPage'
 import './App.css'
+import DashboardLayout from './layouts/DashboardLayout'
 
 function App() {
 
   return (
     <>
-      <DashboardPage/>
+      <DashboardLayout/>
     </>
   )
 }

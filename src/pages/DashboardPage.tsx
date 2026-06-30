@@ -1,8 +1,16 @@
 // import React from 'react'
+import Button from "../components/common/Button"
 
 const DashboardPage = () => {
   return (
-    <h1>DashboardPage</h1>
+    <div>
+      <Button/>
+      <div>
+        <div>
+          محتوایی برای نمایش وجود ندارد
+        </div>
+      </div>
+    </div>
   )
 }
 
