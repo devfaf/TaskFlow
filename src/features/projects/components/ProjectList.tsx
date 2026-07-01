@@ -1,4 +1,4 @@
-import ProjectCard from "./ProjectCard"
+import ProjectCard, { type ProjectCardProps } from "./ProjectCard"
 
 const ProjectList = () => {
     // const [data, setData] = useState([])
