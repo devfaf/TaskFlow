@@ -1,8 +1,16 @@
-// import React from 'react'
+type ButtonProps = {
+  children: React.ReactNode;
+  className?: string;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
+  onClick?: () => void;
+}
 
-const Button = () => {
+const Button = ({ children, className, type, disabled, onClick }: ButtonProps) => {
   return (
-    <button className="bg-green-500 p-2 text-white cursor-pointer">اضافه کردن پروژه</button>
+    <button onClick={onClick} className={className} disabled={disabled} type={type}>
+      {children}
+    </button>
   )
 }
 
