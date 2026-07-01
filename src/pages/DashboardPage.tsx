@@ -1,17 +1,13 @@
 import EmptyState from "../components/common/EmptyState"
-import ProjectCard from "../features/projects/components/ProjectCard"
+import ProjectList from "../features/projects/components/ProjectList"
 
 const DashboardPage = () => {
   return (
     <div>
-      <div>
+      <div >
+
         <EmptyState />
-        <ProjectCard className="shadow p-2 rounded-lg"
-          title="پروژه اول"
-          description="ساختن برنامه با ری اکت"
-          date="2026/07/01"
-          status="فعال"
-        />
+        <ProjectList />
       </div>
     </div>
   )

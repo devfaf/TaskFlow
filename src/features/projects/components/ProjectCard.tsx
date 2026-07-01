@@ -1,18 +1,20 @@
 type ProjectCardProps = {
+    id:number;
     title: string;
     description: string;
     date: string;
-    status: string;
-    className: string;
+    status: "active" | "completed";
+    className?: string;
 }
 
-const ProjectCard = ({title, description, date, status, className}: ProjectCardProps) => {
+const ProjectCard = ({id, title, description, date, status, className}: ProjectCardProps) => {
   return (
     <div className={className}>
         <h2>{title}</h2>
         <p>{description}</p>
         <p>{date}</p>
         <span>{status}</span>
+        <span>Project Number: {id}</span>
     </div>
   )
 }
