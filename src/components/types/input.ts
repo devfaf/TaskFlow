@@ -1,4 +1,4 @@
-export type SearchBar = {
+export type Input = {
     type: 'search' | 'email' | 'password' | 'text';
     id?: string;
     className?:string;

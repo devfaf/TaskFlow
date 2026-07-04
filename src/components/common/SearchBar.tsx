@@ -1,16 +1,9 @@
-import type { SearchBar } from "../types/search"
+import type { Input } from "../types/input"
 
-type InputProps = {
-    type: 'search' | 'email' | 'password' | 'text';
-    id?:string;
-    name?:string;
-    required?:boolean;
-    className?:string;
-}
-const SearchBar = ({type = "text", id, name, required, className}: InputProps) => {
+const SearchBar = ({type = "text", id, name, required, className}: Input) => {
   return (
     <div>
-        <input type={type} id={id} name={name} required={required} className={`bg-gray-100 border-2 border-gray-300 outline-none rounded-lg px-2`} />
+        <input type={type} id={id} name={name} required={required} className={className}/>
     </div>
   )
 }
