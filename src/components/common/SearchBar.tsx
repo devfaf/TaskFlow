@@ -1,6 +1,6 @@
-import type { Input } from "../types/input"
+import type { InputProps } from "../types/input"
 
-const SearchBar = ({type = "text", id, name, required, className}: Input) => {
+const SearchBar = ({type = "text", id, name, required, className}: InputProps) => {
   return (
     <div>
         <input type={type} id={id} name={name} required={required} className={className}/>
