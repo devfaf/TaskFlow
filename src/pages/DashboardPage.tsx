@@ -1,10 +1,11 @@
 import EmptyState from "../components/common/EmptyState"
 import ProjectList from "../features/projects/components/ProjectList"
-import type { Project } from "../features/types/project"
+import type { ProjectProps } from "../features/types/project"
+import FilterDropdown from "../features/projects/components/FilterDropdown"
 
 const DashboardPage = () => {
 
-  const projects: Project[] = [
+  const projects: ProjectProps[] = [
     {
       id: 1,
       title: 'project 1',
@@ -30,6 +31,9 @@ const DashboardPage = () => {
 
   return (
     <section>
+      <div>
+        <FilterDropdown/>
+      </div>
       <div >
         { 
           projects ? <ProjectList projects={projects} /> : <EmptyState />

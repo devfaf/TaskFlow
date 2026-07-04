@@ -1,4 +1,4 @@
-export type Input = {
+export type InputProps = {
     type: 'search' | 'email' | 'password' | 'text';
     id?: string;
     className?:string;
