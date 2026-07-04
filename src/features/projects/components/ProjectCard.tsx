@@ -1,4 +1,6 @@
-export type ProjectCardProps = {
+import type { Project } from "../../types/project";
+
+export type ProjectCardProps = Project & {
     id:number;
     title: string;
     description: string;

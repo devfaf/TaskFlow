@@ -10,7 +10,7 @@ type InputProps = {
 const SearchBar = ({type = "text", id, name, required, minlength, maxlength, size}: InputProps) => {
   return (
     <div>
-        <input type="text" type={type} id={id} name={name} required={required} minLength={minlength} maxLength={maxlength} size={size} />
+        <input type={type} id={id} name={name} required={required} minLength={minlength} maxLength={maxlength} size={size} />
     </div>
   )
 }

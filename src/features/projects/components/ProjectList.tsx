@@ -1,30 +1,31 @@
-import ProjectCard, { type ProjectCardProps } from "./ProjectCard"
+import ProjectCard from "./ProjectCard"
+import type { Project } from "../../types/project"
 
 const ProjectList = () => {
     // const [data, setData] = useState([])
-    let projects: ProjectCardProps[] = [
-        {
-            id: 1,
-            title: 'project 1',
-            description: 'this is a project about React js',
-            date: '12/04/2026',
-            status: 'active',
-        },
-        {
-            id: 2,
-            title: 'project 2',
-            description: 'this is a project about React js',
-            date: '08/04/2026',
-            status: 'completed',
-        },
-        {
-            id: 3,
-            title: 'project 3',
-            description: 'this is a project about React js',
-            date: '06/04/2026',
-            status: 'active',
-        }
-    ]
+    // const projects : Project[] = [
+    //     {
+    //         id: 1,
+    //         title: 'project 1',
+    //         description: 'this is a project about React js',
+    //         date: '12/04/2026',
+    //         status: 'active',
+    //     },
+    //     {
+    //         id: 2,
+    //         title: 'project 2',
+    //         description: 'this is a project about React js',
+    //         date: '08/04/2026',
+    //         status: 'completed',
+    //     },
+    //     {
+    //         id: 3,
+    //         title: 'project 3',
+    //         description: 'this is a project about React js',
+    //         date: '06/04/2026',
+    //         status: 'active',
+    //     }
+    // ]
 
     return (
         <div>
