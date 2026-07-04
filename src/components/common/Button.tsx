@@ -8,9 +8,11 @@ type ButtonProps = {
 
 const Button = ({ children, className, type, disabled, onClick }: ButtonProps) => {
   return (
-    <button onClick={onClick} className={className} disabled={disabled} type={type}>
-      {children}
-    </button>
+    <div>
+      <button onClick={onClick} className={className} disabled={disabled} type={type}>
+        {children}
+      </button>
+    </div>
   )
 }
 
