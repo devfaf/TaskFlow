@@ -5,16 +5,11 @@ import Modal from "../components/common/Modal"
 import { useState } from "react"
 
 const DashboardLayout = () => {
-  const [isOpen, setIsOpen] = useState(true)
 
   return (
     <>
       <Header />
       <DashboardPage />
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <div className="py-2">این پیام خیلی طولانی هست</div>
-
-      </Modal>
     </>
   )
 }
