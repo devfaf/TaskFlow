@@ -6,7 +6,7 @@ const Input = ({ type = "text", id, name, required, className, placeholder, valu
       {
         label && <label>{label}</label>
       }
-      <input label={label} type={type} id={id} name={name} required={required} className={className} placeholder={placeholder} value={value} onChange={onChange} error={error} />
+      <input type={type} id={id} name={name} required={required} className={className} placeholder={placeholder} value={value} onChange={onChange} />
       {
         error && <p>{error}</p>
       }

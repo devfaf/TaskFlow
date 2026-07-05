@@ -8,7 +8,7 @@ export type InputProps = {
     required?: boolean;
     value?: "string" | "number" | "boolean";
     placeholder?:string;
-    onChange?:(e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    onChange?:(e: React.ChangeEvent<HTMLInputElement>) => void;
     // minlength?: number;
     // maxlength?: number;
     // size?: number;
