@@ -3,15 +3,14 @@ import { BsXLg } from "react-icons/bs";
 
 const Modal = ({ isOpen, children, onClose }: ModalProps) => {
     return (
-        <div className={`${isOpen ? "flex" : "hidden"}`}>
-
+        <div className={`fixed inset-0 ${isOpen ? "flex" : "hidden"} items-center justify-center`}>
             <div
                 onClick={onClose}
-                className="fixed inset-0 bg-black/30"
+                className="absolute inset-0 bg-black/30"
             ></div>
 
-            <div className="fixed inset-0 flex items-center justify-center">
-                <div className="relative w-fit rounded-lg border-2 border-gray-300 bg-gray-100 p-4 shadow-xl">
+            <div className="flex items-center justify-center h-screen w-screen">
+                <div className="relative z-10 rounded-lg border-2 border-gray-300 bg-gray-100 p-4 shadow-xl">
                     <BsXLg
                         onClick={onClose}
                         className="absolute right-3 top-3 cursor-pointer"
