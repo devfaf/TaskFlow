@@ -2,7 +2,6 @@ import { useState } from "react"
 import Button from "../../components/common/Button"
 import Input from "../../components/common/Input"
 import Select from "../../components/common/Select"
-import Modal from "../../components/common/Modal"
 import ProjectForm from "../../features/projects/components/ProjectForm"
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -24,10 +23,9 @@ const Header = () => {
         <Input className={`bg-gray-100 border-2 border-gray-300 outline-none rounded-lg px-2 w-full`} type="text" />
 
       </div>
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+      <ProjectForm isOpen={isOpen} onClose={() => setIsOpen(false)}>
         فرم افزودن پروژه
-      </Modal>
-      <ProjectForm />
+      </ProjectForm>
     </header>
   )
 }

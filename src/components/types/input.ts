@@ -6,7 +6,7 @@ export type InputProps = {
     name?: string;
     error?: string;
     required?: boolean;
-    value?: "string" | "number" | "boolean";
+    value?: string;
     placeholder?:string;
     onChange?:(e: React.ChangeEvent<HTMLInputElement>) => void;
     // minlength?: number;
