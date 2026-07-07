@@ -15,7 +15,7 @@ const Header = () => {
       <div className="flex flex-col lg:flex-row lg:justify-end items-center gap-6 w-full">
         <div className="flex gap-6 w-full items-center justify-between lg:justify-start">
           <h1>TaskFlow</h1>
-          <Select />
+          <Select showAll={true} />
           <Button onClick={addModalHandler} className="bg-blue-500 hover:bg-blue-700 duration-300 rounded-lg p-2 text-white cursor-pointer">
             اضافه کردن
           </Button>
