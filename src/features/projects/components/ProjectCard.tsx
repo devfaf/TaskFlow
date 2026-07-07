@@ -1,15 +1,6 @@
-import type { ProjectProps } from "../../types/project";
+import type { Project } from "../../types/project";
 
-export type ProjectCardProps = ProjectProps & {
-    id:number;
-    title: string;
-    description: string;
-    date: string;
-    status: "active" | "completed";
-    className?: string;
-}
-
-const ProjectCard = ({id, title, description, date, status, className}: ProjectCardProps) => {
+const ProjectCard = ({id, title, description, date, status, className}: Project) => {
   return (
     <div className={className}>
         <h2>{title}</h2>

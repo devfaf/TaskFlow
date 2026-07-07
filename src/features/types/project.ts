@@ -5,5 +5,6 @@ export type Project = {
     title: string;
     description: string;
     date: string;
-    status: ProjectStatus
+    status: ProjectStatus;
+    className?: string;
 }
