@@ -7,4 +7,5 @@ export type Project = {
     date: string;
     status: ProjectStatus;
     className?: string;
+    children?:React.ReactElement;
 }

@@ -4,6 +4,7 @@ import type { Project } from "../../types/project";
 type ProjectStore = {
     projects: Project[];
     addProject: (project: Project) => void;
+    deleteProject: (id: number) => void;
 }
 
 const mockProjects : Project[] = [
@@ -28,5 +29,10 @@ export const useProjectStore = create<ProjectStore>((set) => ({
     addProject: (project) => 
         set((state) => ({
             projects: [...state.projects, project]
+        })),
+    deleteProject: (id) => {
+        set((state) => ({
+            projects: state.projects.filter((project) => project.id !== id),
         }))
+    }
 }))
