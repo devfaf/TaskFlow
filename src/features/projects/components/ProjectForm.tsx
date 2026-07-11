@@ -1,10 +1,10 @@
-import type { ModalProps } from "../types/modal";
+import type { ModalProps } from "../../../components/types/modal"
 import Input from "../../../components/common/Input"
 import TextArea from "../../../components/common/TextArea"
 import Select from "../../../components/common/Select"
 import Button from "../../../components/common/Button"
 import { useProjectStore } from "../store/projectStore"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { ProjectStatus } from "../../types/project";
 
 const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
@@ -12,18 +12,45 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("")
   const [status, setStatus] = useState<ProjectStatus>("active")
+  const editingProject = useProjectStore((state) => state.editingProject)
+  const updateProject = useProjectStore((state) => state.updateProject)
+  const setEditingProject = useProjectStore((state) => state.setEditingProject)
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
-    addProject({
-      id: Date.now(),
-      title,
-      description,
-      date: new Date().toLocaleDateString(),
-      status,
-    })
+    if (editingProject) {
+      updateProject({
+        id: editingProject.id,
+        title,
+        description,
+        date: editingProject.date,
+        status,
+      })
+    } else {
+      addProject({
+        id: Date.now(),
+        title,
+        description,
+        date: new Date().toLocaleDateString(),
+        status,
+      })
+    }
+
+    setEditingProject(null)
+
+    setTitle("")
+    setDescription("")
+    setStatus("active")
     onClose()
   }
+
+  useEffect(() => {
+    if (editingProject) {
+      setTitle(editingProject.title)
+      setDescription(editingProject.description)
+      setStatus(editingProject.status)
+    }
+  }, [editingProject])
 
   return (
     <form onSubmit={submitHandler} className={`absolute ${isOpen ? "block" : "hidden"}`}>
@@ -51,7 +78,6 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
 
           <div className="flex gap-2 w-full">
             <Button
-              onClick={addProject}
               type="submit"
               className="bg-blue-500 hover:bg-blue-700 duration-300 rounded-lg p-2 text-white cursor-pointer w-full">ذخیره</Button>
             <Button

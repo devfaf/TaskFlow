@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import ProjectCard from "./ProjectCard"
 import { useProjectStore } from "../store/projectStore"
 import { BsFillTrash3Fill } from "react-icons/bs";
@@ -6,6 +7,8 @@ import { BsFillPencilFill } from "react-icons/bs";
 const ProjectList = () => {
     const projects = useProjectStore((state) => state.projects)
     const deleteProjectBtn = useProjectStore((state) => state.deleteProject)
+    const setEditingProject = useProjectStore((state) => state.setEditingProject)
+    const openModal = useProjectStore((state) => state.openModal)
 
     return (
         <div className="flex flex-col gap-2">
@@ -20,7 +23,12 @@ const ProjectList = () => {
                             <div className="flex gap-4">
                                 <BsFillTrash3Fill
                                     onClick={() => deleteProjectBtn(project.id)} className="cursor-pointer hover:text-red-600" />
-                                <BsFillPencilFill className="cursor-pointer hover:text-red-600" />
+                                <BsFillPencilFill
+                                    onClick={() => {
+                                        setEditingProject(project)
+                                        openModal()
+                                    }}
+                                    className="cursor-pointer hover:text-red-600" />
                             </div>
                         </ProjectCard>
                     )

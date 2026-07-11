@@ -1,14 +1,13 @@
-import { useState } from "react"
 import Button from "../../components/common/Button"
 import Input from "../../components/common/Input"
 import Select from "../../components/common/Select"
+import { useProjectStore } from "../../features/projects/store/projectStore"
 import ProjectForm from "../../features/projects/components/ProjectForm"
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  
-  const addModalHandler = () => {
-    setIsOpen(true)
-  }
+  const isModalOpen = useProjectStore((state) => state.isModalOpen)
+  const closeModal = useProjectStore((state) => state.closeModal)
+  const openModal = useProjectStore((state) => state.openModal)
+
 
   return (
     <header className="flex gap-4 mx-auto p-3 shadow">
@@ -16,14 +15,14 @@ const Header = () => {
         <div className="flex gap-6 w-full items-center justify-between lg:justify-start">
           <h1>TaskFlow</h1>
           <Select showAll={true} />
-          <Button onClick={addModalHandler} className="bg-blue-500 hover:bg-blue-700 duration-300 rounded-lg p-2 text-white cursor-pointer">
+          <Button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 duration-300 rounded-lg p-2 text-white cursor-pointer">
             اضافه کردن
           </Button>
         </div>
         <Input className={`bg-gray-100 border-2 border-gray-300 outline-none rounded-lg px-2 w-full`} type="text" />
 
       </div>
-      <ProjectForm isOpen={isOpen} onClose={() => setIsOpen(false)}>
+      <ProjectForm isOpen={isModalOpen} onClose={closeModal}>
         فرم افزودن پروژه
       </ProjectForm>
     </header>

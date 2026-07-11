@@ -1,6 +1,6 @@
 export type TextAreaProps = {
     id?:string;
-    value:string;
+    value?:string;
     name?:string;
     className?:string;
     placeholder?:string;
