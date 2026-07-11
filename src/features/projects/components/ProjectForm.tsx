@@ -82,7 +82,10 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
               className="bg-blue-500 hover:bg-blue-700 duration-300 rounded-lg p-2 text-white cursor-pointer w-full">ذخیره</Button>
             <Button
               type="button"
-              onClick={onClose}
+              onClick={() =>{
+                onClose()
+                setEditingProject(null)
+              }}
               className="bg-red-500 hover:bg-red-700 duration-300 rounded-lg p-2 text-white cursor-pointer w-full">انصراف</Button>
           </div>
         </div>
