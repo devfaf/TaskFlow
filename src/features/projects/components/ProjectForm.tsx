@@ -12,36 +12,38 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("")
   const [status, setStatus] = useState<ProjectStatus>("active")
+  // const [errorMessage, setErrorMessage] = useState("")
   const editingProject = useProjectStore((state) => state.editingProject)
   const updateProject = useProjectStore((state) => state.updateProject)
   const setEditingProject = useProjectStore((state) => state.setEditingProject)
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
-    if (editingProject) {
-      updateProject({
-        id: editingProject.id,
-        title,
-        description,
-        date: editingProject.date,
-        status,
-      })
-    } else {
-      addProject({
-        id: Date.now(),
-        title,
-        description,
-        date: new Date().toLocaleDateString(),
-        status,
-      })
+    if (title.length > 0) {
+      if (editingProject) {
+        updateProject({
+          id: editingProject.id,
+          title,
+          description,
+          date: editingProject.date,
+          status,
+        })
+      } else {
+        addProject({
+          id: Date.now(),
+          title,
+          description,
+          date: new Date().toLocaleDateString(),
+          status,
+        })
+      }
+      onClose()
+      setEditingProject(null)
+      setTitle("")
+      setDescription("")
+      setStatus("active")
+
     }
-
-    setEditingProject(null)
-
-    setTitle("")
-    setDescription("")
-    setStatus("active")
-    onClose()
   }
 
   useEffect(() => {
@@ -51,6 +53,12 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
       setStatus(editingProject.status)
     }
   }, [editingProject])
+
+  // useEffect(() => {
+  //   if(description.length > 5){
+  //     setErrorMessage('متن توضیحات باید بالای 5 کاراکتر باشد')
+  //   }
+  // }, [description])
 
   return (
     <form onSubmit={submitHandler} className={`absolute ${isOpen ? "block" : "hidden"}`}>
@@ -62,6 +70,9 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
             placeholder="عنوان" label="عنوان پروژه"
             className={`bg-gray-100 border-2 border-gray-300 outline-none rounded-lg px-2 w-full`}
             type="text" />
+          {
+            title.length === 0 ? <p className="text-red-500 text-sm duration-200">عنوان اجباری است</p> : null
+          }
 
           <TextArea
             value={description}
@@ -70,6 +81,9 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
             name="task"
             placeholder="توضیحات پروژه..."
             className="bg-gray-100 border-2 border-gray-300 outline-none rounded-lg px-2 w-full" />
+          {
+            description.length < 5 ? <p className="text-red-500 text-sm duration-200">متن توضیحات باید بالای 5 کاراکتر باشد</p> : null
+          }
 
           <Select
             value={status}
@@ -82,7 +96,7 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
               className="bg-blue-500 hover:bg-blue-700 duration-300 rounded-lg p-2 text-white cursor-pointer w-full">ذخیره</Button>
             <Button
               type="button"
-              onClick={() =>{
+              onClick={() => {
                 onClose()
                 setEditingProject(null)
               }}
