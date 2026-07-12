@@ -26,31 +26,30 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
     if (!isTitleValid || !isDescriptionValid) {
       return;
     }
-    if (title.trim().length > 0) {
-      if (editingProject) {
-        updateProject({
-          id: editingProject.id,
-          title,
-          description,
-          date: editingProject.date,
-          status,
-        })
-      } else {
-        addProject({
-          id: Date.now(),
-          title,
-          description,
-          date: new Date().toLocaleDateString(),
-          status,
-        })
-      }
-      onClose()
-      setEditingProject(null)
-      setTitle("")
-      setDescription("")
-      setStatus("active")
 
+    if (editingProject) {
+      updateProject({
+        id: editingProject.id,
+        title,
+        description,
+        date: editingProject.date,
+        status,
+      })
+    } else {
+      addProject({
+        id: Date.now(),
+        title,
+        description,
+        date: new Date().toLocaleDateString(),
+        status,
+      })
     }
+    onClose()
+    setEditingProject(null)
+    setTitle("")
+    setDescription("")
+    setStatus("active")
+
   }
 
   useEffect(() => {

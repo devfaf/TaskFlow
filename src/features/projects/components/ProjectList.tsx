@@ -11,7 +11,7 @@ const ProjectList = () => {
     const openModal = useProjectStore((state) => state.openModal)
 
     return (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-3 p-4">
             {
                 projects && projects.map((project) => {
                     return (
