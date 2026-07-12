@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import type { Project } from "../../types/project";
+import { persist } from "zustand/middleware";
 
 type ProjectStore = {
     projects: Project[];
@@ -8,7 +9,7 @@ type ProjectStore = {
     addProject: (project: Project) => void;
     deleteProject: (id: number) => void;
     updateProject: (project: Project) => void;
-    
+
     isModalOpen: boolean;
     openModal: () => void;
     closeModal: () => void;
@@ -31,34 +32,44 @@ const mockProjects: Project[] = [
     }
 ]
 
-export const useProjectStore = create<ProjectStore>((set) => ({
-    projects: mockProjects,
-    isModalOpen: false,
-    editingProject: null,
-    addProject: (project) =>
-        set((state) => ({
-            projects: [...state.projects, project]
-        })),
-    deleteProject: (id) =>
-        set((state) => ({
-            projects: state.projects.filter((project) => project.id !== id)
-        })),
-    updateProject: (updateProject) =>
-        set((state) => ({
-            projects: state.projects.map((project) =>
-                project.id === updateProject.id ? updateProject : project
-            )
-        })),
-    openModal: () =>
-        set({
-            isModalOpen: true,
-        }),
-    closeModal: () =>
-        set({
+export const useProjectStore = create<ProjectStore>()(
+    persist(
+        (set) => ({
+            projects: mockProjects,
             isModalOpen: false,
+            editingProject: null,
+            addProject: (project) =>
+                set((state) => ({
+                    projects: [...state.projects, project]
+                })),
+            deleteProject: (id) =>
+                set((state) => ({
+                    projects: state.projects.filter((project) => project.id !== id)
+                })),
+            updateProject: (updateProject) =>
+                set((state) => ({
+                    projects: state.projects.map((project) =>
+                        project.id === updateProject.id ? updateProject : project
+                    )
+                })),
+            openModal: () =>
+                set({
+                    isModalOpen: true,
+                }),
+            closeModal: () =>
+                set({
+                    isModalOpen: false,
+                }),
+            setEditingProject: (project) =>
+                set({
+                    editingProject: project,
+                }),
         }),
-    setEditingProject: (project) =>
-        set({
-            editingProject: project,
-        }),
-}))
+        {
+            name: "project-storage",
+            partialize:(state) => ({
+                projects: state.projects,
+            }),
+        }   
+    )
+)

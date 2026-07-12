@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import ProjectCard from "./ProjectCard"
 import { useProjectStore } from "../store/projectStore"
 import { BsFillTrash3Fill } from "react-icons/bs";

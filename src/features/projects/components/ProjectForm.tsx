@@ -21,7 +21,7 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
   const isTitleValid = title.trim().length > 0
   const isDescriptionValid = description.trim().length >= 5
 
-  const submitHandler = (e: React.FormEvent) => {
+  const submitHandler = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!isTitleValid || !isDescriptionValid) {
       return;
@@ -59,12 +59,6 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
       setStatus(editingProject.status)
     }
   }, [editingProject])
-
-  // useEffect(() => {
-  //   if(description.length > 5){
-  //     setErrorMessage('متن توضیحات باید بالای 5 کاراکتر باشد')
-  //   }
-  // }, [description])
 
   return (
     <form onSubmit={submitHandler} className={`absolute ${isOpen ? "block" : "hidden"}`}>
