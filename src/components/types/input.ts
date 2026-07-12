@@ -4,7 +4,7 @@ export type InputProps = {
     id?: string;
     className?:string;
     name?: string;
-    error?: string;
+    error?: string | null;
     required?: boolean;
     value?: string;
     placeholder?:string;

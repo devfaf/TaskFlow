@@ -4,6 +4,7 @@ export type TextAreaProps = {
     name?:string;
     className?:string;
     placeholder?:string;
+    error?:string | null;
     onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
     // rows?:string;
     // cols?:string;

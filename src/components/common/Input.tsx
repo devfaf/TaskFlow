@@ -8,7 +8,7 @@ const Input = ({ type = "text", id, name, required, className, placeholder, valu
       }
       <input type={type} id={id} name={name} required={required} className={className} placeholder={placeholder} value={value} onChange={onChange} />
       {
-        error && <p>{error}</p>
+        error && <p className="text-red-500 text-sm duration-200">{error}</p>
       }
     </div>
   )

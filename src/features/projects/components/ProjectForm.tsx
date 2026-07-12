@@ -1,11 +1,13 @@
+import { useEffect, useState } from "react";
 import type { ModalProps } from "../../../components/types/modal"
 import Input from "../../../components/common/Input"
 import TextArea from "../../../components/common/TextArea"
 import Select from "../../../components/common/Select"
 import Button from "../../../components/common/Button"
 import { useProjectStore } from "../store/projectStore"
-import { useEffect, useState } from "react";
 import type { ProjectStatus } from "../../types/project";
+// icons
+import { FiX } from "react-icons/fi";
 
 const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
   const addProject = useProjectStore((state) => state.addProject)
@@ -16,10 +18,15 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
   const editingProject = useProjectStore((state) => state.editingProject)
   const updateProject = useProjectStore((state) => state.updateProject)
   const setEditingProject = useProjectStore((state) => state.setEditingProject)
+  const isTitleValid = title.trim().length > 0
+  const isDescriptionValid = description.trim().length >= 5
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
-    if (title.length > 0) {
+    if (!isTitleValid || !isDescriptionValid) {
+      return;
+    }
+    if (title.trim().length > 0) {
       if (editingProject) {
         updateProject({
           id: editingProject.id,
@@ -62,17 +69,32 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
 
   return (
     <form onSubmit={submitHandler} className={`absolute ${isOpen ? "block" : "hidden"}`}>
-      <div className="flex items-center justify-center h-screen w-screen">
-        <div className="border-2 border-gray-100 shadow p-4 rounded-lg flex flex-col gap-4 bg-white max-w-lg w-sm">
+      <div className="fixed inset-0 z-50 flex items-center justify-center">
+        <div
+          onClick={() => {
+            onClose()
+            setEditingProject(null)
+          }}
+          className="absolute inset-0 bg-black/30"
+        ></div>
+        <div className="border-2 border-gray-100 shadow p-4 rounded-lg flex flex-col gap-4 bg-white max-w-lg w-sm z-90">
+          <FiX
+            className="text-xl cursor-pointer"
+            onClick={() => {
+              onClose()
+              setEditingProject(null)
+            }}
+          />
           <Input
             value={title}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)}
             placeholder="عنوان" label="عنوان پروژه"
             className={`bg-gray-100 border-2 border-gray-300 outline-none rounded-lg px-2 w-full`}
-            type="text" />
-          {
-            title.length === 0 ? <p className="text-red-500 text-sm duration-200">عنوان اجباری است</p> : null
-          }
+            type="text"
+            error={
+              title.trim().length === 0 ? "عنوان اجباری است" : null
+            }
+          />
 
           <TextArea
             value={description}
@@ -80,10 +102,11 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
             id="task"
             name="task"
             placeholder="توضیحات پروژه..."
-            className="bg-gray-100 border-2 border-gray-300 outline-none rounded-lg px-2 w-full" />
-          {
-            description.length < 5 ? <p className="text-red-500 text-sm duration-200">متن توضیحات باید بالای 5 کاراکتر باشد</p> : null
-          }
+            className="bg-gray-100 border-2 border-gray-300 outline-none rounded-lg px-2 w-full"
+            error={
+              description.trim().length < 5 ? "متن توضیحات باید بالای 5 کاراکتر باشد" : null
+            }
+          />
 
           <Select
             value={status}
