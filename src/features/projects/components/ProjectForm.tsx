@@ -14,7 +14,6 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("")
   const [status, setStatus] = useState<ProjectStatus>("active")
-  // const [errorMessage, setErrorMessage] = useState("")
   const editingProject = useProjectStore((state) => state.editingProject)
   const updateProject = useProjectStore((state) => state.updateProject)
   const setEditingProject = useProjectStore((state) => state.setEditingProject)
