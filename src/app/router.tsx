@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import DashboardLayout from "../layouts/DashboardLayout";
-import ProjectList from "../features/projects/components/ProjectList";
-import EmptyState from "../components/common/EmptyState";
+import ProjectPage from "../pages/ProjectPage";
+import DashboardPage from "../pages/DashboardPage";
 
 export const router = createBrowserRouter([
     {
@@ -10,16 +10,12 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: "projects",
-                element: <ProjectList />
+                element: <ProjectPage />
             },
-            {
-                path: "EmptyState",
-                element: <EmptyState />
-            }
         ]
     },
     {
-        path: "/projects",
-        element: <DashboardLayout />,
+        path: "dashboard",
+        element: <DashboardPage />,
     },
 ])
