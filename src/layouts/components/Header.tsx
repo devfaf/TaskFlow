@@ -10,7 +10,7 @@ const Header = () => {
 
 
   return (
-    <header className="flex gap-4 mx-auto p-3 shadow z-50 relative bg-white">
+    <header className="flex gap-4 mx-auto p-3 shadow z-50 bg-white fixed w-full top-0">
       <div className="flex flex-col lg:flex-row lg:justify-end items-center gap-6 w-full">
         <div className="flex gap-6 w-full items-center justify-between lg:justify-start">
           <h1>TaskFlow</h1>

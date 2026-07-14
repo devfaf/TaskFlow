@@ -8,9 +8,11 @@ const DashboardLayout = () => {
   return (
     <div className="">
       <Header />
-      <div className="flex">
+      <div>
         <Sidebar />
-        <DashboardPage />
+        <div className="mr-[256px] mt-[64px]">
+          <DashboardPage />
+        </div>
       </div>
     </div>
   )
