@@ -7,8 +7,10 @@ export const SidebarItems = () => {
             {sidebarItemsLinks.map((item) => {
                 const Icon = item.icon
                 return (
-                    <li key={item.path} className="bg-gray-200 w-full p-1 rounded-lg hover:bg-gray-300">
-                        <NavLink to={item.path} className="flex items-center gap-2">
+                    <li key={item.path}>
+                        <NavLink to={item.path} className={({isActive}) => 
+                            `rounded-lg p-1 flex items-center gap-2 hover:bg-gray-300 w-full bg-gray-200 ${isActive ? `bg-gray-300` : ``}`
+                        }>
                             <Icon className="text-2xl" />
                             {item.title}
                         </NavLink>
