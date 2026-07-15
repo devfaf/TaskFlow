@@ -13,6 +13,9 @@ type ProjectStore = {
     isModalOpen: boolean;
     openModal: () => void;
     closeModal: () => void;
+
+    search: string;
+    setSearch: (value: string) => void;
 }
 
 const mockProjects: Project[] = [
@@ -64,12 +67,17 @@ export const useProjectStore = create<ProjectStore>()(
                 set({
                     editingProject: project,
                 }),
+            search:"",
+            setSearch: (value) =>
+                set({
+                    search: value,
+                }),
         }),
         {
             name: "project-storage",
-            partialize:(state) => ({
+            partialize: (state) => ({
                 projects: state.projects,
             }),
-        }   
+        }
     )
 )

@@ -8,9 +8,14 @@ const ProjectList = () => {
     const deleteProjectBtn = useProjectStore((state) => state.deleteProject)
     const setEditingProject = useProjectStore((state) => state.setEditingProject)
     const openModal = useProjectStore((state) => state.openModal)
+    const search = useProjectStore((state) => state.search)
+
+    // const filteredProjects = projects.filter((project) => {
+    //     return project.title.toLowerCase().includes(search.toLowerCase())
+    // })
 
     return (
-        <div className="flex flex-col gap-3 p-4">
+        <div className="flex flex-col gap-3">
             {
                 projects && projects.map((project) => {
                     return (
