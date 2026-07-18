@@ -10,6 +10,8 @@ const ProjectList = () => {
     const openModal = useProjectStore((state) => state.openModal)
     const search = useProjectStore((state) => state.search)
     const statusFilter = useProjectStore(state => state.statusFilter)
+    const sortFilter = useProjectStore(state => state.sortFilter)
+    const setSortFilter = useProjectStore(state => state.setSortFilter)
 
     const filteredProjects = projects.filter((project) => {
         const searchResult =
@@ -24,10 +26,27 @@ const ProjectList = () => {
         return searchResult && filterResult
     })
 
+    const sortedProjects = [...filteredProjects].sort((projectA, projectB) => {
+        const timeA = new Date(projectA.date).getTime()
+        const timeB = new Date(projectB.date).getTime()
+        switch (sortFilter) {
+            case "newest":
+                return timeB - timeA
+            case "oldest":
+                return timeA - timeB
+            case "title":
+                return projectA.title.localeCompare(projectB.title)
+            default: 
+                return 0
+        }
+
+
+    })
+
     return (
         <div className="flex flex-col gap-3">
             {
-                filteredProjects.length > 0 ? filteredProjects.map((project) => {
+                sortedProjects.length > 0 ? sortedProjects.map((project) => {
                     return (
                         <ProjectCard
                             key={project.id}

@@ -19,6 +19,9 @@ type ProjectStore = {
 
     statusFilter: string;
     setStatusFilter: (value: string) => void;
+
+    sortFilter: string;
+    setSortFilter: (value: string) => void;
 }
 
 const mockProjects: Project[] = [
@@ -76,10 +79,16 @@ export const useProjectStore = create<ProjectStore>()(
                     search: value,
                 }),
             statusFilter: "all",
-            setStatusFilter: (value) => 
+            setStatusFilter: (value) =>
                 set({
                     statusFilter: value,
                 }),
+            sortFilter: "",
+            setSortFilter(value) {
+                set({
+                    sortFilter: value,
+                })
+            },
         }),
         {
             name: "project-storage",

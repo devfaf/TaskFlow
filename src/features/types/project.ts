@@ -1,4 +1,5 @@
 export type ProjectStatus = "active" | "completed";
+export type ProjectSort = "newest" | "oldest" | "title";
 
 export const PROJECT_STATUS_OPTIONS = [
     {
@@ -12,6 +13,21 @@ export const PROJECT_STATUS_OPTIONS = [
     {
         value: "completed",
         label: "تکمیل شده"
+    },
+]
+
+export const PROJECT_SORT_OPTIONS = [
+    {
+        value: "newest",
+        label: "جدیدترین"
+    },
+    {
+        value: "oldest",
+        label: "قدیمی‌ترین"
+    },
+    {
+        value: "title",
+        label: "عنوان"
     },
 ]
 
