@@ -16,6 +16,9 @@ type ProjectStore = {
 
     search: string;
     setSearch: (value: string) => void;
+
+    statusFilter: string;
+    setStatusFilter: (value: string) => void;
 }
 
 const mockProjects: Project[] = [
@@ -71,6 +74,11 @@ export const useProjectStore = create<ProjectStore>()(
             setSearch: (value) =>
                 set({
                     search: value,
+                }),
+            statusFilter: "all",
+            setStatusFilter: (value) => 
+                set({
+                    statusFilter: value,
                 }),
         }),
         {

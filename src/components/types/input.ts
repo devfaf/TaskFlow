@@ -1,5 +1,10 @@
 export type InputProps = {
-    type: 'search' | 'email' | 'password' | 'text';
+    type: 
+    | 'search' 
+    | 'email' 
+    | 'password' 
+    | 'text' 
+    | 'checkbox';
     label?:string;
     id?: string;
     className?:string;

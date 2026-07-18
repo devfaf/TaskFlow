@@ -1,21 +1,20 @@
 import type { SelectProps } from "../types/select"
 
-const Select = ({ className, value, onChange, showAll=false }: SelectProps) => {
+const Select = ({ options, className, id, name, onChange, value }: SelectProps) => {
   return (
     <div>
       <select
-        name="status"
-        id="status"
+        name={name}
+        id={id}
         className={className}
-        value={value}
         onChange={onChange}
+        value={value}
         >
           {
-              showAll &&
-              <option value="all">همه</option>
+            options && options.map((option) => {
+              return <option key={option.value} value={option.value}>{option.label}</option>
+            })
           }
-        <option value="active">فعال</option>
-        <option value="completed">تکمیل‌شده</option>
       </select>
     </div>
   )

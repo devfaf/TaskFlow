@@ -9,13 +9,25 @@ const ProjectList = () => {
     const setEditingProject = useProjectStore((state) => state.setEditingProject)
     const openModal = useProjectStore((state) => state.openModal)
     const search = useProjectStore((state) => state.search)
+    const statusFilter = useProjectStore(state => state.statusFilter)
 
-    const filteredProjects = search.trim() ? projects.filter((item) => item.title.toLowerCase().includes(search.toLowerCase())) : projects;
+    const filteredProjects = projects.filter((project) => {
+        const searchResult =
+            project.title
+                .toLowerCase()
+                .includes(search.trim().toLowerCase())
+
+        const filterResult =
+            statusFilter === "all" ||
+            project.status === statusFilter
+
+        return searchResult && filterResult
+    })
 
     return (
         <div className="flex flex-col gap-3">
             {
-                filteredProjects.map((project) => {
+                filteredProjects.length > 0 ? filteredProjects.map((project) => {
                     return (
                         <ProjectCard
                             key={project.id}
@@ -34,7 +46,7 @@ const ProjectList = () => {
                             </div>
                         </ProjectCard>
                     )
-                })
+                }) : <p>هیچ پروژه ای پیدا نشد!</p>
             }
         </div>
     )

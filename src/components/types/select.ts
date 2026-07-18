@@ -1,9 +1,13 @@
+export type SelectOption = {
+    value: string;
+    label: string;
+}
+
 export type SelectProps = {
-    value?:
-    | "all"
-    | "active"
-    | "completed";
-    onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+    options: SelectOption[];
+    value?: string;
     className?: string;
-    showAll?: boolean;
+    id?: string;
+    name?: string;
+    onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }

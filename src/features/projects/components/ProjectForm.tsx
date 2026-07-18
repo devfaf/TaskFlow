@@ -6,7 +6,7 @@ import Select from "../../../components/common/Select"
 import Button from "../../../components/common/Button"
 import { useProjectStore } from "../store/projectStore"
 import type { ProjectStatus } from "../../types/project";
-// icons
+import { PROJECT_STATUS_OPTIONS } from "../../types/project";
 import { FiX } from "react-icons/fi";
 
 const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
@@ -100,7 +100,7 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
             }
           />
 
-          <Select
+          <Select options={PROJECT_STATUS_OPTIONS}
             value={status}
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setStatus(e.target.value as ProjectStatus)}
             className="bg-white rounded-lg p-1 border-gray-300 border-2" />
