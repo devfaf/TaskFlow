@@ -67,7 +67,7 @@ export const useProjectStore = create<ProjectStore>()(
                 set({
                     editingProject: project,
                 }),
-            search:"",
+            search: "",
             setSearch: (value) =>
                 set({
                     search: value,

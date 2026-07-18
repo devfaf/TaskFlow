@@ -10,14 +10,12 @@ const ProjectList = () => {
     const openModal = useProjectStore((state) => state.openModal)
     const search = useProjectStore((state) => state.search)
 
-    // const filteredProjects = projects.filter((project) => {
-    //     return project.title.toLowerCase().includes(search.toLowerCase())
-    // })
+    const filteredProjects = search.trim() ? projects.filter((item) => item.title.toLowerCase().includes(search.toLowerCase())) : projects;
 
     return (
         <div className="flex flex-col gap-3">
             {
-                projects && projects.map((project) => {
+                filteredProjects.map((project) => {
                     return (
                         <ProjectCard
                             key={project.id}
