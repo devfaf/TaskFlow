@@ -3,6 +3,10 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import ProjectPage from "../pages/ProjectPage";
 import DashboardPage from "../pages/DashboardPage";
 import SettingPage from "../pages/SettingPage";
+import ProjectDetailsPage from "../pages/ProjectDetailsPage";
+import OverviewPage from "../pages/OverviewPage";
+import BoardPage from "../pages/BoardPage";
+import TasksPage from "../pages/TasksPage";
 
 export const router = createBrowserRouter([
     {
@@ -23,5 +27,23 @@ export const router = createBrowserRouter([
             },
         ]
     },
+    {
+        path: "projects/:id",
+        element: <ProjectDetailsPage />,
+        children: [
+            {
+                path: "overview",
+                element: <OverviewPage />
+            },
+            {
+                path: "board",
+                element: <BoardPage />
+            },
+            {
+                path: "tasks",
+                element: <TasksPage />
+            },
+        ]
+    }
 
 ])

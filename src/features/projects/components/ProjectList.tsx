@@ -2,6 +2,7 @@ import ProjectCard from "./ProjectCard"
 import { useProjectStore } from "../store/projectStore"
 import { BsFillTrash3Fill } from "react-icons/bs";
 import { BsFillPencilFill } from "react-icons/bs";
+import { Link } from "react-router";
 
 const ProjectList = () => {
     const projects = useProjectStore((state) => state.projects)
@@ -48,22 +49,24 @@ const ProjectList = () => {
             {
                 sortedProjects.length > 0 ? sortedProjects.map((project) => {
                     return (
-                        <ProjectCard
-                            key={project.id}
-                            {...project}
-                            className="shadow p-2 rounded-lg w-md flex justify-center items-center flex-col gap-2 bg-blue-100"
-                        >
-                            <div className="flex gap-4">
-                                <BsFillTrash3Fill
-                                    onClick={() => deleteProjectBtn(project.id)} className="cursor-pointer hover:text-red-600" />
-                                <BsFillPencilFill
-                                    onClick={() => {
-                                        setEditingProject(project)
-                                        openModal()
-                                    }}
-                                    className="cursor-pointer hover:text-red-600" />
-                            </div>
-                        </ProjectCard>
+                        <Link to={`/projects/${project.id}`} key={project.id}>
+                            <ProjectCard
+                                
+                                {...project}
+                                className="shadow p-2 rounded-lg w-md flex justify-center items-center flex-col gap-2 bg-blue-100"
+                            >
+                                <div className="flex gap-4">
+                                    <BsFillTrash3Fill
+                                        onClick={() => deleteProjectBtn(project.id)} className="cursor-pointer hover:text-red-600" />
+                                    <BsFillPencilFill
+                                        onClick={() => {
+                                            setEditingProject(project)
+                                            openModal()
+                                        }}
+                                        className="cursor-pointer hover:text-red-600" />
+                                </div>
+                            </ProjectCard>
+                        </Link>
                     )
                 }) : <p>هیچ پروژه ای پیدا نشد!</p>
             }
