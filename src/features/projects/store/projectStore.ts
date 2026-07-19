@@ -19,6 +19,7 @@ type ProjectStore = {
 
     statusFilter: string;
     setStatusFilter: (value: string) => void;
+    clearStatusFilter: () => void;
 
     sortFilter: string;
     setSortFilter: (value: string) => void;
@@ -82,6 +83,10 @@ export const useProjectStore = create<ProjectStore>()(
             setStatusFilter: (value) =>
                 set({
                     statusFilter: value,
+                }),
+            clearStatusFilter: () =>
+                set({
+                    statusFilter: "all",
                 }),
             sortFilter: "",
             setSortFilter(value) {
