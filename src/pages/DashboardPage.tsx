@@ -21,7 +21,7 @@ const DashboardPage = () => {
               </div>
             </div>
             <div className="bg-white border border-gray-300 rounded-lg p-4 flex flex-col items-center gap-4 w-full">
-              <h2 className="text-2xl font-semibold">تعداد پروژه ها</h2>
+              <h2 className="text-2xl font-semibold">اضافه کردن پروژه</h2>
                 <Button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 duration-300 rounded-lg p-2 text-white cursor-pointer">
                   اضافه کردن
                 </Button>

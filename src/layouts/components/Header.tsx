@@ -1,6 +1,6 @@
+import { Link } from "react-router"
 import Button from "../../components/common/Button"
 import Input from "../../components/common/Input"
-import Select from "../../components/common/Select"
 import { useProjectStore } from "../../features/projects/store/projectStore"
 import ProjectForm from "../../features/projects/components/ProjectForm"
 const Header = () => {
@@ -13,8 +13,11 @@ const Header = () => {
     <header className="flex gap-4 mx-auto p-3 border-b border-gray-300 z-50 bg-white fixed w-full top-0">
       <div className="flex flex-col lg:flex-row lg:justify-end items-center gap-6 w-full">
         <div className="flex gap-6 w-full items-center justify-between lg:justify-start">
-          <h1>TaskFlow</h1>
-          <Select showAll={true} />
+          <div>
+            <Link to="/">
+              <img src="./public/logo/logo.webp" className="w-30" alt="لوگوی تسک فلو" />
+            </Link>
+          </div>
           <Button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 duration-300 rounded-lg p-2 text-white cursor-pointer">
             اضافه کردن
           </Button>
