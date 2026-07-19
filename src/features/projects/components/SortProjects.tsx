@@ -9,6 +9,8 @@ const SortProjects = () => {
     const sortRef = useRef<HTMLFormElement>(null);
     const sortFilter = useProjectStore(state => state.sortFilter)
     const setSortFilter = useProjectStore(state => state.setSortFilter)
+    const clearSortFilter = useProjectStore(state => state.clearSortFilter)
+    const isSortActive = sortFilter !== ''
 
     useEffect(() => {
         function handleClickOutside(e: MouseEvent) {
@@ -49,7 +51,7 @@ const SortProjects = () => {
                                     options={PROJECT_SORT_OPTIONS} />
                             </div>
                             <div>
-                                <span className="text-gray-400 ">پاک کردن فیلتر</span>
+                                <span onClick={clearSortFilter} className={`text-sm duration-200 ${isSortActive ? 'text-gray-500 hover:text-red-500 cursor-pointer' : 'text-gray-400 cursor-not-allowed opacity-50'}`}>پاک کردن فیلتر</span>
                             </div>
                         </form>
                     </div>

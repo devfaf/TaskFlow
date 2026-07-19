@@ -23,6 +23,7 @@ type ProjectStore = {
 
     sortFilter: string;
     setSortFilter: (value: string) => void;
+    clearSortFilter: () => void;
 }
 
 const mockProjects: Project[] = [
@@ -94,6 +95,11 @@ export const useProjectStore = create<ProjectStore>()(
                     sortFilter: value,
                 })
             },
+            clearSortFilter(){
+                set({
+                    sortFilter: "",
+                })
+            }
         }),
         {
             name: "project-storage",
