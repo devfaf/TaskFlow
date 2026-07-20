@@ -12,7 +12,6 @@ const ProjectList = () => {
     const search = useProjectStore((state) => state.search)
     const statusFilter = useProjectStore(state => state.statusFilter)
     const sortFilter = useProjectStore(state => state.sortFilter)
-    const setSortFilter = useProjectStore(state => state.setSortFilter)
 
     const filteredProjects = projects.filter((project) => {
         const searchResult =
@@ -49,9 +48,10 @@ const ProjectList = () => {
             {
                 sortedProjects.length > 0 ? sortedProjects.map((project) => {
                     return (
-                        <Link to={`/projects/${project.id}`} key={project.id}>
+                        <Link 
+                        to={`/projects/${project.id}`} 
+                        key={project.id}>
                             <ProjectCard
-                                
                                 {...project}
                                 className="shadow p-2 rounded-lg w-md flex justify-center items-center flex-col gap-2 bg-blue-100"
                             >

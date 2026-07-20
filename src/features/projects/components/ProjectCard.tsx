@@ -1,6 +1,6 @@
-import type { Project } from "../../types/project";
+import type { ProjectCartProps } from "../../types/project";
 
-const ProjectCard = ({ id, title, description, date, status, className, children }: Project) => {
+const ProjectCard = ({ id, title, description, date, status, className, children }: ProjectCartProps) => {
 
   return (
     <div className={className}>

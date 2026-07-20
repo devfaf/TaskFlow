@@ -7,11 +7,6 @@ const ProjectDetailsPage = () => {
     const { id } = useParams();
     const projects = useProjectStore(state => state.projects)
     const project = projects.find((p) => p.id === Number(id))
-    console.log(project);
-
-
-    console.log(id);
-
 
     return (
         <div>

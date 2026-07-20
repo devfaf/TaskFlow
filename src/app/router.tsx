@@ -32,6 +32,7 @@ export const router = createBrowserRouter([
         element: <ProjectDetailsPage />,
         children: [
             {
+                index: true,
                 path: "overview",
                 element: <OverviewPage />
             },
