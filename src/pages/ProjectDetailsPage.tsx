@@ -1,6 +1,7 @@
 import { useParams } from "react-router"
 import { useProjectStore } from "../features/projects/store/projectStore";
 import { NavLink } from "react-router";
+import { Outlet } from "react-router";
 
 const ProjectDetailsPage = () => {
     const { id } = useParams();
@@ -51,24 +52,31 @@ const ProjectDetailsPage = () => {
                     </div>
                 </div>
             </div>
-            <div>
-                <div>
+            <div className="mx-auto w-3xl bg-gray-100 flex flex-col justify-center items-center">
+                <nav className="flex gap-4 pb-4">
                     <div>
-                        <NavLink to="overview">
+                        <NavLink to="overview" className={({ isActive }) =>
+                            `border-b-2 ${isActive ? "border-blue-400" : "text-gray-400 border-transparent"}`
+                        }>
                             Overview
                         </NavLink>
                     </div>
                     <div>
-                        <NavLink to="board">
+                        <NavLink to="board" className={({ isActive }) =>
+                            `border-b-2 ${isActive ? "border-blue-400" : "text-gray-400 border-transparent"}`
+                        }>
                             Board
                         </NavLink>
                     </div>
                     <div>
-                        <NavLink to="tasks">
+                        <NavLink to="tasks" className={({ isActive }) =>
+                            `border-b-2 ${isActive ? "border-blue-400" : "text-gray-400 border-transparent"}`
+                        }>
                             Tasks
                         </NavLink>
                     </div>
-                </div>
+                </nav>
+                <Outlet />
             </div>
         </div>
     )
