@@ -1,12 +1,12 @@
-
+import type { ProjectStatus } from "./project";
 
 export type Task = {
     id: number;
-    projectId?: number
+    projectId: number
     title: string;
     // description: string;
     // date: string;
-    completed: boolean;
+    completed: ProjectStatus;
 }
 
 export type TaskCardProps = Task & {

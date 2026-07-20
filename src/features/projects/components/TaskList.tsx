@@ -5,16 +5,16 @@ import { useParams } from "react-router"
 const TaskList = () => {
     const tasks = useTaskStore(state => state.tasks)
     const {id} = useParams()
-    const projectsTask = tasks.filter((task) => {
-        return task.projectId === Number(id)
-    })
+    const projectTasks = tasks.filter(
+        (task) => task.projectId === Number(id)
+    )
     
     
 
   return (
     <div className="flex flex-col gap-3">
         {
-            projectsTask.map(task => {
+            projectTasks.map(task => {
                 return (
                 <TaskCard 
                 {...task}

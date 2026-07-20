@@ -4,27 +4,27 @@ import Input from "../../../components/common/Input"
 import TextArea from "../../../components/common/TextArea"
 import Button from "../../../components/common/Button"
 import { useTaskStore } from "../store/taskStore";
+import type { ProjectStatus } from "../../types/project";
 import { FiX } from "react-icons/fi";
+import { useParams } from "react-router";
 
-const TaskForm = ({isOpen, onClose}: ModalProps) => {
+const TaskForm = ({ isOpen, onClose }: ModalProps) => {
     const addTask = useTaskStore((state) => state.addTask)
     const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("")
-    const [completed, setCompleted] = useState(true)
-    // const editingProject = useProjectStore((state) => state.editingProject)
-    // const updateProject = useProjectStore((state) => state.updateProject)
-    // const setEditingProject = useProjectStore((state) => state.setEditingProject)
-    // const isTitleValid = title.trim().length > 0
-    // const isDescriptionValid = description.trim().length >= 5
+    const [completed, setCompleted] = useState<ProjectStatus>("active")
+    const { id } = useParams();
 
     const submitHandler = (e: SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault()
         addTask({
+            projectId: Number(id),
             id: Date.now(),
             title,
             completed,
         })
         onClose()
+        setTitle("")
+        setCompleted("active")
     }
 
     return (
@@ -54,7 +54,7 @@ const TaskForm = ({isOpen, onClose}: ModalProps) => {
                         }
                     />
 
-                    <TextArea
+                    {/* <TextArea
                         value={description}
                         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(e.target.value)}
                         id="task"
@@ -64,7 +64,7 @@ const TaskForm = ({isOpen, onClose}: ModalProps) => {
                         error={
                             description.trim().length < 5 ? "متن توضیحات باید بالای 5 کاراکتر باشد" : null
                         }
-                    />
+                    /> */}
 
                     <div className="flex gap-2 w-full">
                         <Button
