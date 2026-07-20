@@ -37,6 +37,9 @@ export type Project = {
     description: string;
     date: string;
     status: ProjectStatus;
+}
+
+export type ProjectCartProps = Project & {
     className?: string;
     children?: React.ReactElement;
 }

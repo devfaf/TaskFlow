@@ -1,11 +1,15 @@
-import type { ProjectStatus } from "./project";
+
 
 export type Task = {
     id: number;
+    projectId?: number
     title: string;
-    description: string;
-    date: string;
-    status: ProjectStatus;
+    // description: string;
+    // date: string;
+    completed: boolean;
+}
+
+export type TaskCardProps = Task & {
     className?: string;
     children?: React.ReactElement;
 }
