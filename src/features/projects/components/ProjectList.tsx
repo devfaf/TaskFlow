@@ -3,6 +3,7 @@ import { useProjectStore } from "../store/projectStore"
 import { BsFillTrash3Fill } from "react-icons/bs";
 import { BsFillPencilFill } from "react-icons/bs";
 import { Link } from "react-router";
+import EmptyState from "../../../components/common/EmptyState";
 
 const ProjectList = () => {
     const projects = useProjectStore((state) => state.projects)
@@ -68,7 +69,7 @@ const ProjectList = () => {
                             </ProjectCard>
                         </Link>
                     )
-                }) : <p>هیچ پروژه ای پیدا نشد!</p>
+                }) : <EmptyState/>
             }
         </div>
     )
