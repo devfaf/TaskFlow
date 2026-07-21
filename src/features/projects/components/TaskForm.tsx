@@ -4,14 +4,16 @@ import Input from "../../../components/common/Input"
 // import TextArea from "../../../components/common/TextArea"
 import Button from "../../../components/common/Button"
 import { useTaskStore } from "../store/taskStore";
-import type { ProjectStatus } from "../../types/project";
+import type { TaskStatus } from "../../types/task";
 import { FiX } from "react-icons/fi";
 import { useParams } from "react-router";
+import Select from "../../../components/common/Select";
+import { BOARD_STATUS_OPTIONS } from "../../types/boardColumnProps";
 
 const TaskForm = ({ isOpen, onClose }: ModalProps) => {
     const addTask = useTaskStore((state) => state.addTask)
     const [title, setTitle] = useState("");
-    const [completed, setCompleted] = useState<ProjectStatus>("active")
+    const [status, setStatus] = useState<TaskStatus>("todo")
     const { id } = useParams();
 
     const submitHandler = (e: SyntheticEvent<HTMLFormElement>) => {
@@ -20,11 +22,11 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
             projectId: Number(id),
             id: Date.now(),
             title,
-            completed,
+            status,
         })
         onClose()
         setTitle("")
-        setCompleted("active")
+        setStatus("todo")
     }
 
     return (
@@ -53,6 +55,11 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
                             title.trim().length === 0 ? "عنوان اجباری است" : null
                         }
                     />
+
+                    <Select options={BOARD_STATUS_OPTIONS}
+                        value={status}
+                        onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setStatus(e.target.value as TaskStatus)}
+                        className="bg-white rounded-lg p-1 border-gray-300 border-2" />
 
                     {/* <TextArea
                         value={description}

@@ -25,7 +25,7 @@ const TaskList = () => {
                         <TaskCard
                             {...task}
                             key={task.id}
-                            className="shadow p-2 rounded-lg w-md flex justify-center items-center flex-col gap-2 bg-yellow-100"
+                            className="shadow p-2 rounded-lg flex justify-center items-center flex-col gap-2 bg-yellow-100"
                         >
                             <div className="flex gap-4">
                                 <BsFillTrash3Fill

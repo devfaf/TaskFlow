@@ -11,7 +11,6 @@ const ProjectDetailsPage = () => {
     return (
         <div>
             <div>
-                {/* project details */}
                 <div className="bg-blue-100 border-2 border-blue-300 rounded-xl p-4 flex flex-col gap-4 w-lg mx-auto my-4">
                     <div className="flex gap-2">
                         <div>
@@ -47,7 +46,7 @@ const ProjectDetailsPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="mx-auto w-3xl bg-gray-100 flex flex-col justify-center items-center">
+            <div className="mx-4 bg-gray-100 flex flex-col justify-center items-center">
                 <nav className="flex gap-4 pb-4">
                     <div>
                         <NavLink to="overview" className={({ isActive }) =>
