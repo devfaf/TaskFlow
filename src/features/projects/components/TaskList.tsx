@@ -3,6 +3,8 @@ import TaskCard from "./TaskCard"
 import { useParams } from "react-router"
 import { BsFillTrash3Fill } from "react-icons/bs";
 import EmptyState from "../../../components/common/EmptyState";
+import { BsFillPencilFill } from "react-icons/bs";
+import { useProjectStore } from "../store/projectStore";
 
 const TaskList = () => {
     const tasks = useTaskStore(state => state.tasks)
@@ -11,6 +13,8 @@ const TaskList = () => {
         (task) => task.projectId === Number(id)
     )
     const removeTask = useTaskStore(state => state.removeTask)
+    const openModal = useProjectStore(state => state.openModal)
+    const setEditingTask = useTaskStore(state => state.setEditingTask)
 
 
     return (
@@ -23,16 +27,24 @@ const TaskList = () => {
                             key={task.id}
                             className="shadow p-2 rounded-lg w-md flex justify-center items-center flex-col gap-2 bg-yellow-100"
                         >
-                            <BsFillTrash3Fill
-                            className="cursor-pointer hover:text-red-600"
-                            onClick={() => 
-                                removeTask(task.id)
-                            }
-                            />
+                            <div className="flex gap-4">
+                                <BsFillTrash3Fill
+                                    className="cursor-pointer hover:text-red-600"
+                                    onClick={() =>
+                                        removeTask(task.id)
+                                    }
+                                />
+                                <BsFillPencilFill
+                                    onClick={() => {
+                                        setEditingTask(task)
+                                        openModal()
+                                    }}
+                                    className="cursor-pointer hover:text-red-600" />
+                            </div>
 
                         </TaskCard>
                     )
-                }) : <EmptyState/>
+                }) : <EmptyState />
             }
         </div>
     )
