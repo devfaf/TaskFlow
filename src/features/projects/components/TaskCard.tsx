@@ -7,7 +7,7 @@ const TaskCard = ({id, title, status, className, children}: TaskCardProps) => {
       {/* <p>{description}</p>
       <p>{date}</p> */}
       <span>{status}</span>
-      <span>Project Number: {id}</span>
+      <span>Task Number: {id}</span>
       {children}
     </div>
   )

@@ -1,6 +1,7 @@
 import ProjectCard from "../features/projects/components/ProjectCard";
 import { useProjectStore } from "../features/projects/store/projectStore"
 import Button from "../components/common/Button";
+import { Link } from "react-router";
 
 const DashboardPage = () => {
   const projectsAmount = useProjectStore((state) => state.projects).length
@@ -22,9 +23,9 @@ const DashboardPage = () => {
             </div>
             <div className="bg-white border border-gray-300 rounded-lg p-4 flex flex-col items-center gap-4 w-full">
               <h2 className="text-2xl font-semibold">اضافه کردن پروژه</h2>
-                <Button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 duration-300 rounded-lg p-2 text-white cursor-pointer">
-                  اضافه کردن
-                </Button>
+              <Button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 duration-300 rounded-lg p-2 text-white cursor-pointer">
+                اضافه کردن
+              </Button>
             </div>
 
           </div>
@@ -35,11 +36,15 @@ const DashboardPage = () => {
               <div className="flex flex-row gap-3 overflow-x-auto w-full pb-2">
                 {
                   threeLatestProjects.map((project) =>
-                    <ProjectCard
-                      key={project.id}
-                      {...project}
-                      className="shadow p-2 rounded-lg w-[300px] min-w-[300px] flex justify-center items-center flex-col gap-2 bg-blue-100 align-top whitespace-normal flex-shrink-0"
-                    />
+                    <Link
+                      to={`/projects/${project.id}`}
+                      key={project.id}>
+                      <ProjectCard
+                        key={project.id}
+                        {...project}
+                        className="shadow p-2 rounded-lg w-[300px] min-w-[300px] flex justify-center items-center flex-col gap-2 bg-blue-100 align-top whitespace-normal flex-shrink-0"
+                      />
+                    </Link>
                   )
                 }
               </div>
