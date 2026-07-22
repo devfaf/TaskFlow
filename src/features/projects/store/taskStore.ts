@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { Task } from "../../types/task";
+import type { Task, TaskStatus } from "../../types/task";
 import { persist } from "zustand/middleware";
 
 type TaskStore = {
@@ -9,6 +9,7 @@ type TaskStore = {
   addTask: (task: Task) => void;
   removeTask: (id: number) => void;
   updateTask: (task: Task) => void;
+  updateTaskStatus: (id: Number, status: TaskStatus) => void;
 }
 
 export const useTaskStore = create<TaskStore>()(
@@ -36,6 +37,12 @@ export const useTaskStore = create<TaskStore>()(
         set({
           editingTask: task
         }),
+        updateTaskStatus: (id, status) => 
+          set((state) => ({
+            tasks: state.tasks.map((task) => 
+              task.id === id ? {...task, status} : task
+            )
+          })),
     }),
     {
       name: "task-storage",
