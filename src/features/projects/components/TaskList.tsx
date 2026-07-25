@@ -2,9 +2,9 @@ import { useTaskStore } from "../store/taskStore"
 import TaskCard from "./TaskCard"
 import { useParams } from "react-router"
 import { BsFillTrash3Fill } from "react-icons/bs";
-import EmptyState from "../../../components/common/EmptyState";
 import { BsFillPencilFill } from "react-icons/bs";
 import { useProjectStore } from "../store/projectStore";
+import EmptyState from "../../../components/common/EmptyState";
 
 const TaskList = () => {
     const tasks = useTaskStore(state => state.tasks)

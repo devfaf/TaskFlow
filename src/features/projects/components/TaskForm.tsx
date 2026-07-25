@@ -1,4 +1,4 @@
-import { useState, type SyntheticEvent } from "react";
+import { useEffect, useState, type SyntheticEvent } from "react";
 import type { ModalProps } from "../../../components/types/modal"
 import Input from "../../../components/common/Input"
 // import TextArea from "../../../components/common/TextArea"
@@ -11,23 +11,55 @@ import Select from "../../../components/common/Select";
 import { BOARD_STATUS_OPTIONS } from "../../types/boardColumnProps";
 
 const TaskForm = ({ isOpen, onClose }: ModalProps) => {
+    const { id } = useParams();
     const addTask = useTaskStore((state) => state.addTask)
     const [title, setTitle] = useState("");
     const [status, setStatus] = useState<TaskStatus>("todo")
-    const { id } = useParams();
+    const editingTask = useTaskStore((state) => state.editingTask)
+    const updateTask = useTaskStore((state) => state.updateTask)
+    const setEditingTask = useTaskStore((state) => state.setEditingTask)
+    const isTitleValid = title.trim().length > 0
+    // const isDescriptionValid = description.trim().length >= 5
+
 
     const submitHandler = (e: SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault()
-        addTask({
-            projectId: Number(id),
-            id: Date.now(),
-            title,
-            status,
-        })
+        if (!isTitleValid) {
+            return;
+        }
+
+        if (editingTask) {
+            updateTask({
+                projectId: Number(id),
+                id: editingTask.id,
+                title,
+                // description,
+                // date: editingTask.date,
+                status,
+            })
+        } else {
+            addTask({
+                projectId: Number(id),
+                id: Date.now(),
+                title,
+                // description,
+                // date: new Date().toLocaleDateString(),
+                status,
+            })
+        }
         onClose()
         setTitle("")
         setStatus("todo")
+        setEditingTask(null)
     }
+
+    useEffect(() => {
+        if (editingTask) {
+            setTitle(editingTask.title)
+            // setDescription(editingProject.description)
+            setStatus(editingTask.status)
+        }
+    }, [editingTask])
 
     return (
         <form onSubmit={submitHandler} className={`absolute ${isOpen ? "block" : "hidden"}`}>
@@ -35,6 +67,7 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
                 <div
                     onClick={() => {
                         onClose()
+                        setEditingTask(null)
                     }}
                     className="absolute inset-0 bg-black/30"
                 ></div>
@@ -43,6 +76,8 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
                         className="text-xl cursor-pointer"
                         onClick={() => {
                             onClose()
+                            setEditingTask(null)
+
                         }}
                     />
                     <Input
@@ -81,6 +116,8 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
                             type="button"
                             onClick={() => {
                                 onClose()
+                                setEditingTask(null)
+
                             }}
                             className="bg-red-500 hover:bg-red-700 duration-300 rounded-lg p-2 text-white cursor-pointer w-full">انصراف</Button>
                     </div>
