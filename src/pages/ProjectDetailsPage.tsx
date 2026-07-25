@@ -46,8 +46,8 @@ const ProjectDetailsPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="mx-4 bg-gray-100 flex flex-col justify-center items-center">
-                <nav className="flex gap-4 pb-4">
+            <div className="mx-4 bg-gray-100 flex flex-col justify-center">
+                <nav className="flex justify-center gap-4 pb-4">
                     <div>
                         <NavLink to="overview" className={({ isActive }) =>
                             `border-b-2 ${isActive ? "border-blue-400" : "text-gray-400 border-transparent"}`

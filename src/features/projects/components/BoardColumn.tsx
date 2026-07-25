@@ -3,6 +3,8 @@ import { useTaskStore } from "../store/taskStore"
 import { useParams } from "react-router"
 import { useDroppable } from '@dnd-kit/react';
 import DraggableTaskCard from "./DraggableTaskCard";
+import TaskCardSkeleton from "../../../components/common/TaskCardSkeleton";
+import { useEffect, useState } from "react";
 
 
 const BoardColumn = ({ value, label }: BoardColumnProps) => {
@@ -19,21 +21,34 @@ const BoardColumn = ({ value, label }: BoardColumnProps) => {
     });
     console.log(ref);
 
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false)
+        }, 1500);
+
+        return () => clearTimeout(timer)
+    }, [])
 
 
     return (
         <section ref={ref} className="p-4 flex flex-col bg-blue-200 rounded-xl items-center">
             <h2 className="border-b-2 border-blue-400 pb-1">{label}</h2>
-            <div>
-                {
-                    filteredTasks.map((task) =>
-                        <DraggableTaskCard
-                            task={task}
-                            key={task.id}
-                        />
-                    )
-                }
-            </div>
+            {isLoading ? (
+                <TaskCardSkeleton />
+            ) :
+                <div>
+                    {
+                        filteredTasks.map((task) =>
+                            <DraggableTaskCard
+                                task={task}
+                                key={task.id}
+                            />
+                        )
+                    }
+                </div>
+            }
         </section>
     )
 }

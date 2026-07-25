@@ -16,7 +16,7 @@ const DraggableTaskCard = ({ task }: DraggableTaskCardProps) => {
         <div ref={ref}>
             <TaskCard
                 {...task}
-                className="shadow p-2 rounded-lg flex justify-center items-center flex-col gap-2 bg-yellow-100 mt-4"
+                className="shadow p-2 rounded-lg flex justify-center items-center flex-col gap-2 bg-yellow-100 mt-4 w-full"
             />
         </div>
     )
