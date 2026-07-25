@@ -37,7 +37,7 @@ const ProjectList = () => {
                 return timeA - timeB
             case "title":
                 return projectA.title.localeCompare(projectB.title)
-            default: 
+            default:
                 return 0
         }
 
@@ -49,18 +49,24 @@ const ProjectList = () => {
             {
                 sortedProjects.length > 0 ? sortedProjects.map((project) => {
                     return (
-                        <Link 
-                        to={`/projects/${project.id}`} 
-                        key={project.id}>
+                        <Link
+                            to={`/projects/${project.id}`}
+                            key={project.id}>
                             <ProjectCard
                                 {...project}
                                 className="shadow p-2 rounded-lg w-md flex justify-center items-center flex-col gap-2 bg-blue-100"
                             >
                                 <div className="flex gap-4">
                                     <BsFillTrash3Fill
-                                        onClick={() => deleteProjectBtn(project.id)} className="cursor-pointer hover:text-red-600" />
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+                                            deleteProjectBtn(project.id)
+                                        }} className="cursor-pointer hover:text-red-600" />
                                     <BsFillPencilFill
-                                        onClick={() => {
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            e.stopPropagation();
                                             setEditingProject(project)
                                             openModal()
                                         }}
@@ -69,7 +75,7 @@ const ProjectList = () => {
                             </ProjectCard>
                         </Link>
                     )
-                }) : <EmptyState/>
+                }) : <EmptyState />
             }
         </div>
     )

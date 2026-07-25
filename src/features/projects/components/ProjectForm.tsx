@@ -55,6 +55,10 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
       setTitle(editingProject.title)
       setDescription(editingProject.description)
       setStatus(editingProject.status)
+    } else {
+      setTitle("")
+      setDescription("")
+      setStatus("active")
     }
   }, [editingProject])
 

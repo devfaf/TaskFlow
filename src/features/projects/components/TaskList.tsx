@@ -30,12 +30,15 @@ const TaskList = () => {
                             <div className="flex gap-4">
                                 <BsFillTrash3Fill
                                     className="cursor-pointer hover:text-red-600"
-                                    onClick={() =>
+                                    onClick={(e) => {
+                                        e.stopPropagation();
                                         removeTask(task.id)
-                                    }
+                                    }}
                                 />
                                 <BsFillPencilFill
-                                    onClick={() => {
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
                                         setEditingTask(task)
                                         openModal()
                                     }}

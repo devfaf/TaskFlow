@@ -31,12 +31,14 @@ const DraggableTaskCard = ({ task }: DraggableTaskCardProps) => {
                 <div className="flex gap-4">
                     <BsFillTrash3Fill
                         className="cursor-pointer hover:text-red-600"
-                        onClick={() =>
+                        onClick={(e) => {
                             removeTask(task.id)
-                        }
+                            e.stopPropagation()
+                        }}
                     />
                     <BsFillPencilFill
-                        onClick={() => {
+                        onClick={(e) => {
+                            e.stopPropagation();
                             setEditingTask(task)
                             openModal()
                         }}
