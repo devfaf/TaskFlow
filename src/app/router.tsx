@@ -7,6 +7,7 @@ import ProjectDetailsPage from "../pages/ProjectDetailsPage";
 import OverviewPage from "../pages/OverviewPage";
 import BoardPage from "../pages/BoardPage";
 import TasksPage from "../pages/TasksPage";
+import LoginPage from "../pages/LoginPage";
 
 export const router = createBrowserRouter([
     {
@@ -24,7 +25,7 @@ export const router = createBrowserRouter([
             {
                 path: "setting",
                 element: <SettingPage />
-            },
+            }
         ]
     },
     {
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
                 element: <TasksPage />
             },
         ]
+    },
+    {
+        path: "login",
+        element: <LoginPage />
     }
 
 ])
