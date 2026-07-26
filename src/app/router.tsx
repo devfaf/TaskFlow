@@ -8,6 +8,9 @@ import OverviewPage from "../pages/OverviewPage";
 import BoardPage from "../pages/BoardPage";
 import TasksPage from "../pages/TasksPage";
 import LoginPage from "../pages/LoginPage";
+import ProtectedRoutes from "../features/projects/components/ProtectedRoutes";
+import ProfilePage from "../pages/ProfilePage";
+
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +28,10 @@ export const router = createBrowserRouter([
             {
                 path: "setting",
                 element: <SettingPage />
+            },
+            {
+                path: "profile",
+                element: <ProfilePage />
             }
         ]
     },
@@ -50,6 +57,15 @@ export const router = createBrowserRouter([
     {
         path: "login",
         element: <LoginPage />
+    },
+    {
+        element: <ProtectedRoutes />,
+        children: [
+            {
+                path: "setting",
+                element: <SettingPage />
+            }
+        ]
     }
 
 ])

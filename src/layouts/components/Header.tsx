@@ -3,14 +3,22 @@ import Button from "../../components/common/Button"
 import Input from "../../components/common/Input"
 import { useProjectStore } from "../../features/projects/store/projectStore"
 import ProjectForm from "../../features/projects/components/ProjectForm"
-import Login from "../../features/projects/components/Login"
+import { CiLogin } from "react-icons/ci";
+import { useAuthStore } from "../../features/auth/authStore"
 
 
 const Header = () => {
   const isModalOpen = useProjectStore((state) => state.isModalOpen)
   const closeModal = useProjectStore((state) => state.closeModal)
   const openModal = useProjectStore((state) => state.openModal)
+  const isAuthenticated = useAuthStore(state => state.isAuthenticated)
+  const logout = useAuthStore(state => state.logout)
 
+  const logoutHandler = () => {
+    logout()
+
+
+  }
 
   return (
     <header className="flex gap-4 mx-auto p-3 border-b border-gray-300 z-50 bg-white fixed w-full top-0">
@@ -27,20 +35,39 @@ const Header = () => {
         </div>
 
         <div className="flex gap-4 w-full justify-end items-center">
-          <div className="bg-white w-10 h-10 flex items-end overflow-hidden justify-center rounded-full border-2 border-gray-300">
-            <Link to="login">
-              <img src="/user/user-profile.png" alt="عکس پروفایل کاربر" className="w-7" />
-            </Link>
+          <div className="flex gap-2 items-center">
+            {
+              isAuthenticated ? (
+                <div className="relative group">
+                  <Link to="profile">
+                    <div className="bg-white w-10 h-10 flex items-end overflow-hidden justify-center rounded-full border-2 border-gray-300">
+                      <img src="/user/user-profile.png" alt="عکس پروفایل کاربر" className="w-7" />
+                    </div>
+                  </Link>
+                  <div className="bg-white p-4 rounded-lg absolute border-2 border-gray-300 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
+                    <Button className="bg-blue-500 p-2 text-white rounded-lg cursor-pointer" onClick={logoutHandler}>logout</Button>
+                  </div>
+
+                </div>
+              ) : (
+                <Link to="login">
+                  <div className="flex gap-2 p-2 rounded-lg bg-gray-200 duration-200 hover:bg-gray-50 cursor-pointer">
+                    <CiLogin className="text-3xl" />
+                    <span>ورود | ثبت نام</span>
+                  </div>
+                </Link>
+              )
+            }
           </div>
 
           <Input className={`bg-gray-100 border-2 border-gray-300 outline-none rounded-lg px-2 w-full`} type="text" />
         </div>
 
-      </div>
+      </div >
       <ProjectForm isOpen={isModalOpen} onClose={closeModal}>
         فرم افزودن پروژه
       </ProjectForm>
-    </header>
+    </header >
   )
 }
 
