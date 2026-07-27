@@ -5,6 +5,7 @@ import { useProjectStore } from "../../features/projects/store/projectStore"
 import ProjectForm from "../../features/projects/components/ProjectForm"
 import { CiLogin } from "react-icons/ci";
 import { useAuthStore } from "../../features/auth/authStore"
+import { CiSearch } from "react-icons/ci";
 
 
 const Header = () => {
@@ -29,9 +30,9 @@ const Header = () => {
               <img src="/logo/logo.webp" className="w-30" alt="لوگوی تسک فلو" />
             </Link>
           </div>
-          <Button 
-          onClick={openModal} 
-          variant="primary">
+          <Button
+            onClick={openModal}
+            variant="primary">
             اضافه کردن
           </Button>
         </div>
@@ -62,7 +63,16 @@ const Header = () => {
             }
           </div>
 
-          <Input type="text" />
+          <div>
+
+            <Input
+              id="search"
+              type="text"
+              placeholder="جستجو"
+              icon={<CiSearch />}
+            />
+
+          </div>
         </div>
 
       </div >

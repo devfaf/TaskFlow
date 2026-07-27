@@ -81,6 +81,7 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
                         }}
                     />
                     <Input
+                    id="title"
                         value={title}
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)}
                         placeholder="عنوان" label="عنوان پروژه"

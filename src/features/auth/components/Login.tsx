@@ -29,6 +29,7 @@ const Login = () => {
             <h2 className="text-2xl font-bold">فرم لاگین</h2>
             <div className="w-full">
                 <Input
+                id="email"
                     placeholder="ایمیل"
                     label="ایمیل"
                     type="email"

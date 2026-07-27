@@ -23,8 +23,13 @@
     --color-card: #F3F3FE;
 }
 
+@font-face {
+    font-family: "Yekan";
+    src: url('/src/assets/fonts/Yekan.woff2');
+}
+
 body {
-    font-family: "Vazirmatn", sans-serif;
+    font-family: "Yekan", sans-serif;
     background: var(--color-background);
     color: var(--color-text-primary);
 }

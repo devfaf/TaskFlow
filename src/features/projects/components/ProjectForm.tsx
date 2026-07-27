@@ -107,7 +107,7 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
           <Select options={PROJECT_STATUS_OPTIONS}
             value={status}
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setStatus(e.target.value as ProjectStatus)}
-            className="bg-white rounded-lg p-1 border-gray-300 border-2" />
+            />
 
           <div className="flex gap-2 w-full">
             <Button

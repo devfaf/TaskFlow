@@ -14,5 +14,6 @@ export type InputProps = {
     required?: boolean;
     value?: string;
     placeholder?:string;
+    icon?:React.ReactNode;
     onChange?:(e: React.ChangeEvent<HTMLInputElement>) => void;
 }
