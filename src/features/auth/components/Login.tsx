@@ -32,7 +32,6 @@ const Login = () => {
                     placeholder="ایمیل"
                     label="ایمیل"
                     type="email"
-                    className={`bg-gray-100 border-2 border-gray-300 outline-none rounded-lg px-2 w-full`}
                 />
             </div>
             <div className="w-full">
@@ -40,7 +39,7 @@ const Login = () => {
                     placeholder="پسورد"
                     label="پسورد"
                     type="password"
-                    className={`bg-gray-100 border-2 border-gray-300 outline-none rounded-lg px-2 w-full`}
+                    
                 />
             </div>
             <div className="w-full">

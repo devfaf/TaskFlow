@@ -6,6 +6,7 @@ export type InputProps = {
     | 'text' 
     | 'checkbox';
     label?:string;
+    disabled?: boolean;
     id?: string;
     className?:string;
     name?: string;
@@ -14,7 +15,4 @@ export type InputProps = {
     value?: string;
     placeholder?:string;
     onChange?:(e: React.ChangeEvent<HTMLInputElement>) => void;
-    // minlength?: number;
-    // maxlength?: number;
-    // size?: number;
 }

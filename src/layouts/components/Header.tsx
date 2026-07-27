@@ -62,7 +62,7 @@ const Header = () => {
             }
           </div>
 
-          <Input className={`bg-gray-100 border-2 border-gray-300 outline-none rounded-lg px-2 w-full`} type="text" />
+          <Input type="text" />
         </div>
 
       </div >

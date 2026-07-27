@@ -82,10 +82,10 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
           />
           <Input
             value={title}
+            id="title"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)}
             placeholder="عنوان" 
             label="عنوان پروژه"
-            className={`bg-gray-100 border-2 border-gray-300 outline-none rounded-lg px-2 w-full`}
             type="text"
             error={
               title.trim().length === 0 ? "عنوان اجباری است" : null
