@@ -4,13 +4,15 @@ import { CiSearch } from "react-icons/ci";
 
 const SearchProjects = () => {
     const setSearch = useProjectStore((state) => state.setSearch)
-    
+
     return (
         <div>
-            <div className="bg-gray-100 border-2 border-gray-300 outline-none rounded-lg px-2 w-sm flex items-center gap-2 text-center">
-                <CiSearch className="text-xl cursor-pointer" />
-                <Input placeholder="عنوان پروژه را جستچو کنید" type="text" onChange={(e) => setSearch(e.target.value)} />
-            </div>
+            <Input 
+            placeholder="عنوان پروژه را جستچو کنید" type="text" 
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-sm"
+            icon={<CiSearch />}
+            />
         </div>
     )
 }

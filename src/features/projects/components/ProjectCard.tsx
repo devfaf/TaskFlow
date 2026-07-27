@@ -53,9 +53,9 @@ const ProjectCard = ({
           {status === "active" ? "فعال" : "تکمیل شده"}
         </span>
 
-        <div className="absolute left-[-5px] top-0 duration-200 hover:bg-[var(--color-hover)] p-1.5 rounded-full">
-          <PiDotsThreeVerticalBold />
-        </div>
+        <button className="absolute left-0 top-0 hover:bg-[var(--color-hover)] rounded-lg p-2 text-[var(--color-text-secondary)] transition-all duration-200">
+          <PiDotsThreeVerticalBold className="text-lg" />
+        </button>
 
       </div>
 
