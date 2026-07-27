@@ -65,7 +65,14 @@ const SortProjects = () => {
           hover:bg-[var(--color-hover)]
         "
       >
-        <CiBoxList className="text-xl" />
+        <CiBoxList
+          className={` text-xl transition-colors duration-200 
+            ${isSortActive
+              ? "text-[var(--color-primary)]"
+              : "text-[var(--color-text-secondary)]"
+            }
+  `}
+        />
         <span>
           {isSortActive ? "مرتب‌سازی (1)" : "مرتب‌سازی"}
         </span>

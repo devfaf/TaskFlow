@@ -45,16 +45,18 @@ const ProjectList = () => {
     })
 
     return (
-        <div className="flex flex-col gap-3">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
             {
                 sortedProjects.length > 0 ? sortedProjects.map((project) => {
                     return (
                         <Link
                             to={`/projects/${project.id}`}
-                            key={project.id}>
+                            key={project.id}
+                            className="w-full"
+                            >
                             <ProjectCard
                                 {...project}
-                                className="w-[300px] min-w-[300px]"
+                                className="h-full"
                             >
                                 <div className="flex items-center gap-2">
 

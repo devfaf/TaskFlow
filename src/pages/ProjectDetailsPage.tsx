@@ -1,79 +1,198 @@
-import { useParams } from "react-router"
+import { NavLink, Outlet, useParams } from "react-router";
 import { useProjectStore } from "../features/projects/store/projectStore";
-import { NavLink } from "react-router";
-import { Outlet } from "react-router";
 
 const ProjectDetailsPage = () => {
-    const { id } = useParams();
-    const projects = useProjectStore(state => state.projects)
-    const project = projects.find((p) => p.id === Number(id))
+  const { id } = useParams();
 
+  const projects = useProjectStore((state) => state.projects);
+
+  const project = projects.find((p) => p.id === Number(id));
+
+  if (!project) {
     return (
-        <div>
-            <div>
-                <div className="bg-blue-100 border-2 border-blue-300 rounded-xl p-4 flex flex-col gap-4 w-lg mx-auto my-4">
-                    <div className="flex gap-2">
-                        <div>
-                            عنوان پروژه:
-                        </div>
-                        <div>
-                            {project?.title}
-                        </div>
-                    </div>
-                    <div className="flex gap-2">
-                        <div>
-                            توضیحات
-                        </div>
-                        <div>
-                            {project?.description}
-                        </div>
-                    </div>
-                    <div className="flex gap-2">
-                        <div>
-                            تاریخ
-                        </div>
-                        <div>
-                            {project?.date}
-                        </div>
-                    </div>
-                    <div className="flex gap-2">
-                        <div>
-                            وضعیت
-                        </div>
-                        <div>
-                            {project?.status}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="mx-4 bg-gray-100 flex flex-col justify-center">
-                <nav className="flex justify-center gap-4 pb-4">
-                    <div>
-                        <NavLink to="overview" className={({ isActive }) =>
-                            `border-b-2 ${isActive ? "border-blue-400" : "text-gray-400 border-transparent"}`
-                        }>
-                            Overview
-                        </NavLink>
-                    </div>
-                    <div>
-                        <NavLink to="board" className={({ isActive }) =>
-                            `border-b-2 ${isActive ? "border-blue-400" : "text-gray-400 border-transparent"}`
-                        }>
-                            Board
-                        </NavLink>
-                    </div>
-                    <div>
-                        <NavLink to="tasks" className={({ isActive }) =>
-                            `border-b-2 ${isActive ? "border-blue-400" : "text-gray-400 border-transparent"}`
-                        }>
-                            Tasks
-                        </NavLink>
-                    </div>
-                </nav>
-                <Outlet />
-            </div>
-        </div>
-    )
-}
+      <div className="flex h-[60vh] items-center justify-center text-[var(--color-text-secondary)]">
+        پروژه پیدا نشد.
+      </div>
+    );
+  }
 
-export default ProjectDetailsPage
+  return (
+    <section className="mx-auto max-w-7xl px-4 py-6">
+
+      {/* Header */}
+
+      <div
+        className="
+        rounded-xl
+        border
+        border-[var(--color-border)]
+        bg-white
+        p-6
+        shadow-sm
+      "
+      >
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+
+          <div className="flex-1">
+
+            <h1 className="mb-2 text-2xl font-bold text-[var(--color-text-primary)]">
+              {project.title}
+            </h1>
+
+            <p className="leading-8 text-[var(--color-text-secondary)]">
+              {project.description}
+            </p>
+
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+
+            <div
+              className="
+                rounded-lg
+                bg-[var(--color-primary-soft)]
+                px-4
+                py-2
+                text-sm
+                text-[var(--color-primary)]
+              "
+            >
+              #{project.id}
+            </div>
+
+            <div
+              className="
+                rounded-lg
+                bg-[var(--color-hover)]
+                px-4
+                py-2
+                text-sm
+                text-[var(--color-text-primary)]
+              "
+            >
+              {project.date}
+            </div>
+
+            <div
+              className={`
+                rounded-lg
+                px-4
+                py-2
+                text-sm
+
+                ${
+                  project.status === "active"
+                    ? "bg-green-100 text-green-700"
+                    : "bg-gray-100 text-gray-700"
+                }
+              `}
+            >
+              {project.status === "active"
+                ? "فعال"
+                : "تکمیل شده"}
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* Tabs */}
+
+      <div
+        className="
+          mt-6
+          rounded-xl
+          border
+          border-[var(--color-border)]
+          bg-white
+          shadow-sm
+        "
+      >
+        <nav
+          className="
+            flex
+            overflow-x-auto
+            border-b
+            border-[var(--color-border)]
+            px-2
+          "
+        >
+          <NavLink
+            to="overview"
+            className={({ isActive }) =>
+              `
+              whitespace-nowrap
+              border-b-2
+              px-5
+              py-4
+              text-sm
+              transition-all
+              duration-200
+
+              ${
+                isActive
+                  ? "border-[var(--color-primary)] text-[var(--color-primary)]"
+                  : "border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+              }
+            `
+            }
+          >
+            نمای کلی
+          </NavLink>
+
+          <NavLink
+            to="board"
+            className={({ isActive }) =>
+              `
+              whitespace-nowrap
+              border-b-2
+              px-5
+              py-4
+              text-sm
+              transition-all
+              duration-200
+
+              ${
+                isActive
+                  ? "border-[var(--color-primary)] text-[var(--color-primary)]"
+                  : "border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+              }
+            `
+            }
+          >
+            برد
+          </NavLink>
+
+          <NavLink
+            to="tasks"
+            className={({ isActive }) =>
+              `
+              whitespace-nowrap
+              border-b-2
+              px-5
+              py-4
+              text-sm
+              transition-all
+              duration-200
+
+              ${
+                isActive
+                  ? "border-[var(--color-primary)] text-[var(--color-primary)]"
+                  : "border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+              }
+            `
+            }
+          >
+            تسک‌ها
+          </NavLink>
+        </nav>
+
+        <div className="p-6">
+          <Outlet />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ProjectDetailsPage;

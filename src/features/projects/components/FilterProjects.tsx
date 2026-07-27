@@ -65,7 +65,18 @@ const FilterProjects = () => {
           hover:bg-[var(--color-hover)]
         "
       >
-        <CiFilter className="text-xl" />
+        <CiFilter
+          className={`
+          text-xl
+          shrink-0
+          transition-colors
+          duration-200
+          ${isFilterActive
+              ? "text-[var(--color-primary)]"
+              : "text-[var(--color-text-secondary)]"
+            }
+          `}
+        />
         <span>
           {isFilterActive ? "فیلتر" : "فیلتر"}
         </span>

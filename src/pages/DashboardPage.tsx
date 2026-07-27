@@ -1,61 +1,148 @@
 import ProjectCard from "../features/projects/components/ProjectCard";
-import { useProjectStore } from "../features/projects/store/projectStore"
+import { useProjectStore } from "../features/projects/store/projectStore";
 import Button from "../components/common/Button";
 import { Link } from "react-router";
+import { PiPlus } from "react-icons/pi";
 
 const DashboardPage = () => {
-  const projectsAmount = useProjectStore((state) => state.projects).length
-  const threeLatestProjects = useProjectStore((state) => state.projects).slice(-3)
-  const openModal = useProjectStore((state) => state.openModal)
+  const projects = useProjectStore((state) => state.projects);
 
+  const projectsAmount = projects.length;
+  const threeLatestProjects = [...projects].slice(-3).reverse();
+
+  const openModal = useProjectStore((state) => state.openModal);
 
   return (
-    <section>
-      <div className="p-4">
-        <div className="flex flex-col gap-4">
-          <div className="flex gap-4">
-            <div className="bg-white border border-gray-300 rounded-lg p-4 flex flex-col items-center gap-4 w-full">
-              <h2 className="text-2xl font-semibold">تعداد پروژه ها</h2>
-              <div className="text-2xl font-semibold">
-                {projectsAmount}
-              </div>
-            </div>
-            <div className="bg-white border border-gray-300 rounded-lg p-4 flex flex-col items-center gap-4 w-full">
-              <h2 className="text-2xl font-semibold">اضافه کردن پروژه</h2>
-              <Button 
-              onClick={openModal} 
-              variant="primary">
-                اضافه کردن
-              </Button>
-            </div>
+    <section className="space-y-6 p-6">
+
+      <div>
+        <h1 className="text-3xl font-bold text-[var(--color-text-primary)]">
+          داشبورد
+        </h1>
+
+        <p className="mt-1 text-sm text-[var(--color-text-secondary)]">
+          نمای کلی پروژه‌های شما
+        </p>
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-2">
+
+        <div
+          className="
+          rounded-xl
+          border
+          border-[var(--color-border)]
+          bg-white
+          p-6
+        "
+        >
+          <p className="text-sm text-[var(--color-text-secondary)]">
+            تعداد پروژه‌ها
+          </p>
+
+          <h2 className="mt-4 text-5xl font-bold text-[var(--color-primary)]">
+            {projectsAmount}
+          </h2>
+        </div>
+
+        <div
+          className="
+          rounded-xl
+          border
+          border-[var(--color-border)]
+          bg-white
+          p-6
+          shadow-sm
+          flex
+          flex-col
+          justify-between
+        "
+        >
+          <div>
+            <p className="text-sm text-[var(--color-text-secondary)]">
+              پروژه جدید
+            </p>
+
+            <h2 className="mt-2 text-xl font-semibold text-[var(--color-text-primary)]">
+              شروع یک پروژه جدید
+            </h2>
+          </div>
+
+          <div className="mt-6">
+            <Button
+              variant="primary"
+              onClick={openModal}
+              className="flex gap-2"
+            >
+              <PiPlus />
+              اضافه کردن پروژه
+            </Button>
+          </div>
+        </div>
+
+      </div>
+
+      <div
+        className="
+          rounded-xl
+          border
+          border-[var(--color-border)]
+          bg-white
+          p-6
+        "
+      >
+        <div className="mb-5 flex items-center justify-between">
+
+          <div>
+
+            <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
+              آخرین پروژه‌ها
+            </h2>
+
+            <p className="text-sm text-[var(--color-text-secondary)]">
+              آخرین پروژه‌های ایجاد شده
+            </p>
 
           </div>
 
-          <div className="bg-white border border-gray-300 rounded-lg p-4 flex flex-col gap-2 overflow-hidden">
-            <div className="flex flex-col items-start gap-2">
-              <h2 className="text-2xl font-semibold">پروژه های اخیر</h2>
-              <div className="flex flex-row gap-3 overflow-x-auto w-full pb-2">
-                {
-                  threeLatestProjects.map((project) =>
-                    <Link
-                      to={`/projects/${project.id}`}
-                      key={project.id}>
-                      <ProjectCard
-                        key={project.id}
-                        {...project}
-                        className="w-[300px] min-w-[300px]"
-                      />
-                    </Link>
-                  )
-                }
-              </div>
-            </div>
-          </div>
+          <Link
+            to="/projects"
+            className="
+              text-sm
+              text-[var(--color-primary)]
+              transition-colors
+              hover:underline
+            "
+          >
+            مشاهده همه
+          </Link>
 
+        </div>
+
+        <div
+          className="
+            flex
+            gap-4
+            overflow-x-auto
+            pb-2
+          "
+        >
+          {threeLatestProjects.map((project) => (
+            <Link
+              key={project.id}
+              to={`/projects/${project.id}`}
+              className="shrink-0"
+            >
+              <ProjectCard
+                {...project}
+                className="w-[320px]"
+              />
+            </Link>
+          ))}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default DashboardPage
+export default DashboardPage;
