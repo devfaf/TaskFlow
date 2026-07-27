@@ -81,7 +81,7 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
                         }}
                     />
                     <Input
-                    id="title"
+                        id="title"
                         value={title}
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)}
                         placeholder="عنوان" label="عنوان پروژه"
@@ -112,15 +112,18 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
                     <div className="flex gap-2 w-full">
                         <Button
                             type="submit"
-                            variant="primary">ذخیره</Button>
+                            variant="primary"
+                            className="w-full"
+                        >ذخیره</Button>
                         <Button
                             type="button"
                             onClick={() => {
                                 onClose()
                                 setEditingTask(null)
-
                             }}
-                            className="bg-red-500 hover:bg-red-700 duration-300 rounded-lg p-2 text-white cursor-pointer w-full">انصراف</Button>
+                            variant="danger"
+                            className="w-full"
+                        >انصراف</Button>
                     </div>
                 </div>
             </div>

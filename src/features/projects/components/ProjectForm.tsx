@@ -84,7 +84,7 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
             value={title}
             id="title"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)}
-            placeholder="عنوان" 
+            placeholder="عنوان"
             label="عنوان پروژه"
             type="text"
             error={
@@ -98,7 +98,7 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
             id="task"
             name="task"
             placeholder="توضیحات پروژه..."
-            className="bg-gray-100 border-2 border-gray-300 outline-none rounded-lg px-2 w-full"
+            label="توضیحات پروژه"
             error={
               description.trim().length < 5 ? "متن توضیحات باید بالای 5 کاراکتر باشد" : null
             }
@@ -107,19 +107,21 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
           <Select options={PROJECT_STATUS_OPTIONS}
             value={status}
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setStatus(e.target.value as ProjectStatus)}
-            />
+          />
 
           <div className="flex gap-2 w-full">
             <Button
               type="submit"
-              variant="primary">ذخیره</Button>
+              variant="primary"
+              className="w-full"
+            >ذخیره</Button>
             <Button
               type="button"
               onClick={() => {
                 onClose()
                 setEditingProject(null)
               }}
-              className="bg-red-500 hover:bg-red-700 duration-300 rounded-lg p-2 text-white cursor-pointer w-full">انصراف</Button>
+              variant="danger" className="w-full">انصراف</Button>
           </div>
         </div>
       </div>

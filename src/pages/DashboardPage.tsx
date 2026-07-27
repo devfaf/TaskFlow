@@ -43,7 +43,7 @@ const DashboardPage = () => {
                       <ProjectCard
                         key={project.id}
                         {...project}
-                        className="shadow p-2 rounded-lg w-[300px] min-w-[300px] flex justify-center items-center flex-col gap-2 bg-blue-100 align-top whitespace-normal flex-shrink-0"
+                        className="w-[300px] min-w-[300px]"
                       />
                     </Link>
                   )

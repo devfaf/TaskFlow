@@ -54,7 +54,7 @@ const ProjectList = () => {
                             key={project.id}>
                             <ProjectCard
                                 {...project}
-                                className="shadow p-2 rounded-lg w-md flex justify-center items-center flex-col gap-2 bg-blue-100"
+                                className="w-[300px] min-w-[300px]"
                             >
                                 <div className="flex gap-4">
                                     <BsFillTrash3Fill
