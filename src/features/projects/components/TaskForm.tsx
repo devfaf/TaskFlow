@@ -111,7 +111,7 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
                     <div className="flex gap-2 w-full">
                         <Button
                             type="submit"
-                            className="bg-blue-500 hover:bg-blue-700 duration-300 rounded-lg p-2 text-white cursor-pointer w-full">ذخیره</Button>
+                            variant="primary">ذخیره</Button>
                         <Button
                             type="button"
                             onClick={() => {

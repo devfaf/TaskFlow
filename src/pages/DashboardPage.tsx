@@ -6,7 +6,6 @@ import { Link } from "react-router";
 const DashboardPage = () => {
   const projectsAmount = useProjectStore((state) => state.projects).length
   const threeLatestProjects = useProjectStore((state) => state.projects).slice(-3)
-  console.log(threeLatestProjects);
   const openModal = useProjectStore((state) => state.openModal)
 
 
@@ -23,7 +22,9 @@ const DashboardPage = () => {
             </div>
             <div className="bg-white border border-gray-300 rounded-lg p-4 flex flex-col items-center gap-4 w-full">
               <h2 className="text-2xl font-semibold">اضافه کردن پروژه</h2>
-              <Button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 duration-300 rounded-lg p-2 text-white cursor-pointer">
+              <Button 
+              onClick={openModal} 
+              variant="primary">
                 اضافه کردن
               </Button>
             </div>

@@ -47,7 +47,7 @@ const Login = () => {
                 <Button
                     type="submit"
                     disabled={isLoading}
-                    className="bg-blue-500 hover:bg-blue-700 duration-300 rounded-lg p-2 text-white cursor-pointer w-full">
+                    variant="primary">
 
                     {
                         isLoading ? (

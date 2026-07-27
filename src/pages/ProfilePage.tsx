@@ -18,7 +18,7 @@ const ProfilePage = () => {
         ) : (
           <div>
             <Link to="/login">
-              <Button className="bg-blue-500 p-2 rounded-lg">ثبت نام</Button>
+              <Button variant="primary">ثبت نام</Button>
             </Link>
           </div>
         )

@@ -14,7 +14,9 @@ const TasksPage = () => {
   return (
     <div>
       <div>
-        <Button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 duration-300 rounded-lg p-2 text-white cursor-pointer">
+        <Button 
+        onClick={openModal} 
+        variant="primary">
           افزودن تسک +
         </Button>
       </div>

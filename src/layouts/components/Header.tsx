@@ -29,7 +29,9 @@ const Header = () => {
               <img src="/logo/logo.webp" className="w-30" alt="لوگوی تسک فلو" />
             </Link>
           </div>
-          <Button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 duration-300 rounded-lg p-2 text-white cursor-pointer">
+          <Button 
+          onClick={openModal} 
+          variant="primary">
             اضافه کردن
           </Button>
         </div>
