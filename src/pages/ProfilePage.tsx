@@ -1,30 +1,96 @@
-import { useAuthStore } from "../features/auth/authStore"
-import Button from "../components/common/Button"
-import { Link } from "react-router"
+import { Link } from "react-router";
 
+import Button from "../components/common/Button";
+import { useAuthStore } from "../features/auth/authStore";
 
 const ProfilePage = () => {
-  const isAuthenticated = useAuthStore(state => state.isAuthenticated);
+  const isAuthenticated = useAuthStore(
+    (state) => state.isAuthenticated
+  );
 
   return (
-    <div>
-      {
-        isAuthenticated ? (
-          <div className="flex flex-col gap-4 items-center mt-30">
-            <span className="bg-gray-100 w-lg rounded-lg p-2">اسم</span>
-            <span className="bg-gray-100 w-lg rounded-lg p-2">ایمیل</span>
-            <span className="bg-gray-100 w-lg rounded-lg p-2">رمز</span>
-          </div>
-        ) : (
-          <div>
-            <Link to="/login">
-              <Button variant="primary">ثبت نام</Button>
-            </Link>
-          </div>
-        )
-      }
-    </div>
-  )
-}
+    <section className="mx-auto max-w-3xl p-6">
 
-export default ProfilePage
+      <h1 className="mb-6 text-3xl font-bold text-[var(--color-text-primary)]">
+        پروفایل
+      </h1>
+
+      {isAuthenticated ? (
+        <div
+          className="
+            flex
+            flex-col
+            gap-5
+            rounded-xl
+            border
+            border-[var(--color-border)]
+            bg-white
+            p-6
+          "
+        >
+          <div className="flex flex-col gap-2">
+            <span className="text-sm text-[var(--color-text-secondary)]">
+              نام
+            </span>
+
+            <div className="rounded-lg bg-[var(--color-background)] px-4 py-2">
+              John Doe
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <span className="text-sm text-[var(--color-text-secondary)]">
+              ایمیل
+            </span>
+
+            <div className="rounded-lg bg-[var(--color-background)] px-4 py-2">
+              john@example.com
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <span className="text-sm text-[var(--color-text-secondary)]">
+              رمز عبور
+            </span>
+
+            <div className="rounded-lg bg-[var(--color-background)] px-4 py-2">
+              ••••••••••••
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div
+          className="
+            flex
+            flex-col
+            items-center
+            justify-center
+            gap-5
+            rounded-xl
+            border
+            border-dashed
+            border-[var(--color-border)]
+            bg-white
+            py-14
+          "
+        >
+          <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
+            وارد حساب کاربری نشده‌اید
+          </h2>
+
+          <p className="text-sm text-[var(--color-text-secondary)]">
+            برای مشاهده اطلاعات پروفایل ابتدا وارد حساب خود شوید.
+          </p>
+
+          <Link to="/login">
+            <Button variant="primary">
+              ورود | ثبت‌نام
+            </Button>
+          </Link>
+        </div>
+      )}
+    </section>
+  );
+};
+
+export default ProfilePage;
