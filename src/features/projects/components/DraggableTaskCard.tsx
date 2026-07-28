@@ -26,23 +26,30 @@ const DraggableTaskCard = ({ task }: DraggableTaskCardProps) => {
         <div ref={ref}>
             <TaskCard
                 {...task}
-                className="shadow p-2 rounded-lg flex justify-center items-center flex-col gap-2 bg-yellow-100 mt-4 w-full"
+                className="wrap-anywhere"
             >
-                <div className="flex gap-4">
-                    <BsFillTrash3Fill
-                        className="cursor-pointer hover:text-red-600"
+                <div className="flex items-center gap-2">
+                    <button
                         onClick={(e) => {
                             removeTask(task.id)
                             e.stopPropagation()
                         }}
-                    />
-                    <BsFillPencilFill
+                        className="rounded-lg p-2 text-[var(--color-text-secondary)] transition-all duration-200 hover:bg-[var(--color-danger-soft)] hover:text-[var(--color-danger)] cursor-pointer"
+                        aria-label="حذف پروژه"
+                    >
+                        <BsFillTrash3Fill size={16} />
+                    </button>
+                    <button
                         onClick={(e) => {
                             e.stopPropagation();
                             setEditingTask(task)
                             openModal()
                         }}
-                        className="cursor-pointer hover:text-red-600" />
+                        className="rounded-lg p-2 text-[var(--color-text-secondary)] transition-all duration-200 hover:bg-[var(--color-primary-soft)] hover:text-[var(--color-primary)] cursor-pointer"
+                        aria-label="ویرایش پروژه"
+                    >
+                        <BsFillPencilFill size={16} />
+                    </button>
                 </div>
             </TaskCard>
             <TaskForm isOpen={isModalOpen} onClose={closeModal}>

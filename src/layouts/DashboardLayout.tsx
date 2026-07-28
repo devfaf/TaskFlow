@@ -12,7 +12,7 @@ const DashboardLayout = () => {
       <div className="flex">
         <Sidebar isSidebarOpen={isSidebarOpen} />
 
-        <main className="flex-1 pr-64 overflow-hidden py-4 mt-13">
+        <main className="lg:pr-64 flex-1 overflow-hidden lg:py-4 lg:mt-13">
           <Outlet />
         </main>
       </div>

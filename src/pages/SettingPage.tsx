@@ -2,7 +2,9 @@
 
 const SettingPage = () => {
   return (
-    <div>SettingPage</div>
+    <div className="flex text-center items-center justify-center mt-24">
+      <span className="text-5xl font-bold">به زودی...</span>
+    </div>
   )
 }
 

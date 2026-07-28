@@ -17,9 +17,7 @@ const ProjectDetailsPage = () => {
   }
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-6">
-
-      {/* Header */}
+    <section className="mx-auto max-w-7xl px-4 py-6 bg-[var(--color-background)] h-screen">
 
       <div
         className="
@@ -28,7 +26,6 @@ const ProjectDetailsPage = () => {
         border-[var(--color-border)]
         bg-white
         p-6
-        shadow-sm
       "
       >
         <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
@@ -96,7 +93,6 @@ const ProjectDetailsPage = () => {
         </div>
       </div>
 
-      {/* Tabs */}
 
       <div
         className="
@@ -105,7 +101,6 @@ const ProjectDetailsPage = () => {
           border
           border-[var(--color-border)]
           bg-white
-          shadow-sm
         "
       >
         <nav

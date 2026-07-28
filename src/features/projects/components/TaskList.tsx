@@ -18,18 +18,18 @@ const TaskList = () => {
 
 
     return (
-        <div className="flex flex-col gap-3">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
             {
                 projectTasks.length > 0 ? projectTasks.map(task => {
                     return (
                         <TaskCard
                             {...task}
                             key={task.id}
-                            className="shadow p-2 rounded-lg flex justify-center items-center flex-col gap-2 bg-yellow-100"
                         >
-                            <div className="flex gap-4">
+                            <div className="flex items-center gap-2">
                                 <BsFillTrash3Fill
-                                    className="cursor-pointer hover:text-red-600"
+                                    className="rounded-lg p-2 text-[var(--color-text-secondary)] transition-all duration-200 hover:bg-[var(--color-danger-soft)] hover:text-[var(--color-danger)] cursor-pointer"
+                                        aria-label="حذف تسک"
                                     onClick={(e) => {
                                         e.stopPropagation();
                                         removeTask(task.id)
@@ -42,7 +42,8 @@ const TaskList = () => {
                                         setEditingTask(task)
                                         openModal()
                                     }}
-                                    className="cursor-pointer hover:text-red-600" />
+                                    className="rounded-lg p-2 text-[var(--color-text-secondary)] transition-all duration-200 hover:bg-[var(--color-primary-soft)] hover:text-[var(--color-primary)] cursor-pointer"
+                                        aria-label="ویرایش تسک" />
                             </div>
 
                         </TaskCard>

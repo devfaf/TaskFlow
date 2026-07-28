@@ -33,8 +33,17 @@ const BoardColumn = ({ value, label }: BoardColumnProps) => {
 
 
     return (
-        <section ref={ref} className="p-4 flex flex-col bg-blue-200 rounded-xl items-center">
-            <h2 className="border-b-2 border-blue-400 pb-1">{label}</h2>
+        <section ref={ref} className={`
+            rounded-xl
+            border
+            border-[var(--color-border)]
+            bg-white
+            p-4
+            transition-all
+            duration-200
+            space-y-4
+        `}>
+            <h2 className="text-lg font-semibold text-[var(--color-text-primary)] pb-2 border-b border-[var(--color-border)]">{label}</h2>
             {isLoading ? (
                 <TaskCardSkeleton />
             ) :
