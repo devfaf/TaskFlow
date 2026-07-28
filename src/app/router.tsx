@@ -49,6 +49,7 @@ export const router = createBrowserRouter([
                 element: <BoardPage />
             },
             {
+                index:true,
                 path: "tasks",
                 element: <TasksPage />
             },
