@@ -1,10 +1,16 @@
 import { SidebarItems } from "./SidebarItems";
 
-const Sidebar = () => {
+type SidebarProps = {
+  isSidebarOpen: boolean;
+};
+
+const Sidebar = ({isSidebarOpen}: SidebarProps) => {
   return (
     <aside
-      className="
-        fixed
+      className={`
+        ${isSidebarOpen ? "visible" : "hidden"}
+        w-64
+        absolute
         right-0
         top-16
         bottom-0
@@ -14,7 +20,7 @@ const Sidebar = () => {
         border-[var(--color-border)]
         bg-white
         mt-1
-      "
+      `}
     >
       <div className="h-full overflow-y-auto">
         <SidebarItems />

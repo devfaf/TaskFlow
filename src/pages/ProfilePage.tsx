@@ -9,11 +9,16 @@ const ProfilePage = () => {
   );
 
   return (
-    <section className="mx-auto max-w-3xl p-6">
+    <section className="space-y-6 p-6">
 
-      <h1 className="mb-6 text-3xl font-bold text-[var(--color-text-primary)]">
-        پروفایل
-      </h1>
+      <div>
+        <h1 className="text-3xl font-bold text-[var(--color-text-primary)]">
+          پروفایل
+        </h1>
+        <p className="mt-1 text-sm text-[var(--color-text-secondary)]">
+          اطلاعات حساب کاربری
+        </p>
+      </div>
 
       {isAuthenticated ? (
         <div
