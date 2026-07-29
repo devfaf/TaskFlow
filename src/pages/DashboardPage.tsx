@@ -3,6 +3,7 @@ import { useProjectStore } from "../features/projects/store/projectStore";
 import Button from "../components/common/Button";
 import { Link } from "react-router";
 import { PiPlus } from "react-icons/pi";
+import ProjectStatusCharts from "../features/projects/components/ProjectStatusCharts";
 
 const DashboardPage = () => {
   const projects = useProjectStore((state) => state.projects);
@@ -14,7 +15,7 @@ const DashboardPage = () => {
 
   return (
     <section className="space-y-6 p-6">
-
+      <ProjectStatusCharts/>
       <div>
         <h1 className="text-3xl font-bold text-[var(--color-text-primary)]">
           داشبورد
