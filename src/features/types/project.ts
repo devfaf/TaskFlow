@@ -3,6 +3,17 @@ export type ProjectSort = "newest" | "oldest" | "title";
 
 export const PROJECT_STATUS_OPTIONS = [
     {
+        value: "active",
+        label: "فعال"
+    },
+    {
+        value: "completed",
+        label: "تکمیل شده"
+    },
+]
+
+export const PROJECT_FILTER_OPTIONS = [
+    {
         value: "all",
         label: "همه"
     },

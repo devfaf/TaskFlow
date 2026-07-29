@@ -1,7 +1,7 @@
 import { CiFilter } from "react-icons/ci";
 import { useEffect, useRef, useState } from "react";
 import Select from "../../../components/common/Select";
-import { PROJECT_STATUS_OPTIONS } from "../../types/project";
+import { PROJECT_FILTER_OPTIONS } from "../../types/project";
 import { useProjectStore } from "../store/projectStore";
 
 const FilterProjects = () => {
@@ -110,7 +110,7 @@ const FilterProjects = () => {
             <Select
               value={statusFilter}
               onChange={selectValueHandler}
-              options={PROJECT_STATUS_OPTIONS}
+              options={PROJECT_FILTER_OPTIONS}
             />
 
           </div>
