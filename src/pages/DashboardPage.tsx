@@ -15,7 +15,7 @@ const DashboardPage = () => {
 
   return (
     <section className="space-y-6 p-6">
-      <ProjectStatusCharts/>
+
       <div>
         <h1 className="text-3xl font-bold text-[var(--color-text-primary)]">
           داشبورد
@@ -53,7 +53,6 @@ const DashboardPage = () => {
           border-[var(--color-border)]
           bg-white
           p-6
-          shadow-sm
           flex
           flex-col
           justify-between
@@ -82,6 +81,7 @@ const DashboardPage = () => {
         </div>
 
       </div>
+            <ProjectStatusCharts/>
 
       <div
         className="

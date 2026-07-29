@@ -8,6 +8,8 @@ import { useProjectStore } from "../../features/projects/store/projectStore";
 import ProjectForm from "../../features/projects/components/ProjectForm";
 import { CiMenuBurger } from "react-icons/ci";
 
+import { PiPlus } from "react-icons/pi";
+
 type HeaderProps = {
   isSidebarOpen: boolean;
   setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -56,8 +58,9 @@ const Header = ({isSidebarOpen, setIsSidebarOpen}: HeaderProps) => {
             <Button
               variant="primary"
               onClick={openModal}
-              className="min-w-32"
+              className="min-w-32 flex gap-2"
             >
+              <PiPlus />
               اضافه کردن
             </Button>
 
