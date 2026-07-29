@@ -32,11 +32,14 @@ const ProjectDetailsPage = () => {
 
           <div className="flex-1">
 
+
             <h1 className="mb-2 text-2xl font-bold text-[var(--color-text-primary)]">
+              <span>عنوان پروژه: </span>
               {project.title}
             </h1>
 
             <p className="leading-8 text-[var(--color-text-secondary)]">
+              <span>توضیحات پروژه: </span>
               {project.description}
             </p>
 

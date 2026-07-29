@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 import DashboardLayout from "../layouts/DashboardLayout";
 import ProjectPage from "../pages/ProjectPage";
 import DashboardPage from "../pages/DashboardPage";
@@ -32,26 +32,29 @@ export const router = createBrowserRouter([
             {
                 path: "profile",
                 element: <ProfilePage />
-            }
-        ]
-    },
-    {
-        path: "projects/:id",
-        element: <ProjectDetailsPage />,
-        children: [
-            {
-                index: true,
-                path: "overview",
-                element: <OverviewPage />
             },
             {
-                path: "board",
-                element: <BoardPage />
-            },
-            {
-                index:true,
-                path: "tasks",
-                element: <TasksPage />
+                path: "projects/:id",
+                element: <ProjectDetailsPage />,
+                children: [
+                    {
+                        index: true,
+                        element: <Navigate to="overview" replace />
+                    },
+                    {
+                        path: "overview",
+                        element: <OverviewPage />
+                    },
+                    {
+                        path: "board",
+                        element: <BoardPage />
+                    },
+                    {
+                        index: true,
+                        path: "tasks",
+                        element: <TasksPage />
+                    },
+                ]
             },
         ]
     },
