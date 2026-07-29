@@ -81,7 +81,7 @@ const DashboardPage = () => {
         </div>
 
       </div>
-            <ProjectStatusCharts/>
+      <ProjectStatusCharts />
 
       <div
         className="

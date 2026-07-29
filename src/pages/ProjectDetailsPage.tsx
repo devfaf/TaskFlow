@@ -73,25 +73,6 @@ const ProjectDetailsPage = () => {
               {project.date}
             </div>
 
-            <div
-              className={`
-                rounded-lg
-                px-4
-                py-2
-                text-sm
-
-                ${
-                  project.status === "active"
-                    ? "bg-green-100 text-green-700"
-                    : "bg-gray-100 text-gray-700"
-                }
-              `}
-            >
-              {project.status === "active"
-                ? "فعال"
-                : "تکمیل شده"}
-            </div>
-
           </div>
         </div>
       </div>
@@ -127,10 +108,9 @@ const ProjectDetailsPage = () => {
               transition-all
               duration-200
 
-              ${
-                isActive
-                  ? "border-[var(--color-primary)] text-[var(--color-primary)]"
-                  : "border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+              ${isActive
+                ? "border-[var(--color-primary)] text-[var(--color-primary)]"
+                : "border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
               }
             `
             }
@@ -150,10 +130,9 @@ const ProjectDetailsPage = () => {
               transition-all
               duration-200
 
-              ${
-                isActive
-                  ? "border-[var(--color-primary)] text-[var(--color-primary)]"
-                  : "border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+              ${isActive
+                ? "border-[var(--color-primary)] text-[var(--color-primary)]"
+                : "border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
               }
             `
             }
@@ -173,10 +152,9 @@ const ProjectDetailsPage = () => {
               transition-all
               duration-200
 
-              ${
-                isActive
-                  ? "border-[var(--color-primary)] text-[var(--color-primary)]"
-                  : "border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+              ${isActive
+                ? "border-[var(--color-primary)] text-[var(--color-primary)]"
+                : "border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
               }
             `
             }
@@ -185,9 +163,7 @@ const ProjectDetailsPage = () => {
           </NavLink>
         </nav>
 
-        <div className="p-6">
-          <Outlet />
-        </div>
+        <Outlet />
       </div>
     </section>
   );
