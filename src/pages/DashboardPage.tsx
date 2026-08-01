@@ -4,6 +4,7 @@ import Button from "../components/common/Button";
 import { Link } from "react-router";
 import { PiPlus } from "react-icons/pi";
 import ProjectStatusCharts from "../features/projects/components/ProjectStatusCharts";
+import CalendarDisplay from "../features/calendar/components/CalendarDisplay";
 
 const DashboardPage = () => {
   const projects = useProjectStore((state) => state.projects);
@@ -14,7 +15,7 @@ const DashboardPage = () => {
   const openModal = useProjectStore((state) => state.openModal);
 
   return (
-    <section className="space-y-6 p-6">
+    <section className="space-y-4 p-6">
 
       <div>
         <h1 className="text-3xl font-bold text-[var(--color-text-primary)]">
@@ -81,7 +82,10 @@ const DashboardPage = () => {
         </div>
 
       </div>
-      <ProjectStatusCharts />
+      <div className="grid gap-4 md:grid-cols-2">
+        <ProjectStatusCharts />
+        <CalendarDisplay />
+      </div>
 
       <div
         className="
