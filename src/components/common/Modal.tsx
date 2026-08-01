@@ -1,7 +1,7 @@
 import type { ModalProps } from "../types/modal";
 import { BsXLg } from "react-icons/bs";
 
-const Modal = ({ isOpen, children, onClose }: ModalProps) => {
+const Modal = ({ isOpen, children, onClose, className }: ModalProps) => {
   return (
     <div
       className={`fixed inset-0 z-50 ${
@@ -14,7 +14,7 @@ const Modal = ({ isOpen, children, onClose }: ModalProps) => {
         className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"
       />
 
-      <div className="relative z-10 w-full max-w-lg rounded-xl border border-[var(--color-border)] bg-white p-6 shadow-2xl">
+      <div className={`${className} relative z-10 w-full max-w-lg rounded-xl border border-[var(--color-border)] bg-white p-6 shadow-2xl`}>
 
         <button
           onClick={onClose}
