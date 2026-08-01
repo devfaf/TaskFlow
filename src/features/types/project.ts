@@ -48,6 +48,7 @@ export type Project = {
     description: string;
     date: string;
     status: ProjectStatus;
+    deadline?: Date | null;
 }
 
 export type ProjectCartProps = Project & {

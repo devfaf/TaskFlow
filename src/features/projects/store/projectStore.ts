@@ -24,6 +24,8 @@ type ProjectStore = {
     sortFilter: string;
     setSortFilter: (value: string) => void;
     clearSortFilter: () => void;
+
+    setProjectDeadline: (id: number[], deadline: Date) => void;
 }
 
 export const useProjectStore = create<ProjectStore>()(
@@ -78,11 +80,19 @@ export const useProjectStore = create<ProjectStore>()(
                     sortFilter: value,
                 })
             },
-            clearSortFilter(){
+            clearSortFilter() {
                 set({
                     sortFilter: "",
                 })
-            }
+            },
+            setProjectDeadline: (ids, deadline) =>
+                set((state) => ({
+                    projects: state.projects.map((project) =>
+                        ids.includes(project.id)
+                            ? { ...project, deadline }
+                            : project
+                    ),
+                })),
         }),
         {
             name: "project-storage",
