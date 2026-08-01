@@ -33,14 +33,14 @@ const ProjectStatusCharts = () => {
     return (
         <div
             className="
-          rounded-xl
-          border
-          border-[var(--color-border)]
-          bg-white
-          p-6
-        "
+            rounded-xl
+            border
+            border-[var(--color-border)]
+            bg-white
+            p-6
+            "
         >
-            <div className="mb-5 flex items-center justify-between">
+            <div className="flex items-center justify-between">
                 <div className="flex flex-col gap-4 w-full">
                     <div className="flex flex-col gap-2">
                         <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
@@ -75,7 +75,7 @@ const ProjectStatusCharts = () => {
                                     }
                                 />
                                 <Tooltip
-                                    formatter={(value) => [[`${value}`, ' پروژه ']]}
+                                    formatter={(value, name) => [[`${value}`, ' پروژه ', name]]}
                                 />
                             </PieChart>
                         )

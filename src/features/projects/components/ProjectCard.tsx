@@ -1,6 +1,8 @@
 import type { ProjectCartProps } from "../../types/project";
 import { PiDotsThreeVerticalBold } from "react-icons/pi";
-
+import DateObject from "react-date-object";
+import persian from "react-date-object/calendars/persian";
+import persian_fa from "react-date-object/locales/persian_fa";
 
 const ProjectCard = ({
   id,
@@ -10,6 +12,7 @@ const ProjectCard = ({
   status,
   className = "",
   children,
+  deadline
 }: ProjectCartProps) => {
   return (
     <div
@@ -63,13 +66,31 @@ const ProjectCard = ({
 
         <div className="space-y-1">
 
-          <p className="text-xs text-[var(--color-text-secondary)]">
-            {date}
-          </p>
+          <div className="flex gap-2 py-1 px-3 rounded-lg bg-[var(--color-surface)] text-sm">
+            <span>تاریخ تعریف پروژه: </span>
+            <p>
+              {date}
+            </p>
+          </div>
 
-          <p className="text-xs text-[var(--color-text-secondary)]">
-            #{id}
-          </p>
+          <div className="flex gap-2 py-1 px-3 rounded-lg bg-[var(--color-surface)] text-sm">
+            <span>آیدی پروژه: </span>
+            <p>
+              {id}#
+            </p>
+          </div>
+
+          
+              <div className="flex gap-2 py-1 px-3 rounded-lg bg-[var(--color-surface)] text-sm">
+                <span>ددلاین: </span>
+                <p>
+                  
+                  { deadline ? 
+                    new DateObject(deadline).convert(persian, persian_fa).format("YYYY/MM/DD")
+                    : "تعریف نشده"
+                  }
+                </p>
+              </div>
 
         </div>
 
