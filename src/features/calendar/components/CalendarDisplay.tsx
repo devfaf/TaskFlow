@@ -1,18 +1,16 @@
-// import DateObject from "react-date-object"
 import persian from "react-date-object/calendars/persian"
 import persian_fa from "react-date-object/locales/persian_fa"
 import { Calendar } from "react-multi-date-picker"
-// import { useProjectStore } from "../../projects/store/projectStore"
 import { useCalendarStore } from "../../types/calendarStore"
 import DeadlineModal from "./DeadlineModal"
-
+import { useProjectStore } from "../../projects/store/projectStore"
+import DateObject from "react-date-object"
+import DeadlineDot from "./DeadlineDot"
+import DeadlineInfo from "./DeadlineInfo"
 
 const CalendarDisplay = () => {
-    // const setProjectDeadline = useProjectStore(state => state.setProjectDeadline)
-    // const projects = useProjectStore(state => state.projects)
     const openModal = useCalendarStore(state => state.openModal)
-    // const closeModal = useCalendarStore(state => state.closeModal)
-
+    const projects = useProjectStore(state => state.projects)
 
     return (
         <div className="
@@ -29,6 +27,36 @@ const CalendarDisplay = () => {
                 onChange={(date) => {
                     if (!date) return;
                     openModal(date.toDate())
+                }}
+                mapDays={({ date }) => {
+                    const projectsOfThisDay = projects.filter(project => {
+                        if (!project.deadline) return false
+
+                        const deadline = new DateObject(project.deadline).convert(persian, persian_fa)
+
+                        return deadline.format("YYYY/MM/DD") === date.format("YYYY/MM/DD")
+                    })
+
+                    console.log(
+                        date.format(),
+                        projectsOfThisDay.length
+                    )
+
+
+                    return {
+                        children: (
+                            <div className="relative h-full w-full group">
+                            <span>{date.day}</span>
+
+                            <DeadlineDot count={projectsOfThisDay.length} />
+                            {
+                                projectsOfThisDay.length > 0 && (
+                                    <DeadlineInfo projects={projectsOfThisDay} />
+                                )
+                            }
+                            </div>
+                        )
+                    }
                 }}
             />
             <DeadlineModal />
