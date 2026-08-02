@@ -14,8 +14,6 @@ const ProjectStatusCharts = () => {
     const all = projects.filter(
         (project) => project
     ).length;
-    console.log(all);
-
 
     const chartData = [
         {

@@ -5,7 +5,6 @@ import DateObject from "react-date-object"
 import { useCalendarStore } from "../../types/calendarStore"
 import { useProjectStore } from "../../projects/store/projectStore"
 import Button from "../../../components/common/Button"
-import { useState } from "react"
 
 const DeadlineModal = () => {
     const isOpen = useCalendarStore(state => state.isModalOpen)
@@ -15,7 +14,7 @@ const DeadlineModal = () => {
     const projects = useProjectStore(state => state.projects)
     const toggleProjectSelection = useCalendarStore(state => state.toggleProjectSelection)
     const selectedProjectIds = useCalendarStore(state => state.selectedProjectIds)
-    const setProjectDeadline = useProjectStore(state => state.setProjectDeadline)
+    const setProjectDeadline = useProjectStore(state => state.setProjectDeadline)    
 
     const activeProjects = projects.filter(project =>
         project.status === "active"
@@ -46,8 +45,8 @@ const DeadlineModal = () => {
                                 key={project.id}
                                 className={`flex gap-2 shadow p-2 rounded-lg duration-200 cursor-pointer border-b-2 border-transparent hover:border-[var(--color-primary-light)] 
                                 ${selectedProjectIds.includes(project.id) ? "border-b-[var(--color-primary)]" : ""}`}>
-                                <p>عنوان پروژه: </p>
-                                <p>{project.title}</p>
+                                <p className="whitespace-nowrap">عنوان پروژه: </p>
+                                <p className="truncate">{project.title}</p>
                             </div>
                         )
                     }

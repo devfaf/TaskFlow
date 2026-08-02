@@ -28,13 +28,13 @@ const ProjectCard = ({
       `}
     >
       <div className="flex flex-col items-start justify-between gap-2 w-full relative">
-        <div className="space-y-2 flex-1 mb-2">
+        <div className="space-y-2 flex-1 mb-2 w-full">
 
-          <h2 className="text-lg font-semibold text-[var(--color-text-primary)]">
+          <h2 className="text-lg font-semibold text-[var(--color-text-primary)] min-w-0 truncate">
             {title}
           </h2>
 
-          <p className="text-sm text-[var(--color-text-secondary)] line-clamp-2">
+          <p className="text-sm text-[var(--color-text-secondary)] line-clamp-2 truncate">
             {description}
           </p>
 
@@ -56,7 +56,7 @@ const ProjectCard = ({
           {status === "active" ? "فعال" : "تکمیل شده"}
         </span>
 
-        <button className="absolute left-0 top-0 hover:bg-[var(--color-hover)] rounded-lg p-2 text-[var(--color-text-secondary)] transition-all duration-200">
+        <button className="absolute left-0 top-0 hover:bg-[var(--color-hover)] rounded-lg p-2 text-[var(--color-text-secondary)] transition-all duration-200 cursor-pointer">
           <PiDotsThreeVerticalBold className="text-lg" />
         </button>
 
