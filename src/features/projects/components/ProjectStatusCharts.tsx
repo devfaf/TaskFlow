@@ -49,35 +49,37 @@ const ProjectStatusCharts = () => {
                         </p>
 
                     </div>
-                    {
-                        all === 0 ? <p className="text-[var(--color-danger)] text-2xl font-bold">
-                            دیتایی جهت نمایش وجود ندارد
-                        </p> : (
-                            <PieChart
-                                className="w-xs bg-gray-100 h-72 rounded-lg"
-                                responsive
-                            >
-                                <Pie
-                                    data={chartData}
-                                    dataKey="status"
-                                    cx="50%"
-                                    cy="50%"
-                                    outerRadius="80%"
-                                    shape={(props) => (
-                                        <Sector
-                                            {...props}
-                                            fill={props.payload.color}
-                                        />
-                                    )
+                    <div className="flex justify-center items-center">
+                        {
+                            all === 0 ? <p className="text-[var(--color-danger)] text-2xl font-bold">
+                                دیتایی جهت نمایش وجود ندارد
+                            </p> : (
+                                <PieChart
+                                    className="w-xs h-76 rounded-lg"
+                                    responsive
+                                >
+                                    <Pie
+                                        data={chartData}
+                                        dataKey="status"
+                                        cx="50%"
+                                        cy="50%"
+                                        outerRadius="90%"
+                                        shape={(props) => (
+                                            <Sector
+                                                {...props}
+                                                fill={props.payload.color}
+                                            />
+                                        )
 
-                                    }
-                                />
-                                <Tooltip
-                                    formatter={(value, name) => [[`${value}`, ' پروژه ', name]]}
-                                />
-                            </PieChart>
-                        )
-                    }
+                                        }
+                                    />
+                                    <Tooltip
+                                        formatter={(value, name) => [[`${value}`, ' پروژه ', name]]}
+                                    />
+                                </PieChart>
+                            )
+                        }
+                    </div>
                 </div>
 
             </div>
