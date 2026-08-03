@@ -34,7 +34,7 @@ const CalendarDisplay = () => {
                     </div>
                     <ReportButton />
                 </div>
-                <div className="flex flex-col gap-4 items-center">
+                <div className="flex flex-col gap-4 items-center z-30">
                     <Calendar
                         calendar={persian}
                         locale={persian_fa}
@@ -50,12 +50,6 @@ const CalendarDisplay = () => {
 
                                 return deadline.format("YYYY/MM/DD") === date.format("YYYY/MM/DD")
                             })
-
-                            console.log(
-                                date.format(),
-                                projectsOfThisDay.length
-                            )
-
 
                             return {
                                 children: (

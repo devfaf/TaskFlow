@@ -13,7 +13,7 @@ const DeadlineInfo = ({ projects }: DeadlineInfoProps) => {
         <div className="flex flex-col items-start px-1 truncate">
           {
             projects.map(project =>
-              <p>
+              <p key={project.id}>
                 {project.title}
               </p>
 
