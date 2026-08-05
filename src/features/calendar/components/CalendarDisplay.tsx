@@ -26,11 +26,9 @@ const CalendarDisplay = () => {
                 <div className="flex gap-2 items-center justify-between">
                     <div className="flex flex-col gap-2">
                         <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
-                            نمودار دایره‌ای
+                           تقویم شمسی
                         </h2>
-                        <p className="text-sm text-[var(--color-text-secondary)]">
-                            تعداد پروژه‌های تکمیل شده و تکمیل نشده
-                        </p>
+                        <p className="text-sm text-[var(--color-text-secondary)]">برای انتخاب مهلت پایانی پروژه روی روز موردنظر کلیک کنید</p>
                     </div>
                     <ReportButton />
                 </div>
