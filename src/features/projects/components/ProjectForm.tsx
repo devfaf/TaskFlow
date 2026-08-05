@@ -8,6 +8,9 @@ import { useProjectStore } from "../store/projectStore"
 import type { ProjectStatus } from "../../types/project";
 import { PROJECT_STATUS_OPTIONS } from "../../types/project";
 import { FiX } from "react-icons/fi";
+import DateObject from "react-date-object";
+import persian from "react-date-object/calendars/persian";
+import persian_fa from "react-date-object/locales/persian_fa";
 
 const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
   const addProject = useProjectStore((state) => state.addProject)
@@ -39,7 +42,7 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
         id: Date.now(),
         title,
         description,
-        date: new Date().toLocaleDateString(),
+        date: new DateObject(Date.now()).convert(persian, persian_fa).format("YYYY/MM/DD"),
         status,
       })
     }
