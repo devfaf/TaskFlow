@@ -11,6 +11,7 @@ const ReportButton = () => {
             <Button
                 variant="secondary"
                 onClick={() => generateReport(projects, tasks)}
+                className="whitespace-nowrap"
             >
                 دانلود گزارش ۳۰ روز اخیر
             </Button>

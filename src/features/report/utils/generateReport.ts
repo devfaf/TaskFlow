@@ -13,7 +13,6 @@ export const generateReport = (projects: Project[], tasks: Task[]) => {
         completed: "تکمیل‌شده"
     }
 
-
     const tableBody = projects.map(project => [
         tasks.filter(task => task.projectId === project.id).length,
         project.deadline ? new DateObject(project.deadline).convert(persian, persian_fa).format("YYYY/MM/DD") : "ندارد",
@@ -28,27 +27,45 @@ export const generateReport = (projects: Project[], tasks: Task[]) => {
     const completedProjectsCount = projects.filter(p => p.status === "completed").length
 
     const doc = new jsPDF()
-    const pageWidth = doc.internal.pageSize.width;
-    
+
     doc.setLanguage("fa")
     doc.setFont("Yekan")
-    doc.setFontSize(12);
-    
-    doc.text(projects[0].title, 20, 70);
-    doc.text(": گزارش پروژه‌های ۳۰ روز اخیر", pageWidth - 14, 20, { align: "right" });
-    doc.text(`تاریخ ثبت گزارش: ${new Date().toLocaleDateString()}`, pageWidth - 14, 30, { align: "right" });
-
-    doc.text(`تعداد کل پروژه‌ها: ${projectsCount}`, pageWidth - 14, 40, { align: "right" })
-    doc.text(`تعداد پروژه‌های فعال: ${activeProjectsCount}`, pageWidth - 14, 48, { align: "right" })
-    doc.text(`تعداد پروژه‌های تکمیل‌شده: ${completedProjectsCount}`, pageWidth - 14, 56, { align: "right" })
-    
+    doc.setFontSize(14);
+    doc.addImage("/logo/logo.png", "png", 10, 10, 40, 16)
 
     autoTable(doc, {
-        startY: 76,
+        startY: 30,
+        body: [
+            [`تعداد کل پروژه‌ها: ${projectsCount}`],
+            [`تعداد پروژه‌های فعال: ${activeProjectsCount}`],
+            [`تعداد پروژه‌های تکمیل‌شده: ${completedProjectsCount}`],
+            [`تاریخ ثبت گزارش:  ${new DateObject(Date.now()).convert(persian, persian_fa).format("YYYY/MM/DD")}`]
+        ],
+        styles: {
+            font: "Yekan",
+            halign: "right",
+            cellPadding: 3,
+            fontSize: 16,
+            overflow: "linebreak",
+            cellWidth: "wrap"
+        },
+        headStyles: {
+            halign: "right",
+            fontStyle: "normal",
+            valign: "middle",
+        },
+        bodyStyles: {
+            halign: "right",
+        },
+        theme: "grid",
+    })
+
+    autoTable(doc, {
+        startY: 90,
         tableWidth: "auto",
         head: [
             [
-                "تعداد تسک",
+                "تسک",
                 "مهلت پایان",
                 "وضعیت",
                 "تاریخ ایجاد",
@@ -60,26 +77,26 @@ export const generateReport = (projects: Project[], tasks: Task[]) => {
         styles: {
             font: "Yekan",
             halign: "right",
-            cellPadding: 5,
-            fontSize: 10,
+            cellPadding: 3,
+            fontSize: 12,
             overflow: "linebreak",
             cellWidth: "wrap"
         },
         columnStyles: {
             0: {
-                cellWidth: 30
+                cellWidth: 20
             },
             1: {
-                cellWidth: 20
+                cellWidth: 30
             },
             2: {
                 cellWidth: 30
             },
             3: {
-                cellWidth: 25
+                cellWidth: 30
             },
             4: {
-                cellWidth: 45
+                cellWidth: 50
             },
             5: {
                 cellWidth: 30
