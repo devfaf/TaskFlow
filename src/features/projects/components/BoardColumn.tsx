@@ -19,18 +19,6 @@ const BoardColumn = ({ value, label }: BoardColumnProps) => {
     const { ref } = useDroppable({
         id: value,
     });
-    console.log(ref);
-
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsLoading(false)
-        }, 1500);
-
-        return () => clearTimeout(timer)
-    }, [])
-
 
     return (
         <section ref={ref} className={`
@@ -44,20 +32,16 @@ const BoardColumn = ({ value, label }: BoardColumnProps) => {
             space-y-4
         `}>
             <h2 className="text-lg font-semibold text-[var(--color-text-primary)] pb-2 border-b border-[var(--color-border)]">{label}</h2>
-            {isLoading ? (
-                <TaskCardSkeleton />
-            ) :
-                <div>
-                    {
-                        filteredTasks.map((task) =>
-                            <DraggableTaskCard
-                                task={task}
-                                key={task.id}
-                            />
-                        )
-                    }
-                </div>
-            }
+            <div>
+                {
+                    filteredTasks.map((task) =>
+                        <DraggableTaskCard
+                            task={task}
+                            key={task.id}
+                        />
+                    )
+                }
+            </div>
         </section>
     )
 }
