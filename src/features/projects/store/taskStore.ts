@@ -5,10 +5,17 @@ import { persist } from "zustand/middleware";
 type TaskStore = {
   tasks: Task[];
   editingTask: Task | null;
+
+  isModalOpen: boolean;
+  openModal: () => void;
+  closeModal: () => void;
+
   setEditingTask: (task: Task | null) => void;
   addTask: (task: Task) => void;
+
   removeTask: (id: number) => void;
   updateTask: (task: Task) => void;
+
   updateTaskStatus: (id: Number, status: TaskStatus) => void;
 }
 
@@ -17,6 +24,7 @@ export const useTaskStore = create<TaskStore>()(
     (set) => ({
       tasks: [],
       editingTask: null,
+      isModalOpen: false,
       addTask: (task) =>
         set((state) => ({
           tasks: [...state.tasks, task]
@@ -35,14 +43,24 @@ export const useTaskStore = create<TaskStore>()(
         })),
       setEditingTask: (task) =>
         set({
-          editingTask: task
+          editingTask: task,
         }),
-        updateTaskStatus: (id, status) => 
-          set((state) => ({
-            tasks: state.tasks.map((task) => 
-              task.id === id ? {...task, status} : task
-            )
-          })),
+      openModal: () => {
+        set({
+          isModalOpen: true,
+        })
+      },
+      closeModal: () => {
+        set({
+          isModalOpen: false,
+        })
+      },
+      updateTaskStatus: (id, status) =>
+        set((state) => ({
+          tasks: state.tasks.map((task) =>
+            task.id === id ? { ...task, status } : task,
+          )
+        })),
     }),
     {
       name: "task-storage",
