@@ -1,7 +1,7 @@
 import { useEffect, useState, type SyntheticEvent } from "react";
 import type { ModalProps } from "../../../components/types/modal"
 import Input from "../../../components/common/Input"
-// import TextArea from "../../../components/common/TextArea"
+import TextArea from "../../../components/common/TextArea"
 import Button from "../../../components/common/Button"
 import { useTaskStore } from "../store/taskStore";
 import type { TaskStatus } from "../../types/task";
@@ -9,22 +9,27 @@ import { FiX } from "react-icons/fi";
 import { useParams } from "react-router";
 import Select from "../../../components/common/Select";
 import { BOARD_STATUS_OPTIONS } from "../../types/boardColumnProps";
+import DateObject from "react-date-object";
+import persian from "react-date-object/calendars/persian";
+import persian_fa from "react-date-object/locales/persian_fa";
+
 
 const TaskForm = ({ isOpen, onClose }: ModalProps) => {
     const { id } = useParams();
     const addTask = useTaskStore((state) => state.addTask)
     const [title, setTitle] = useState("");
     const [status, setStatus] = useState<TaskStatus>("todo")
+    const [description, setDescription] = useState("")
     const editingTask = useTaskStore((state) => state.editingTask)
     const updateTask = useTaskStore((state) => state.updateTask)
     const setEditingTask = useTaskStore((state) => state.setEditingTask)
     const isTitleValid = title.trim().length > 0
-    // const isDescriptionValid = description.trim().length >= 5
+    const isDescriptionValid = description.trim().length >= 5
 
 
     const submitHandler = (e: SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault()
-        if (!isTitleValid) {
+        if (!isTitleValid && !isDescriptionValid) {
             return;
         }
 
@@ -33,8 +38,8 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
                 projectId: Number(id),
                 id: editingTask.id,
                 title,
-                // description,
-                // date: editingTask.date,
+                description,
+                date: editingTask.date,
                 status,
             })
         } else {
@@ -42,13 +47,14 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
                 projectId: Number(id),
                 id: Date.now(),
                 title,
-                // description,
-                // date: new Date().toLocaleDateString(),
+                description,
+                date: new DateObject(Date.now()).convert(persian, persian_fa).format("YYYY/MM/DD"),
                 status,
             })
         }
         onClose()
         setTitle("")
+        setDescription("")
         setStatus("todo")
         setEditingTask(null)
     }
@@ -56,7 +62,7 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
     useEffect(() => {
         if (editingTask) {
             setTitle(editingTask.title)
-            // setDescription(editingProject.description)
+            setDescription(editingTask.description)
             setStatus(editingTask.status)
         }
     }, [editingTask])
@@ -97,7 +103,7 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
                         onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setStatus(e.target.value as TaskStatus)}
                         className="bg-white rounded-lg p-1 border-gray-300 border-2" />
 
-                    {/* <TextArea
+                    <TextArea
                         value={description}
                         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(e.target.value)}
                         id="task"
@@ -107,7 +113,7 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
                         error={
                             description.trim().length < 5 ? "متن توضیحات باید بالای 5 کاراکتر باشد" : null
                         }
-                    /> */}
+                    />
 
                     <div className="flex gap-2 w-full">
                         <Button

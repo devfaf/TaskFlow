@@ -79,8 +79,6 @@ export const generateReport = (projects: Project[], tasks: Task[]) => {
             halign: "right",
             cellPadding: 3,
             fontSize: 12,
-            overflow: "linebreak",
-            cellWidth: "wrap"
         },
         columnStyles: {
             0: {
