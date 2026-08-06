@@ -3,8 +3,6 @@ import { useTaskStore } from "../store/taskStore"
 import { useParams } from "react-router"
 import { useDroppable } from '@dnd-kit/react';
 import DraggableTaskCard from "./DraggableTaskCard";
-import TaskCardSkeleton from "../../../components/common/TaskCardSkeleton";
-import { useEffect, useState } from "react";
 
 
 const BoardColumn = ({ value, label }: BoardColumnProps) => {

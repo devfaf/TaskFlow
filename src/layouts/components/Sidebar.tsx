@@ -22,7 +22,7 @@ const Sidebar = ({isSidebarOpen}: SidebarProps) => {
         mt-1
       `}
     >
-      <div className="h-full overflow-y-auto">
+      <div className="h-full">
         <SidebarItems />
       </div>
     </aside>

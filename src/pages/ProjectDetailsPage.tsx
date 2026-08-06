@@ -17,7 +17,7 @@ const ProjectDetailsPage = () => {
   }
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-6 bg-[var(--color-background)] h-screen">
+    <section className="mx-auto max-w-7xl px-4 py-6 bg-[var(--color-background)]">
 
       <div
         className="

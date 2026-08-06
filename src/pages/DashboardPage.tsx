@@ -15,7 +15,7 @@ const DashboardPage = () => {
   const openModal = useProjectStore((state) => state.openModal);
 
   return (
-    <section className="space-y-4 p-6">
+    <section className="flex flex-col space-y-4 p-6">
 
       <div>
         <h1 className="text-3xl font-bold text-[var(--color-text-primary)]">

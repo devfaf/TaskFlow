@@ -7,13 +7,14 @@ const DashboardLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
 
   return (
-    <div className={``}>
+    <div className={`h-screen overflow-hidden`}>
       <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-      <div className="flex">
+      <div className="flex h-full gap-2">
         <Sidebar isSidebarOpen={isSidebarOpen} />
 
-        <main className="lg:pr-64 flex-1 overflow-hidden lg:py-4 lg:mt-13">
-          <Outlet />
+        <main 
+        className="lg:pr-66 flex-1 overflow-y-scroll lg:py-4 pt-30 lg:mt-13 min-h-0">
+            <Outlet />
         </main>
       </div>
     </div>
