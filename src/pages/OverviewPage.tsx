@@ -35,7 +35,7 @@ const OverviewPage = () => {
           تعداد کل تسک‌ها
         </p>
 
-        <h2 className="text-6xl font-bold h-full flex items-center text-[var(--color-primary)] text-center">
+        <h2 className="text-4xl font-bold h-full flex items-center text-[var(--color-text-secondary)] text-center">
           {taskCount.length}
         </h2>
       </div>
@@ -57,7 +57,7 @@ const OverviewPage = () => {
           تسک‌های انجام‌نشده
         </p>
 
-        <h2 className="text-6xl font-bold h-full flex items-center text-[var(--color-danger)] text-center">
+        <h2 className="text-4xl font-bold h-full flex items-center text-[var(--color-text-secondary)] text-center">
           {todoTaskCount.length}
         </h2>
       </div>
@@ -79,7 +79,7 @@ const OverviewPage = () => {
           تسک‌های درحال انجام
         </p>
 
-        <h2 className="text-6xl font-bold h-full flex items-center text-[var(--color-warning)] text-center">
+        <h2 className="text-4xl font-bold h-full flex items-center text-[var(--color-text-secondary)] text-center">
           {inProgressTaskCount.length}
         </h2>
       </div>
@@ -101,7 +101,7 @@ const OverviewPage = () => {
           تسک‌های درحال بازبینی
         </p>
 
-        <h2 className="text-6xl font-bold h-full flex items-center text-[var(--color-info)] text-center">
+        <h2 className="text-4xl font-bold h-full flex items-center text-[var(--color-text-secondary)] text-center">
           {reviewTaskCount.length}
         </h2>
       </div>
@@ -123,7 +123,7 @@ const OverviewPage = () => {
           تسک‌های انجام‌شده
         </p>
 
-        <h2 className="text-6xl font-bold text-[var(--color-success)] text-center h-full flex items-center">
+        <h2 className="text-4xl font-bold text-[var(--color-text-secondary)] text-center h-full flex items-center">
           {doneTaskCount.length}
         </h2>
 
@@ -155,8 +155,8 @@ const OverviewPage = () => {
           <span
             className={`
               ${projectStatus === "completed" ?
-                "bg-green-100" :
-                "bg-red-100"
+                "bg-green-100 text-green-700" :
+                "bg-red-100 text-red-700"
               }
               inline-flex
               rounded-lg

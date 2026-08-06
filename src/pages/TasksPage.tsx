@@ -3,6 +3,7 @@ import TaskList from "../features/projects/components/TaskList"
 import EmptyState from "../components/common/EmptyState"
 import Button from "../components/common/Button"
 import TaskForm from "../features/projects/components/TaskForm"
+import { PiPlus } from "react-icons/pi"
 
 const TasksPage = () => {
   const tasks = useTaskStore(state => state.tasks)
@@ -14,9 +15,12 @@ const TasksPage = () => {
     <div className="flex flex-col gap-4 p-4">
       <div>
         <Button
+          variant="primary"
           onClick={openModal}
-          variant="primary">
-          افزودن تسک +
+          className="flex gap-2"
+          >
+          <PiPlus />
+          افزودن تسک
         </Button>
       </div>
       {
