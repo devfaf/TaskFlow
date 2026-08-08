@@ -90,7 +90,7 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
                         id="title"
                         value={title}
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)}
-                        placeholder="عنوان" label="عنوان پروژه"
+                        placeholder="عنوان" label="عنوان کار"
                         className={`bg-gray-100 border-2 border-gray-300 outline-none rounded-lg px-2 w-full`}
                         type="text"
                         error={
@@ -108,7 +108,7 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
                         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(e.target.value)}
                         id="task"
                         name="task"
-                        placeholder="توضیحات پروژه..."
+                        placeholder="توضیحات کار..."
                         className="bg-gray-100 border-2 border-gray-300 outline-none rounded-lg px-2 w-full"
                         error={
                             description.trim().length < 5 ? "متن توضیحات باید بالای 5 کاراکتر باشد" : null
