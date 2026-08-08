@@ -19,7 +19,7 @@ const OverviewPage = () => {
 
 
   return (
-    <div className="grid gap-4 md:grid-cols-6">
+    <div className="grid gap-4 md:grid-cols-6 pt-2">
       <TaskInfo title="تعداد کل تسک‌ها">
         {taskCount.length}
       </TaskInfo>

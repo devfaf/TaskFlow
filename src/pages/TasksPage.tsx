@@ -13,18 +13,19 @@ const TasksPage = () => {
 
   return (
     <div className="flex flex-col gap-4 p-4">
-      <div>
+      <div className="flex items-center justify-center w-full">
         <Button
           variant="primary"
           onClick={openModal}
           className="flex gap-2"
           >
           <PiPlus />
-          افزودن تسک
+          افزودن وظیفه
         </Button>
       </div>
       {
         tasks.length > 0 ? <TaskList /> : <EmptyState />
+
       }
       <TaskForm isOpen={isModalOpen} onClose={closeModal}>
         فرم افزودن تسک

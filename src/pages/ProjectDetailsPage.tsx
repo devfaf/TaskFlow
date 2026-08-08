@@ -1,6 +1,7 @@
 import { NavLink, Outlet, useParams } from "react-router";
 import { useProjectStore } from "../features/projects/store/projectStore";
 import { useState } from "react";
+import { useTaskStore } from "../features/projects/store/taskStore";
 
 const ProjectDetailsPage = () => {
 
@@ -8,7 +9,12 @@ const ProjectDetailsPage = () => {
   const projects = useProjectStore((state) => state.projects);
   const project = projects.find((p) => p.id === Number(id));
 
+  const tasks = useTaskStore(state => state.tasks)
   const [isExpanded, setIsExpanded] = useState(false)
+
+    const projectTasks = tasks.filter(
+        (task) => task.projectId === Number(id)
+    )
 
   if (!project) {
     return (
@@ -58,7 +64,7 @@ const ProjectDetailsPage = () => {
 
           </div>
 
-          <div className="flex-1">
+          <div className="flex-1 w-full">
 
             <h1 className="mb-2 text-2xl font-bold text-[var(--color-text-primary)] flex gap-2">
               <span className="">عنوان پروژه: </span>
@@ -66,11 +72,12 @@ const ProjectDetailsPage = () => {
 
             </h1>
 
-            <div className={`leading-8 text-[var(--color-text-secondary)] relative ${isExpanded && 'pb-10'}`}>
+            <div className={`leading-8 text-[var(--color-text-secondary)] relative w-full ${isExpanded && 'pb-10'}`}>
               <h2>توضیحات پروژه: </h2>
 
-              <p className={`
-                  ${!isExpanded ? 'line-clamp-5' : ''} 
+              <p className={` 
+                
+                ${!isExpanded ? 'line-clamp-5' : ''} 
                 `}>{project.description}</p>
 
               {!isExpanded && (
@@ -86,9 +93,9 @@ const ProjectDetailsPage = () => {
               {
                 isExpanded && (
                   <div className="absolute bottom-0 left-0 right-0 flex justify-center">
-                    <button 
-                    onClick={readLessButtonHandler}
-                    className="text-sm text-black bg-[var(--color-background)] border border-[var(--color-border)] py-1 px-2 rounded-lg cursor-pointer">
+                    <button
+                      onClick={readLessButtonHandler}
+                      className="text-sm text-black bg-[var(--color-background)] border border-[var(--color-border)] py-1 px-2 rounded-lg cursor-pointer">
                       بستن
                     </button>
                   </div>
@@ -117,7 +124,6 @@ const ProjectDetailsPage = () => {
             overflow-x-auto
             border-b
             border-[var(--color-border)]
-            px-2
           "
         >
           <NavLink
@@ -128,10 +134,8 @@ const ProjectDetailsPage = () => {
               border-b-2
               px-5
               py-4
-              text-sm
               transition-all
               duration-200
-
               ${isActive
                 ? "border-[var(--color-primary)] text-[var(--color-primary)]"
                 : "border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
@@ -143,6 +147,27 @@ const ProjectDetailsPage = () => {
           </NavLink>
 
           <NavLink
+            to="tasks"
+            className={({ isActive }) =>
+              `
+              whitespace-nowrap
+              border-b-2
+              px-5
+              py-4
+              transition-all
+              duration-200
+
+              ${isActive
+                ? "border-[var(--color-primary)] text-[var(--color-primary)]"
+                : "border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+              }
+            `
+            }
+          >
+            وظیفه ها
+          </NavLink>
+
+          <NavLink
             to="board"
             className={({ isActive }) =>
               `
@@ -150,10 +175,9 @@ const ProjectDetailsPage = () => {
               border-b-2
               px-5
               py-4
-              text-sm
               transition-all
               duration-200
-
+              ${projectTasks.length > 0 ? 'pointer-events-auto' : 'pointer-events-none opacity-0'}
               ${isActive
                 ? "border-[var(--color-primary)] text-[var(--color-primary)]"
                 : "border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
@@ -162,28 +186,6 @@ const ProjectDetailsPage = () => {
             }
           >
             برد
-          </NavLink>
-
-          <NavLink
-            to="tasks"
-            className={({ isActive }) =>
-              `
-              whitespace-nowrap
-              border-b-2
-              px-5
-              py-4
-              text-sm
-              transition-all
-              duration-200
-
-              ${isActive
-                ? "border-[var(--color-primary)] text-[var(--color-primary)]"
-                : "border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
-              }
-            `
-            }
-          >
-            تسک‌ها
           </NavLink>
         </nav>
 

@@ -16,14 +16,14 @@ const TaskInfo = ({ title, children, className }: TaskInfoProps) => {
           items-center
           h-full
           rounded-xl
-          ${className}
+          ${className ?? ""}
           `}
         >
-            <p className="text-xs text-[var(--color-text-secondary)] text-center pt-4 w-full">
+            <p className="text-sm text-[var(--color-text-secondary)] text-center pt-2 w-full">
                 {title}
             </p>
 
-            <p className="text-4xl p-4 h-full flex items-center text-[var(--color-text-secondary)] text-center">
+            <p className="text-4xl p-6 h-full flex items-center text-[var(--color-text-secondary)] text-center">
                 {children}
             </p>
         </div>

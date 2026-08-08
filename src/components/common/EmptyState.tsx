@@ -2,7 +2,7 @@ import noData from "../../assets/illustration/no-data.svg"
 
 const EmptyState = () => {
     return (
-        <div className="flex bg-transparent items-center justify-center p-4">
+        <div className="flex bg-transparent items-center justify-center p-4 w-full">
             <img 
             className="w-62"
             src={noData} 

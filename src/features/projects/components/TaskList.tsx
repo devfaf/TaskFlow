@@ -16,9 +16,8 @@ const TaskList = () => {
     const openModal = useProjectStore(state => state.openModal)
     const setEditingTask = useTaskStore(state => state.setEditingTask)
 
-
     return (
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+        <div className={`${projectTasks.length > 0 ? 'grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4' : ''}`}>
             {
                 projectTasks.length > 0 ? projectTasks.map(task => {
                     return (
