@@ -98,7 +98,7 @@ const DashboardPage = () => {
       >
         <div className="mb-5 flex items-center justify-between">
 
-          <div>
+          <div className="flex flex-col gap-2">
 
             <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
               آخرین پروژه‌ها

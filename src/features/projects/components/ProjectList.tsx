@@ -1,15 +1,11 @@
 import ProjectCard from "./ProjectCard"
 import { useProjectStore } from "../store/projectStore"
-import { BsFillTrash3Fill } from "react-icons/bs";
-import { BsFillPencilFill } from "react-icons/bs";
 import { Link } from "react-router";
 import EmptyState from "../../../components/common/EmptyState";
+import ProjectCardActions from "./ProjectCardActions ";
 
 const ProjectList = () => {
     const projects = useProjectStore((state) => state.projects)
-    const deleteProjectBtn = useProjectStore((state) => state.deleteProject)
-    const setEditingProject = useProjectStore((state) => state.setEditingProject)
-    const openModal = useProjectStore((state) => state.openModal)
     const search = useProjectStore((state) => state.search)
     const statusFilter = useProjectStore(state => state.statusFilter)
     const sortFilter = useProjectStore(state => state.sortFilter)
@@ -53,39 +49,12 @@ const ProjectList = () => {
                             to={`/projects/${project.id}`}
                             key={project.id}
                             className="w-full"
-                            >
+                        >
                             <ProjectCard
                                 {...project}
                                 className="h-full"
                             >
-                                <div className="flex items-center gap-2">
-
-                                    <button
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            e.stopPropagation();
-                                            deleteProjectBtn(project.id);
-                                        }}
-                                        className="rounded-lg p-2 text-[var(--color-text-secondary)] transition-all duration-200 hover:bg-[var(--color-danger-soft)] hover:text-[var(--color-danger)] cursor-pointer"
-                                        aria-label="حذف پروژه"
-                                    >
-                                        <BsFillTrash3Fill size={16} />
-                                    </button>
-
-                                    <button
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            e.stopPropagation();
-                                            setEditingProject(project);
-                                            openModal();
-                                        }}
-                                        className="rounded-lg p-2 text-[var(--color-text-secondary)] transition-all duration-200 hover:bg-[var(--color-primary-soft)] hover:text-[var(--color-primary)] cursor-pointer"
-                                        aria-label="ویرایش پروژه"
-                                    >
-                                        <BsFillPencilFill size={16} />
-                                    </button>
-
-                                </div>
+                                <ProjectCardActions project={project} />
                             </ProjectCard>
                         </Link>
                     )

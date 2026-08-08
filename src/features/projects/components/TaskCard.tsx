@@ -1,7 +1,7 @@
 import type { TaskCardProps } from "../../types/task"
 import { PiDotsThreeVerticalBold } from "react-icons/pi";
 
-const TaskCard = ({ id, title, status, className, children }: TaskCardProps) => {
+const TaskCard = ({ id, title, status, className, children, description, date }: TaskCardProps) => {
   return (
     <div className={`
         rounded-xl
@@ -19,8 +19,8 @@ const TaskCard = ({ id, title, status, className, children }: TaskCardProps) => 
           <h2 className="text-lg font-semibold text-[var(--color-text-primary)]">
             {title}
           </h2>
-          {/* <p>{description}</p>
-      <p>{date}</p> */}
+          <p>{description}</p>
+          <p>{date}</p>
         </div>
         <span
           className={`
