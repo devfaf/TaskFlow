@@ -1,9 +1,11 @@
 import { useParams } from "react-router"
 import { useTaskStore } from "../features/projects/store/taskStore"
 import { useProjectStore } from "../features/projects/store/projectStore"
-const OverviewPage = () => {
-  const { id } = useParams()
+import TaskInfo from "../components/common/TaskInfo"
 
+const OverviewPage = () => {
+
+  const { id } = useParams()
   const tasks = useTaskStore(state => state.tasks)
   const projects = useProjectStore(state => state.projects)
 
@@ -11,171 +13,39 @@ const OverviewPage = () => {
   const todoTaskCount = taskCount.filter(task => task.status === "todo")
   const doneTaskCount = taskCount.filter(task => task.status === "done")
   const inProgressTaskCount = taskCount.filter(task => task.status === "inProgress")
+
   const reviewTaskCount = taskCount.filter(task => task.status === "review")
   const projectStatus = projects.filter(project => project.id === Number(id))[0].status
-  // console.log(projectStatus);
 
 
   return (
-    <div className="grid gap-4 md:grid-cols-6 p-4">
-      <div
-        className="
-          rounded-xl
-          border
-          border-[var(--color-border)]
-          bg-[var(--color-surface)]
-          p-3
-          flex
-          flex-col
-          items-center
-          h-full
-        "
-      >
-        <p className="text-xs text-[var(--color-text-secondary)] text-center">
-          تعداد کل تسک‌ها
-        </p>
+    <div className="grid gap-4 md:grid-cols-6">
+      <TaskInfo title="تعداد کل تسک‌ها">
+        {taskCount.length}
+      </TaskInfo>
 
-        <h2 className="text-4xl font-bold h-full flex items-center text-[var(--color-text-secondary)] text-center">
-          {taskCount.length}
-        </h2>
-      </div>
+      <TaskInfo title="تسک‌های انجام‌نشده">
+        {todoTaskCount.length}
+      </TaskInfo>
 
-      <div
-        className="
-          rounded-xl
-          border
-          border-[var(--color-border)]
-          bg-[var(--color-surface)]
-          p-3
-          flex
-          flex-col
-          items-center
-          h-full
-        "
-      >
-        <p className="text-xs text-[var(--color-text-secondary)] text-center">
-          تسک‌های انجام‌نشده
-        </p>
+      <TaskInfo title="تسک‌های درحال انجام">
+        {inProgressTaskCount.length}
+      </TaskInfo>
 
-        <h2 className="text-4xl font-bold h-full flex items-center text-[var(--color-text-secondary)] text-center">
-          {todoTaskCount.length}
-        </h2>
-      </div>
+      <TaskInfo title="تسک‌های درحال بازبینی">
+        {reviewTaskCount.length}
+      </TaskInfo>
 
-      <div
-        className="
-          rounded-xl
-          border
-          border-[var(--color-border)]
-          bg-[var(--color-surface)]
-          p-3
-          flex
-          flex-col
-          items-center
-          h-full
-        "
-      >
-        <p className="text-xs text-[var(--color-text-secondary)] text-center">
-          تسک‌های درحال انجام
-        </p>
+      <TaskInfo title="تسک‌های انجام‌شده">
+        {doneTaskCount.length}
+      </TaskInfo>
 
-        <h2 className="text-4xl font-bold h-full flex items-center text-[var(--color-text-secondary)] text-center">
-          {inProgressTaskCount.length}
-        </h2>
-      </div>
-
-      <div
-        className="
-          rounded-xl
-          border
-          border-[var(--color-border)]
-          bg-[var(--color-surface)]
-          p-3
-          flex
-          flex-col
-          items-center
-          h-full
-        "
-      >
-        <p className="text-xs text-[var(--color-text-secondary)] text-center">
-          تسک‌های درحال بازبینی
-        </p>
-
-        <h2 className="text-4xl font-bold h-full flex items-center text-[var(--color-text-secondary)] text-center">
-          {reviewTaskCount.length}
-        </h2>
-      </div>
-
-      <div
-        className="
-          rounded-xl
-          border
-          border-[var(--color-border)]
-          bg-[var(--color-surface)]
-          p-3
-          flex
-          flex-col
-          items-center
-          h-full
-        "
-      >
-        <p className="text-xs text-[var(--color-text-secondary)] text-center">
-          تسک‌های انجام‌شده
-        </p>
-
-        <h2 className="text-4xl font-bold text-[var(--color-text-secondary)] text-center h-full flex items-center">
-          {doneTaskCount.length}
-        </h2>
-
-      </div>
-
-      <div
-        className="
-          rounded-xl
-          border
-          border-[var(--color-border)]
-          bg-[var(--color-surface)]
-          p-3
-          flex
-          flex-col
-          items-center
-          h-full
-        "
-      >
-        <p className="text-xs text-[var(--color-text-secondary)] text-center">
-          وضعیت پروژه‌ها
-        </p>
-
-        <div className="
-            flex
-            justify-center
-            items-center
-            
-            ">
-          <span
-            className={`
-              ${projectStatus === "completed" ?
-                "bg-green-100 text-green-700" :
-                "bg-red-100 text-red-700"
-              }
-              inline-flex
-              rounded-lg
-              py-2
-              px-4
-              mt-2
-              text-3xl
-              text-green-700
-              text-center
-            `}
-          >
-            {
-              projectStatus === "completed" ? "تکمیل شده" : "فعال"
-            }
-          </span>
-        </div>
-
-      </div>
-    </div>
+      <TaskInfo title="وضعیت پروژه">
+        {
+          projectStatus === "completed" ? "تکمیل شده" : "فعال"
+        }
+      </TaskInfo>
+    </div >
   )
 }
 
