@@ -2,10 +2,12 @@ import Button from "../components/common/Button";
 import { useThemeStore } from "../stores/themeStore"
 import { CiUmbrella } from "react-icons/ci";
 import { useFontSizeTheme } from "../stores/fontSizeStore";
+import { useFontFamilyStore } from "../stores/fontFamily";
 
 const SettingPage = () => {
   const setTheme = useThemeStore(state => state.setTheme)
   const setFontSize = useFontSizeTheme(state => state.setFontSize)
+  const setFontFamily = useFontFamilyStore(state => state.setFont)
 
   // theme
   const themeHandlerLight = () => {
@@ -27,6 +29,17 @@ const SettingPage = () => {
   }
   const fontSizeHandlerLarge = () => {
     setFontSize("large")
+  }
+
+  // font family
+  const fontFamilyYekan = () => {
+    setFontFamily("Yekan")
+  }
+  const fontFamilyVazirmatn = () => {
+    setFontFamily("Vazirmatn")
+  }
+  const fontFamilyShabnam = () => {
+    setFontFamily("Shabnam")
   }
 
   return (
@@ -60,7 +73,7 @@ const SettingPage = () => {
                 >راحتی چشم</Button>
               </div>
             </div>
-            {/* text */}
+            {/* font size */}
             <div className="bg-blue-300 p-4 rounded-xl flex flex-col gap-2">
               <div>
                 <h3 className="text-xl">اندازه فونت</h3>
@@ -78,6 +91,26 @@ const SettingPage = () => {
                   onClick={fontSizeHandlerLarge}
                   variant="primary"
                 >بزرگ</Button>
+              </div>
+            </div>
+            {/* font family */}
+            <div className="bg-blue-300 p-4 rounded-xl flex flex-col gap-2">
+              <div>
+                <h3 className="text-xl">اندازه فونت</h3>
+              </div>
+              <div>
+                <Button
+                  onClick={fontFamilyYekan}
+                  variant="primary"
+                >فونت یکان</Button>
+                <Button
+                  onClick={fontFamilyVazirmatn}
+                  variant="primary"
+                >فونت وزیرمتن</Button>
+                <Button
+                  onClick={fontFamilyShabnam}
+                  variant="primary"
+                >فونت شبنم</Button>
               </div>
             </div>
           </div>

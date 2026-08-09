@@ -3,10 +3,13 @@ import Header from "./components/Header"
 import Sidebar from "./components/Sidebar"
 import { Outlet } from "react-router"
 import { useThemeStore } from "../stores/themeStore"
+import { useFontFamilyStore } from "../stores/fontFamily"
 
 const DashboardLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   const theme = useThemeStore(state => state.theme)
+
+  const font = useFontFamilyStore(state => state.font)
 
   useEffect(() => {
     const handleResize = () => {
@@ -25,7 +28,7 @@ const DashboardLayout = () => {
   }, [])
 
   return (
-    <div className={`h-screen overflow-hidden theme-${theme}`}>
+    <div className={`h-screen overflow-hidden theme-${theme} font-${font}`}>
       <Header setIsSidebarOpen={setIsSidebarOpen} />
       <div className="flex h-full gap-2">
         <Sidebar isSidebarOpen={isSidebarOpen} />

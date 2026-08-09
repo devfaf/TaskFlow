@@ -80,19 +80,51 @@
 
 @font-face {
   font-family: "Yekan";
-  src: url("/src/assets/fonts/Yekan.woff2");
+  src: url("/src/assets/fonts/Yekan.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/src/assets/fonts/Vazirmatn.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Shabnam";
+  src: url("/src/assets/fonts/Shabnam.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+.font-yekan {
+  --font-family: "Yekan", sans-serif;
+}
+
+.font-vazirmatn {
+  --font-family: "Vazirmatn", sans-serif;
+}
+
+.font-shabnam {
+  --font-family: "Shabnam", sans-serif;
+}
+
+.app-root {
+  font-family: var(--font-family);
 }
 
 .font-small {
-  --todo-font-size: 14px;
+  --font-size: 14px;
 }
 
 .font-medium {
-  --todo-font-size: 16px;
+  --font-size: 16px;
 }
 
 .font-large {
-  --todo-font-size: 18px;
+  --font-size: 18px;
 }
 
 html,
