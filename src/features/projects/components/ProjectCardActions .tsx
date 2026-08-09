@@ -25,7 +25,7 @@ const ProjectCardActions = ({ project } : ProjectCardActionProps) => {
 
     return (
         project &&
-        <div className="absolute left-8 -top-1 flex flex-col text-sm w-fit items-center bg-white border rounded-lg p-2 border-[var(--color-border)]">
+        <div className="absolute left-8 -top-1 flex flex-col text-sm w-fit items-center bg-[var(--color-surface)] border rounded-lg p-2 border-[var(--color-border)]">
 
             <button
                 onClick={handleDeleteButton}

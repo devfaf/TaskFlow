@@ -75,7 +75,7 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
           }}
           className="absolute inset-0 bg-black/30"
         ></div>
-        <div className="border-2 border-gray-100 shadow p-4 rounded-lg flex flex-col gap-4 bg-white max-w-lg w-sm z-90">
+        <div className="border-2 border-gray-100 shadow p-4 rounded-lg flex flex-col gap-4 bg-[var(--color-surface)] max-w-lg w-sm z-90">
           <FiX
             className="text-xl cursor-pointer"
             onClick={() => {

@@ -21,7 +21,7 @@ const Sidebar = ({isSidebarOpen}: SidebarProps) => {
         w-64
         border-l
         border-[var(--color-border)]
-        bg-white
+        bg-[var(--color-surface)]
         mt-1
       `}
     >

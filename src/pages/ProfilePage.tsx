@@ -29,7 +29,7 @@ const ProfilePage = () => {
             rounded-xl
             border
             border-[var(--color-border)]
-            bg-white
+            bg-[var(--color-surface)]
             p-6
           "
         >
@@ -75,7 +75,7 @@ const ProfilePage = () => {
             border
             border-dashed
             border-[var(--color-border)]
-            bg-white
+            bg-[var(--color-surface)]
             py-14
           "
         >

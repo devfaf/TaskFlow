@@ -56,7 +56,7 @@ const SortProjects = () => {
           flex items-center gap-2
           rounded-lg
           border border-[var(--color-border)]
-          bg-white
+          bg-[var(--color-surface)]
           px-3 py-2
           text-sm
           text-[var(--color-text-primary)]
@@ -92,7 +92,7 @@ const SortProjects = () => {
             gap-4
             rounded-xl
             border border-[var(--color-border)]
-            bg-white
+            bg-[var(--color-surface)]
             p-4
             shadow-lg
           "

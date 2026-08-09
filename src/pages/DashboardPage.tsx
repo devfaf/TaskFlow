@@ -34,7 +34,7 @@ const DashboardPage = () => {
           rounded-xl
           border
           border-[var(--color-border)]
-          bg-white
+          bg-[var(--color-surface)]
           p-6
         "
         >
@@ -52,7 +52,7 @@ const DashboardPage = () => {
           rounded-xl
           border
           border-[var(--color-border)]
-          bg-white
+          bg-[var(--color-surface)]
           p-6
           flex
           flex-col
@@ -92,7 +92,7 @@ const DashboardPage = () => {
           rounded-xl
           border
           border-[var(--color-border)]
-          bg-white
+          bg-[var(--color-surface)]
           p-6
         "
       >

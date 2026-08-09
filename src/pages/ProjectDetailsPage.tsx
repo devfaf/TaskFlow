@@ -39,7 +39,7 @@ const ProjectDetailsPage = () => {
         rounded-xl
         border
         border-[var(--color-border)]
-        bg-white
+        bg-[var(--color-surface)]
         p-6
       "
       >
@@ -81,10 +81,10 @@ const ProjectDetailsPage = () => {
                 `}>{project.description}</p>
 
               {!isExpanded && (
-                <div className="absolute bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-white to-transparent">
+                <div className="absolute bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-[var(--color-surface)] to-transparent">
                   <button
                     onClick={readMoreButtonHandler}
-                    className="text-sm text-black bg-[var(--color-background)] border border-[var(--color-border)] py-1 px-2 rounded-lg cursor-pointer">
+                    className="text-sm text-[var(--color-text-primary)] bg-[var(--color-background)] border border-[var(--color-border)] py-1 px-2 rounded-lg cursor-pointer">
                     بیشتر
                   </button>
                 </div>
@@ -95,7 +95,7 @@ const ProjectDetailsPage = () => {
                   <div className="absolute bottom-0 left-0 right-0 flex justify-center">
                     <button
                       onClick={readLessButtonHandler}
-                      className="text-sm text-black bg-[var(--color-background)] border border-[var(--color-border)] py-1 px-2 rounded-lg cursor-pointer">
+                      className="text-sm text-[var(--color-text-primary)] bg-[var(--color-background)] border border-[var(--color-border)] py-1 px-2 rounded-lg cursor-pointer">
                       بستن
                     </button>
                   </div>
@@ -115,7 +115,7 @@ const ProjectDetailsPage = () => {
           rounded-xl
           border
           border-[var(--color-border)]
-          bg-white
+          bg-[var(--color-surface)]
         "
       >
         <nav

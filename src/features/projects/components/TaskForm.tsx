@@ -77,7 +77,7 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
                     }}
                     className="absolute inset-0 bg-black/30"
                 ></div>
-                <div className="border-2 border-gray-100 shadow p-4 rounded-lg flex flex-col gap-4 bg-white max-w-lg w-sm z-90">
+                <div className="border-2 border-gray-100 shadow p-4 rounded-lg flex flex-col gap-4 bg-[var(--color-surface)] max-w-lg w-sm z-90">
                     <FiX
                         className="text-xl cursor-pointer"
                         onClick={() => {
@@ -101,7 +101,7 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
                     <Select options={BOARD_STATUS_OPTIONS}
                         value={status}
                         onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setStatus(e.target.value as TaskStatus)}
-                        className="bg-white rounded-lg p-1 border-gray-300 border-2" />
+                        className="bg-[var(--color-surface)] rounded-lg p-1 border-gray-300 border-2" />
 
                     <TextArea
                         value={description}

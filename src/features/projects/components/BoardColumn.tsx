@@ -23,7 +23,7 @@ const BoardColumn = ({ value, label }: BoardColumnProps) => {
             rounded-xl
             border
             border-[var(--color-border)]
-            bg-white
+            bg-[var(--color-surface)]
             p-4
             transition-all
             duration-200

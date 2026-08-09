@@ -52,7 +52,7 @@
   --color-info-soft: #1D304F;
 }
 
-.theme-eye-comfort {
+.theme-eyeComfort {
   --color-background: #F3EBDD;
   --color-surface: #FAF4E8;
   --color-card: #EDE2D0;
@@ -99,15 +99,15 @@
   font-style: normal;
 }
 
-.font-yekan {
+.font-Yekan {
   --font-family: "Yekan", sans-serif;
 }
 
-.font-vazirmatn {
+.font-Vazirmatn {
   --font-family: "Vazirmatn", sans-serif;
 }
 
-.font-shabnam {
+.font-Shabnam {
   --font-family: "Shabnam", sans-serif;
 }
 
@@ -132,4 +132,83 @@ body {
   font-family: "Yekan", sans-serif;
   background: var(--color-background);
   color: var(--color-text-primary);
+}
+
+/* calendar */
+
+.calendar-theme .rmdp-calendar {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+}
+
+.calendar-theme .rmdp-day,
+.calendar-theme .rmdp-week-day {
+  color: var(--color-text-primary);
+}
+
+.calendar-theme .rmdp-week-day {
+  color: var(--color-text-secondary);
+}
+
+.calendar-theme .rmdp-day.rmdp-today span {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.calendar-theme .rmdp-day:hover span {
+  background-color: var(--color-hover);
+  color: var(--color-text-primary);
+}
+
+.calendar-theme .rmdp-arrow {
+  border-color: var(--color-text-primary);
+}
+
+.calendar-theme .rmdp-header-values {
+  color: var(--color-text-primary);
+}
+
+.calendar-theme .rmdp-month-picker,
+.calendar-theme .rmdp-year-picker {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+}
+
+.calendar-theme .rmdp-month-picker-item,
+.calendar-theme .rmdp-year-picker-item {
+  color: var(--color-text-primary);
+}
+
+.calendar-theme .rmdp-month-picker-item:hover,
+.calendar-theme .rmdp-year-picker-item:hover {
+  background-color: var(--color-hover);
+}
+
+.calendar-theme .rmdp-day.rmdp-selected span {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) var(--color-background);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
 }

@@ -10,7 +10,7 @@ const Select = ({
   value,
 }: SelectProps) => {
 const baseStyles =
-  "w-full appearance-none cursor-pointer rounded-lg border border-[var(--color-border)] bg-white px-4 py-2 pl-10 text-sm text-[var(--color-text-primary)] outline-none transition-all duration-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary-soft)]";
+  "w-full appearance-none cursor-pointer rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 pl-10 text-sm text-[var(--color-text-primary)] outline-none transition-all duration-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary-soft)]";
 
   return (
     <div className="relative">

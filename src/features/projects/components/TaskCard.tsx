@@ -7,7 +7,7 @@ const TaskCard = ({ id, title, status, className, children, description, date }:
         rounded-xl
         border
         border-[var(--color-border)]
-        bg-white
+        bg-[var(--color-surface)]
         p-4
         transition-all
         duration-200

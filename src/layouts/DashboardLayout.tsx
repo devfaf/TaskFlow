@@ -28,13 +28,15 @@ const DashboardLayout = () => {
   }, [])
 
   return (
-    <div className={`h-screen overflow-hidden theme-${theme} font-${font}`}>
+    <div
+      className={`h-screen overflow-hidden theme-${theme} font-${font} app-root bg-[var(--color-background)] text-[var(--color-text-primary)] custom-scrollbar`}
+    >
       <Header setIsSidebarOpen={setIsSidebarOpen} />
+
       <div className="flex h-full gap-2">
         <Sidebar isSidebarOpen={isSidebarOpen} />
 
-        <main
-          className="lg:pr-66 flex-1 overflow-y-scroll lg:py-4 lg:mt-13 min-h-0">
+        <main className="lg:pr-66 flex-1 overflow-y-scroll lg:py-4 lg:mt-13 min-h-0 bg-[var(--color-background)] text-[var(--color-text-primary)]">
           <Outlet />
         </main>
       </div>

@@ -1,4 +1,4 @@
-import type { ButtonProps } from "../types/button"
+import type { ButtonProps } from "../types/button";
 
 const Button = ({
   children,
@@ -6,8 +6,8 @@ const Button = ({
   type = "button",
   disabled,
   onClick,
-  variant = "primary" }:
-  ButtonProps) => {
+  variant = "primary",
+}: ButtonProps) => {
   const baseStyles =
     "inline-flex items-center justify-center rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer";
 
@@ -16,11 +16,11 @@ const Button = ({
       "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)]",
 
     secondary:
-      "border border-[var(--color-border)] bg-white text-[var(--color-text-primary)] hover:bg-gray-50",
+      "border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-primary)] hover:bg-[var(--color-hover)]",
 
     danger:
       "bg-[var(--color-danger)] text-white hover:opacity-90",
-  }
+  };
 
   return (
     <button
@@ -28,10 +28,10 @@ const Button = ({
       disabled={disabled}
       type={type}
       className={`${baseStyles} ${variants[variant]} ${className}`}
-      >
+    >
       {children}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

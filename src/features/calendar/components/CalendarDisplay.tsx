@@ -18,7 +18,7 @@ const CalendarDisplay = () => {
             rounded-xl
             border
             border-[var(--color-border)]
-            bg-white
+            bg-[var(--color-surface)]
             p-6
             w-full
         ">
@@ -26,13 +26,13 @@ const CalendarDisplay = () => {
                 <div className="flex gap-2 items-center justify-between">
                     <div className="flex flex-col gap-2">
                         <h2 className="text-xl font-semibold text-[var(--color-text-primary)]">
-                           تقویم شمسی
+                            تقویم شمسی
                         </h2>
                         <p className="text-sm text-[var(--color-text-secondary)]">برای انتخاب مهلت پایانی پروژه روی روز موردنظر کلیک کنید</p>
                     </div>
                     <ReportButton />
                 </div>
-                <div className="flex flex-col gap-4 items-center z-30">
+                <div className="calendar-theme flex flex-col gap-4 items-center z-30">
                     <Calendar
                         calendar={persian}
                         locale={persian_fa}

@@ -14,8 +14,7 @@ const Input = ({
   error }: InputProps) => {
 
   const baseStyles =
-    "w-full rounded-lg border border-[var(--color-border)] bg-white px-4 py-2 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] outline-none transition-all duration-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary-soft)] disabled:cursor-not-allowed disabled:bg-gray-100 disabled:opacity-70";
-
+    "w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm text-gray-500 placeholder:text-[var(--color-text-secondary)] outline-none transition-all duration-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary-soft)] disabled:cursor-not-allowed disabled:bg-[var(--color-hover)] disabled:opacity-70";
   return (
     <div className="gap-2 flex flex-col">
       {

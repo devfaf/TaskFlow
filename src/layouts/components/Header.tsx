@@ -38,7 +38,7 @@ const Header = ({setIsSidebarOpen}: HeaderProps) => {
           justify-between
           border-b
           border-[var(--color-border)]
-          bg-white
+          bg-[var(--color-surface)]
           px-6
           py-3
           gap-3
