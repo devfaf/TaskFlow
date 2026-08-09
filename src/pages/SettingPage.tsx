@@ -127,21 +127,21 @@ const SettingPage = () => {
             </div>
 
             <div className="flex justify-between gap-4">
-              <Button className ="w-full !font-Yekan" 
+              <Button className ="w-full font-Yekan" 
                 onClick={fontFamilyYekan}
                 variant="secondary"
               >
                 فونت یکان
               </Button>
 
-              <Button className ="w-full !font-Vazirmatn" 
+              <Button className ="w-full font-Vazirmatn" 
                 onClick={fontFamilyVazirmatn}
                 variant="secondary"
               >
                 فونت وزیرمتن
               </Button>
 
-              <Button className ="w-full !font-Shabnam" 
+              <Button className ="w-full font-Shabnam" 
                 onClick={fontFamilyShabnam}
                 variant="secondary"
               >
