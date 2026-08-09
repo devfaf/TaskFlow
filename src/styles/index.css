@@ -83,6 +83,18 @@
   src: url("/src/assets/fonts/Yekan.woff2");
 }
 
+.font-small {
+  --todo-font-size: 14px;
+}
+
+.font-medium {
+  --todo-font-size: 16px;
+}
+
+.font-large {
+  --todo-font-size: 18px;
+}
+
 html,
 body {
   font-family: "Yekan", sans-serif;
