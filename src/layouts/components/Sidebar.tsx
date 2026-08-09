@@ -1,3 +1,4 @@
+// import { useEffect, useState } from "react";
 import { SidebarItems } from "./SidebarItems";
 
 type SidebarProps = {
@@ -5,6 +6,8 @@ type SidebarProps = {
 };
 
 const Sidebar = ({isSidebarOpen}: SidebarProps) => {
+
+
   return (
     <aside
       className={`

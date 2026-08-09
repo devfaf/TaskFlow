@@ -11,17 +11,16 @@ import { CiMenuBurger } from "react-icons/ci";
 import { PiPlus } from "react-icons/pi";
 
 type HeaderProps = {
-  isSidebarOpen: boolean;
   setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Header = ({isSidebarOpen, setIsSidebarOpen}: HeaderProps) => {
+const Header = ({setIsSidebarOpen}: HeaderProps) => {
   const isModalOpen = useProjectStore((state) => state.isModalOpen);
   const openModal = useProjectStore((state) => state.openModal);
   const closeModal = useProjectStore((state) => state.closeModal);
 
   const openSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen)
+    setIsSidebarOpen((prev) => !prev)
   }
 
   return (
