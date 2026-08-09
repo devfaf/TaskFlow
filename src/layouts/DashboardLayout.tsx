@@ -29,7 +29,7 @@ const DashboardLayout = () => {
         <Sidebar isSidebarOpen={isSidebarOpen} />
 
         <main
-          className="lg:pr-66 flex-1 overflow-y-scroll lg:py-4 pt-30 lg:mt-13 min-h-0">
+          className="lg:pr-66 flex-1 overflow-y-scroll lg:py-4 lg:mt-13 min-h-0">
           <Outlet />
         </main>
       </div>

@@ -9,7 +9,7 @@ const ProfilePage = () => {
   );
 
   return (
-    <section className="space-y-6 p-6">
+    <section className="space-y-6 p-4 xl:p-6">
 
       <div>
         <h1 className="text-3xl font-bold text-[var(--color-text-primary)]">
