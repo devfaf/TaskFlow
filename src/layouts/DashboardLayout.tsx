@@ -2,15 +2,17 @@ import { useEffect, useState } from "react"
 import Header from "./components/Header"
 import Sidebar from "./components/Sidebar"
 import { Outlet } from "react-router"
+import { useThemeStore } from "../stores/themeStore"
 
 const DashboardLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
+  const theme = useThemeStore(state => state.theme)
 
   useEffect(() => {
     const handleResize = () => {
       const currentWidth = window.innerWidth
 
-      if(currentWidth < 1024){
+      if (currentWidth < 1024) {
         setIsSidebarOpen(false)
       }
     }
@@ -23,7 +25,7 @@ const DashboardLayout = () => {
   }, [])
 
   return (
-    <div className={`h-screen overflow-hidden`}>
+    <div className={`h-screen overflow-hidden theme-${theme}`}>
       <Header setIsSidebarOpen={setIsSidebarOpen} />
       <div className="flex h-full gap-2">
         <Sidebar isSidebarOpen={isSidebarOpen} />

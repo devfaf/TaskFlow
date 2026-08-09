@@ -6,7 +6,7 @@ import { CiHome } from "react-icons/ci";
 
 export const sidebarItemsLinks = [
   { title: "پروفایل", path: "/profile", icon:CiHome },
-  { title: "داشبورد", path: "/", icon:CiSettings },
+  { title: "داشبورد", path: "/", icon: CiFolderOn},
   { title: "پروژه‌ها", path: "/projects", icon:CiGrid32 },
-  { title: "تنظیمات", path: "/setting", icon:CiFolderOn },
+  { title: "تنظیمات", path: "/setting", icon: CiSettings},
 ]

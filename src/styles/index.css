@@ -1,37 +1,91 @@
 @import "tailwindcss";
 
-:root {
-    --color-background: #FBFCFE;
-    --color-surface: #FFFFFF;
-    --color-primary: #5959F6;
-    --color-primary-light: #7776FD;
-    
-    --color-text-primary: #191C2E;
-    --color-text-secondary: #77797f;
-    
-    --color-border: #bcbcbc;
-    --color-hover: #e9e9e961;
+.theme-light {
+  --color-background: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-card: #F1F3F8;
 
-    --color-success: #2AB788;
-    --color-warning: #FDAF3A;
-    --color-danger: #E21E40;
-    --color-info: #2C79F4;
+  --color-primary: #5959F6;
+  --color-primary-light: #7776FD;
 
-    --color-danger-soft: #FEE6EA;
-    --color-success-soft: #ddfaf2;
-    --color-primary-soft: #F1F0FF;
-    --color-warning-soft: #fbf0de;
-    --color-info-soft: #d5e3f9;
-    --color-card: #F3F3FE;
+  --color-text-primary: #191C2E;
+  --color-text-secondary: #6F7280;
+
+  --color-border: #D9DCE5;
+  --color-hover: #EEF0F5;
+
+  --color-success: #2AB788;
+  --color-warning: #FDAF3A;
+  --color-danger: #E21E40;
+  --color-info: #2C79F4;
+
+  --color-danger-soft: #FEE6EA;
+  --color-success-soft: #DDF8F0;
+  --color-primary-soft: #F1F0FF;
+  --color-warning-soft: #FFF3DF;
+  --color-info-soft: #E3EEFF;
+}
+
+.theme-dark {
+  --color-background: #0F1117;
+  --color-surface: #181B24;
+  --color-card: #20232E;
+
+  --color-primary: #7776FD;
+  --color-primary-light: #9998FF;
+
+  --color-text-primary: #F1F3F8;
+  --color-text-secondary: #9A9EAC;
+
+  --color-border: #303441;
+  --color-hover: #272A35;
+
+  --color-success: #35C99A;
+  --color-warning: #FFB84D;
+  --color-danger: #F0445F;
+  --color-info: #4D91FF;
+
+  --color-danger-soft: #3A1D25;
+  --color-success-soft: #17352D;
+  --color-primary-soft: #292750;
+  --color-warning-soft: #3B2D19;
+  --color-info-soft: #1D304F;
+}
+
+.theme-eye-comfort {
+  --color-background: #F3EBDD;
+  --color-surface: #FAF4E8;
+  --color-card: #EDE2D0;
+
+  --color-primary: #806A3D;
+  --color-primary-light: #9A8353;
+
+  --color-text-primary: #3F392F;
+  --color-text-secondary: #777064;
+
+  --color-border: #D8CCBA;
+  --color-hover: #E8DDCC;
+
+  --color-success: #56856D;
+  --color-warning: #B07B32;
+  --color-danger: #A94B4B;
+  --color-info: #5B7895;
+
+  --color-danger-soft: #F1DCD7;
+  --color-success-soft: #DDE9DF;
+  --color-primary-soft: #E8DFC9;
+  --color-warning-soft: #F0E2C7;
+  --color-info-soft: #DDE6EC;
 }
 
 @font-face {
-    font-family: "Yekan";
-    src: url('/src/assets/fonts/Yekan.woff2');
+  font-family: "Yekan";
+  src: url("/src/assets/fonts/Yekan.woff2");
 }
 
+html,
 body {
-    font-family: "Yekan", sans-serif;
-    background: var(--color-background);
-    color: var(--color-text-primary);
+  font-family: "Yekan", sans-serif;
+  background: var(--color-background);
+  color: var(--color-text-primary);
 }

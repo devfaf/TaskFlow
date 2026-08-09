@@ -107,7 +107,8 @@ const ProjectForm = ({ isOpen, onClose }: ModalProps) => {
             }
           />
 
-          <Select options={PROJECT_STATUS_OPTIONS}
+          <Select 
+            options={PROJECT_STATUS_OPTIONS}
             value={status}
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setStatus(e.target.value as ProjectStatus)}
           />
