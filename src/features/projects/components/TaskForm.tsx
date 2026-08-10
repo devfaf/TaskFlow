@@ -29,7 +29,7 @@ const TaskForm = ({ isOpen, onClose }: ModalProps) => {
 
     const submitHandler = (e: SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault()
-        if (!isTitleValid && !isDescriptionValid) {
+        if (!isTitleValid || !isDescriptionValid) {
             return;
         }
 
