@@ -1,14 +1,11 @@
 import { Link } from "react-router";
-import { CiLogin, CiSearch } from "react-icons/ci";
-
+import { CiLogin } from "react-icons/ci";
 import Button from "../../components/common/Button";
-import Input from "../../components/common/Input";
-
 import { useProjectStore } from "../../features/projects/store/projectStore";
 import ProjectForm from "../../features/projects/components/ProjectForm";
 import { CiMenuBurger } from "react-icons/ci";
-
 import { PiPlus } from "react-icons/pi";
+import SearchResults from "./SearchResults";
 
 type HeaderProps = {
   setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -80,14 +77,7 @@ const Header = ({setIsSidebarOpen}: HeaderProps) => {
           </div>
         </div>
 
-        <div className="w-full lg:max-w-sm mx-6 lg:mx-0">
-          <Input
-            id="search"
-            type="text"
-            placeholder="جستجو..."
-            icon={<CiSearch />}
-          />
-        </div>
+        <SearchResults />
       </header>
 
       <ProjectForm
