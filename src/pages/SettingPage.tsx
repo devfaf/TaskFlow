@@ -60,7 +60,7 @@ const SettingPage = () => {
           </h2>
 
           {/* theme */}
-          <div className="mt-4 flex flex-col gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-4">
+          <div className="mt-4 flex flex-col gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
             <div>
               <h3 className="text-xl text-[var(--color-text-primary)]">
                 تم برنامه
@@ -79,7 +79,7 @@ const SettingPage = () => {
                 راحتی چشم
               </Button>
 
-              <Button className ="w-full !bg-[#181B24] !text-[#9A9EAC] hover:bg-[var(--color-card)]" 
+              <Button className ="w-full !bg-[#181B24] !text-[#9A9EAC] hover:bg-[var(--color-surface)]" 
               onClick={themeHandlerDark} variant="secondary">
                 تیره
               </Button>
@@ -87,7 +87,7 @@ const SettingPage = () => {
           </div>
 
           {/* font size */}
-          <div className="mt-4 flex flex-col gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-4">
+          <div className="mt-4 flex flex-col gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
             <div>
               <h3 className="text-xl text-[var(--color-text-primary)]">
                 اندازه فونت
@@ -119,7 +119,7 @@ const SettingPage = () => {
           </div>
 
           {/* font family */}
-          <div className="mt-4 flex flex-col gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-4">
+          <div className="mt-4 flex flex-col gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
             <div>
               <h3 className="text-xl text-[var(--color-text-primary)]">
                 تغییر فونت
@@ -157,7 +157,7 @@ const SettingPage = () => {
             تنظیمات حساب کاربری
           </h2>
 
-          <div className="mt-4 flex flex-col gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-4">
+          <div className="mt-4 flex flex-col gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
             <div>
               <h3 className="text-xl text-[var(--color-text-primary)]">
                 تغییر رمز
@@ -169,7 +169,7 @@ const SettingPage = () => {
             </div>
           </div>
 
-          <div className="mt-4 flex flex-col gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-4">
+          <div className="mt-4 flex flex-col gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
             <div>
               <h3 className="text-xl text-[var(--color-text-primary)]">
                 تغییر ایمیل

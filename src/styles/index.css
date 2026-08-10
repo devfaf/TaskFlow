@@ -111,20 +111,21 @@
   --font-family: "Shabnam", sans-serif;
 }
 
+.text-small {
+  --text-size: 14px;
+}
+
+.text-medium {
+  --text-size: 16px;
+}
+
+.text-large {
+  --text-size: 18px;
+}
+
 .app-root {
   font-family: var(--font-family);
-}
-
-.font-small {
-  --font-size: 14px;
-}
-
-.font-medium {
-  --font-size: 16px;
-}
-
-.font-large {
-  --font-size: 18px;
+  font-size: var(--text-size);
 }
 
 html,

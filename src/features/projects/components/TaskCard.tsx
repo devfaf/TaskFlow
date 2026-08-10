@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { TaskCardProps } from "../../types/task"
 import { PiDotsThreeVerticalBold } from "react-icons/pi";
 
-const TaskCard = ({ id, title, status, className, children, description, date }: TaskCardProps) => {
+const TaskCard = ({ title, status, className, children, description, date }: TaskCardProps) => {
 
   const [isMoreOptionOpen, setIsMoreOptionOpen] = useState(false);
 
@@ -34,6 +34,13 @@ const TaskCard = ({ id, title, status, className, children, description, date }:
           <p className="text-sm text-[var(--color-text-secondary)] truncate">
             {description}
           </p>
+
+          <div className="flex gap-2 rounded-lg text-sm text-[var(--color-text-secondary)]">
+            <span>تاریخ تعریف وظیفه: </span>
+            <p>
+              {date}
+            </p>
+          </div>
 
         </div>
         <span

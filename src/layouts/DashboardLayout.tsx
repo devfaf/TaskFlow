@@ -4,12 +4,14 @@ import Sidebar from "./components/Sidebar"
 import { Outlet } from "react-router"
 import { useThemeStore } from "../stores/themeStore"
 import { useFontFamilyStore } from "../stores/fontFamily"
+import { useFontSizeTheme } from "../stores/fontSizeStore"
 
 const DashboardLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   const theme = useThemeStore(state => state.theme)
 
-  const font = useFontFamilyStore(state => state.font)
+  const fontStyle = useFontFamilyStore(state => state.font)
+  const fontSize = useFontSizeTheme(state => state.fontSize)
 
   useEffect(() => {
     const handleResize = () => {
@@ -29,7 +31,7 @@ const DashboardLayout = () => {
 
   return (
     <div
-      className={`h-screen overflow-hidden theme-${theme} font-${font} app-root bg-[var(--color-background)] text-[var(--color-text-primary)] custom-scrollbar`}
+      className={`h-screen overflow-hidden theme-${theme} font-${fontStyle} text-${fontSize} app-root bg-[var(--color-background)] text-[var(--color-text-primary)] custom-scrollbar`}
     >
       <Header setIsSidebarOpen={setIsSidebarOpen} />
 
