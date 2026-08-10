@@ -1,4 +1,5 @@
 import { create } from "zustand"
+import { persist } from "zustand/middleware"
 
 export type Theme = "light" | "dark" | "eyeComfort"
 
@@ -7,8 +8,15 @@ type ThemeStore = {
     setTheme: (theme: Theme) => void;
 }
 
-export const useThemeStore = create<ThemeStore>((set) => ({
-    theme: "light",
+export const useThemeStore = create<ThemeStore>()(
+    persist(
+        (set) => ({
+            theme: "light",
 
-    setTheme: (theme) => set({ theme }),
-}))
+            setTheme: (theme) => set({ theme }),
+        }),
+        {
+            name: "theme-storage",
+        }
+    )
+)
