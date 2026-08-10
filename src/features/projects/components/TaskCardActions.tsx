@@ -30,17 +30,17 @@ const TaskCardActions = ({ task } : TaskCardActionProps) => {
             <button
                 onClick={handleDeleteButton}
                 className="w-full rounded-lg p-2 text-[var(--color-text-secondary)] transition-all duration-200 cursor-pointer hover:bg-gray-100 text-nowrap"
-                aria-label="حذف پروژه"
+                aria-label="حذف وظیفه"
             >
-                حذف پروژه
+                حذف وظیفه
             </button>
 
             <button
                 onClick={handleEditButton}
                 className="w-full rounded-lg p-2 text-[var(--color-text-secondary)] transition-all duration-200 cursor-pointer hover:bg-gray-100 text-nowrap"
-                aria-label="ویرایش پروژه"
+                aria-label="ویرایش وظیفه"
             >
-                ویرایش پروژه
+                ویرایش وظیفه
             </button>
 
         </div>

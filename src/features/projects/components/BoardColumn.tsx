@@ -20,16 +20,12 @@ const BoardColumn = ({ value, label }: BoardColumnProps) => {
 
     return (
         <section ref={ref} className={`
-            rounded-xl
-            border
-            border-[var(--color-border)]
             bg-[var(--color-surface)]
-            p-4
             transition-all
             duration-200
             space-y-4
         `}>
-            <h2 className="text-lg font-semibold text-[var(--color-text-primary)] pb-2 border-b border-[var(--color-border)]">{label}</h2>
+            <h2 className="text-lg font-semibold text-[var(--color-text-secondary)] text-center pb-2 border-b border-[var(--color-border)]">{label}</h2>
             <div>
                 {
                     filteredTasks.map((task) =>
