@@ -4,6 +4,7 @@ import { useAuthStore } from "../../auth/authStore"
 import { useNavigate } from "react-router"
 import { useState } from "react"
 import { ImSpinner2 } from "react-icons/im";
+import "../../../styles/index.css"
 
 const Login = () => {
     const login = useAuthStore(state => state.login)
@@ -22,47 +23,50 @@ const Login = () => {
     }
 
     return (
-        <form
-            onSubmit={submitHandler}
-            action=""
-            className="bg-gray-100 w-md border-gray-300 border flex flex-col items-center justify-center gap-4 p-4 rounded-lg">
-            <h2 className="text-2xl font-bold">فرم لاگین</h2>
-            <div className="w-full">
-                <Input
-                id="email"
-                    placeholder="ایمیل"
-                    label="ایمیل"
-                    type="email"
-                />
-            </div>
-            <div className="w-full">
-                <Input
-                    placeholder="پسورد"
-                    label="پسورد"
-                    type="password"
-                    
-                />
-            </div>
-            <div className="w-full">
-                <Button
-                    type="submit"
-                    disabled={isLoading}
-                    variant="primary">
+<form
+    onSubmit={submitHandler}
+    action=""
+    className="w-full max-w-md flex flex-col items-center justify-center gap-5 rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-6"
+>
+    <h2 className="py-2 text-3xl font-bold text-[var(--color-primary)]">
+        فرم لاگین
+    </h2>
 
-                    {
-                        isLoading ? (
-                            <div className="flex gap-2 items-center justify-center">
-                                <span>درحال ورود به پنل کاربری...
-                                </span>
-                                    <ImSpinner2 className="animate-spin text-lg" />
-                            </div>
-                        ) : (
-                            <span>ورود | ثبت نام</span>
-                        )
-                    }
-                </Button>
-            </div>
-        </form>
+    <div className="w-full">
+        <Input
+            id="email"
+            placeholder="ایمیل"
+            label="ایمیل"
+            type="email"
+        />
+    </div>
+
+    <div className="w-full">
+        <Input
+            placeholder="پسورد"
+            label="پسورد"
+            type="password"
+        />
+    </div>
+
+    <div className="w-full pt-2">
+        <Button
+            type="submit"
+            disabled={isLoading}
+            variant="primary"
+            className="w-full"
+        >
+            {isLoading ? (
+                <div className="flex items-center justify-center gap-2">
+                    <span>درحال ورود به پنل کاربری...</span>
+                    <ImSpinner2 className="animate-spin text-lg" />
+                </div>
+            ) : (
+                <span>ورود | ثبت نام</span>
+            )}
+        </Button>
+    </div>
+</form>
     )
 }
 
