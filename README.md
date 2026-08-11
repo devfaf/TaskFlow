@@ -187,13 +187,13 @@ I'm happy to receive feedback, bug fixes, and meaningful improvements to the pro
 
 <p align="center">
   <img src="public/screenshots/projects.png" width="30%" />
-  <img src="public/screenshots/overview.png" width="30%" />
+  <img src="public/screenshots/setting.png" width="30%" />
   <img src="public/screenshots/tasks.png" width="30%" />
 </p>
 
 <p align="center">
   <img src="public/screenshots/task-board.png" width="30%" />
-  <img src="public/screenshots/setting.png" width="30%" />
+  <img src="public/screenshots/overview.png" width="30%" />
 </p>
 
 ## 📄 License
