@@ -178,22 +178,22 @@ I'm happy to receive feedback, bug fixes, and meaningful improvements to the pro
 ### Themes
 
 <p align="center">
-  <img src="./screenshots/dashboard.png" width="30%" />
-  <img src="./screenshots/dashboard-dark-mode.png" width="30%" />
-  <img src="./screenshots/dashboard-eyecomform-mode.png" width="30%" />
+  <img src="public/screenshots/dashboard.png" width="30%" />
+  <img src="public/screenshots/dashboard-dark-mode.png" width="30%" />
+  <img src="public/screenshots/dashboard-eyecomform-mode.png" width="30%" />
 </p>
 
 ### Main Features
 
 <p align="center">
-  <img src="./screenshots/projects.png" width="30%" />
-  <img src="./screenshots/overview.png" width="30%" />
-  <img src="./screenshots/tasks.png" width="30%" />
+  <img src="public/screenshots/projects.png" width="30%" />
+  <img src="public/screenshots/overview.png" width="30%" />
+  <img src="public/screenshots/tasks.png" width="30%" />
 </p>
 
 <p align="center">
-  <img src="./screenshots/task-board.png" width="30%" />
-  <img src="./screenshots/setting.png" width="30%" />
+  <img src="public/screenshots/task-board.png" width="30%" />
+  <img src="public/screenshots/setting.png" width="30%" />
 </p>
 
 ## 📄 License
