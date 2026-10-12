@@ -32,7 +32,7 @@ const Login = () => {
     }
 
     return (
-        <div className="flex min-h-screen items-center justify-center bg-[var(--color-background)] px-4 py-8 sm:px-6 lg:px-8">
+        <div className="flex min-h-screen items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
             <div className="grid w-full max-w-5xl overflow-hidden rounded-2xl border border-gray-200 bg-[var(--color-card)] shadow-xl lg:grid-cols-2">
 
                 <div
@@ -161,7 +161,7 @@ const Login = () => {
                             type="submit"
                             disabled={isLoading}
                             variant="primary"
-                            className="w-full gap-2"
+                            className="w-full gap-2 bg-[var(--color-primary)]"
                         >
                             {isLoading ? (
                                 <>
